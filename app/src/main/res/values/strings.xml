@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">fishco</string>
     <string name="api_url">localhost:8000/</string>
+
+    <string-array name="flag_phone">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+    </string-array>
 </resources>
