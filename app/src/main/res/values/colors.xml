@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FF38ABF8</color>
+    <color name="blue_primary">#0E91E9</color> <!-- warna button-->
+    <color name="blue_secondary">#38ABF8</color> <!-- lebih muda dari warna button-->
+    <color name="blue_tertiary">#7DC9FC</color> <!-- lebih muda-muda dari warna button-->
+    <color name="blue_muda">#E0F2FE</color> <!-- lebih muda-muda-muda-muda-muda dari warna button-->
+    <color name="blue_tua1">#0278C7</color>
+    <color name="blue_tua2">#0362A1</color>
+    <color name="blue_tua3">#082F49</color>
+    <color name="bg">#F6F6F6</color>
 </resources>

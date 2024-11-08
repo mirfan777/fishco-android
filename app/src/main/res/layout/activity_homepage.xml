@@ -5,6 +5,471 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.home.HomepageActivity">
+    tools:context=".activity.home.HomepageActivity"android:background="@android:color/white">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Background Image untuk Header -->
+            <ImageView
+                android:id="@+id/bg_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_header" />
+
+            <!-- Text dan Profile di Atas Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/welcome_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hi, Fish Lover!"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue_tua1" />
+
+                    <TextView
+                        android:id="@+id/greeting_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selamat Pagi!"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_tua1" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/blob_login1"
+                    android:background="@color/blue_primary"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:clipToOutline="true" />
+            </LinearLayout>
+
+            <!-- Search Bar di Dalam Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="120dp"
+                android:layout_centerHorizontal="true">
+
+                <!-- Background untuk Search Bar -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/search"
+                    android:scaleType="fitXY" />
+
+                <!-- Placeholder Teks untuk Search -->
+                <EditText
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Search for fish"
+                    android:textColorHint="@color/gray"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="16dp"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:drawablePadding="14dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <!-- Bagian selanjutnya tetap sama -->
+
+        <!-- Get Started Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/blue_tua1"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- FrameLayout for Image with overlay and text -->
+                <FrameLayout
+                    android:layout_width="280dp"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/rounded_background"> <!-- Apply rounded background -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/get_started_img"
+                        android:scaleType="fitXY"
+                        android:clipToOutline="true" /> <!-- Clip ImageView to the rounded corners -->
+
+                    <!-- Partial Overlay Shape at the bottom -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="#80000000" /> <!-- Semi-transparent black overlay -->
+
+                    <!-- Title and Category Text positioned at the bottom -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Title Here"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Knowledge/Lifestyle"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Repeat the FrameLayout for additional images -->
+                <FrameLayout
+                    android:layout_width="280dp"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/get_started_img2"
+                        android:scaleType="fitXY" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="#80000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Title Here"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Knowledge/Lifestyle"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Add more FrameLayouts as needed -->
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <!-- Categories Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/blue_tua1" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:columnCount="2">
+
+            <!-- Category Item Template -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/freshwater"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Freshwater Fish"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Duplicate the above template for each category, changing only `@drawable/freshwater` and `text` -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/marine"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Marine Fish"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/brackish"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Brackish Water Fish"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/invertebrates"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Invertebrates"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/coldwater"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Coldwater Fish"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_margin="4dp">
+
+                <!-- Image and Overlay Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="true">
+
+                    <!-- Image with fitXY scaling -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/predator"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/gradient_overlay" />
+
+                    <!-- Text overlay at top -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/overlay_background"
+                        android:padding="8dp"
+                        android:text="Predatory"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_gravity="top" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Tambahkan lagi item LinearLayout sesuai dengan kategori lainnya, sesuaikan text dan gambar untuk setiap kategori -->
+
+        </GridLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
