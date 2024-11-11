@@ -26,15 +26,17 @@
                 android:src="@drawable/bg_header" />
 
             <!-- Text dan Profile di Atas Header -->
+
+            <!-- Search Bar di Dalam Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:background="@android:color/transparent"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -47,30 +49,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hi, Fish Lover!"
-                        android:textSize="16sp"
-                        android:textColor="@color/blue_tua1" />
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/greeting_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Selamat Pagi!"
-                        android:textStyle="bold"
-                        android:textSize="24sp"
-                        android:textColor="@color/blue_tua1" />
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/blob_login1"
-                    android:background="@color/blue_primary"
-                    android:padding="8dp"
-                    android:scaleType="centerInside"
-                    android:clipToOutline="true" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:clipToOutline="true"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile" />
             </LinearLayout>
 
-            <!-- Search Bar di Dalam Header -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -143,7 +143,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="bottom"
-                        android:background="#80000000" /> <!-- Semi-transparent black overlay -->
+                        android:background="@drawable/overlay_background_title" />
+                    <!-- Semi-transparent black overlay -->
 
                     <!-- Title and Category Text positioned at the bottom -->
                     <LinearLayout
