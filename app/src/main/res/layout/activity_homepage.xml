@@ -5,12 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.home.HomepageActivity"android:background="@android:color/white">
+    tools:context=".activity.home.HomepageActivity"
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Header Section -->
         <RelativeLayout
@@ -91,11 +95,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Search for fish"
-                    android:textColorHint="@color/gray"
+
                     android:background="@android:color/transparent"
                     android:paddingStart="40dp"
                     android:paddingEnd="16dp"
-                    android:drawableLeft="@drawable/ic_search"
+
                     android:drawablePadding="14dp" />
             </RelativeLayout>
         </RelativeLayout>
