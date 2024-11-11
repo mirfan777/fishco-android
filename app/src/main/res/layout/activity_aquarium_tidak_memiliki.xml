@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- My Aquarium Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+        <!-- Header Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Background Image for Header -->
+            <ImageView
+                android:id="@+id/bg_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_header" />
+
+            <!-- Text and Profile on Top of Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/welcome_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hi, Fish Lover!"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue_tua1" />
+
+                    <TextView
+                        android:id="@+id/greeting_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selamat Pagi!"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_tua1" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/blob_login1"
+                    android:background="@color/blue_primary"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:clipToOutline="true" />
+            </LinearLayout>
+
+            <!-- Search Bar inside Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="120dp"
+                android:layout_centerHorizontal="true">
+
+                <!-- Background for Search Bar -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/search"
+                    android:scaleType="fitXY" />
+
+                <!-- Placeholder Text for Search -->
+                <EditText
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Search for fish"
+                    android:textColorHint="@color/gray"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="16dp"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:drawablePadding="14dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Button Divs below "My Aquarium" Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="220dp"
+            android:padding="8dp"
+            android:background="@color/white_transparent"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- "Semua Akuarium" Button -->
+            <TextView
+                android:id="@+id/btn_all_aquarium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua Aquarium"
+                android:padding="12dp"
+                android:textColor="@color/blue_muda"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center" />
+
+            <!-- Divider -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="|"
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:paddingHorizontal="8dp" />
+
+            <!-- "Pengingat" Button -->
+            <TextView
+                android:id="@+id/btn_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pengingat"
+                android:padding="12dp"
+                android:textColor="@color/gray"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Empty Aquarium Message Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="300dp">
+
+            <!-- Icon Image -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_empty_aquarium"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Empty Aquarium Icon" />
+
+            <!-- Message Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kamu Tidak Memiliki Akuarium"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
+
+            <!-- Sub-message Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tambahkan tanaman pertama Anda dan lakukan rutinitas perawatan tanaman harian Anda"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <!-- "Add Aquarium" Button -->
+            <Button
+                android:id="@+id/btn_add_aquarium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Aquarium"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/blue_primary"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
