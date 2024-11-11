@@ -43,7 +43,7 @@
                         android:id="@+id/welcome_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hi, Fish Lover!"
+                        android:text="Tidak ada aquarium"
                         android:textSize="16sp"
                         android:textColor="@color/blue_tua1" />
 
@@ -51,100 +51,71 @@
                         android:id="@+id/greeting_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Selamat Pagi!"
+                        android:text="Aquarium Saya"
                         android:textStyle="bold"
                         android:textSize="24sp"
                         android:textColor="@color/blue_tua1" />
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/blob_login1"
-                    android:background="@color/blue_primary"
-                    android:padding="8dp"
-                    android:scaleType="centerInside"
-                    android:clipToOutline="true" />
             </LinearLayout>
 
-            <!-- Search Bar inside Header -->
+            <!-- Button Header -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="120dp"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/overlay_background_white"
+                android:padding="8dp">
 
-                <!-- Background for Search Bar -->
-                <ImageView
+                <!-- Container for the 3 Divisions -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/search"
-                    android:scaleType="fitXY" />
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_background">
 
-                <!-- Placeholder Text for Search -->
-                <EditText
-                    android:id="@+id/search_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Search for fish"
-                    android:textColorHint="@color/gray"
-                    android:background="@android:color/transparent"
-                    android:paddingStart="40dp"
-                    android:paddingEnd="16dp"
-                    android:drawableLeft="@drawable/ic_search"
-                    android:drawablePadding="14dp" />
+                    <!-- "Semua Aquarium" Button -->
+                    <TextView
+                        android:id="@+id/btn_all_aquariums"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:text="Semua Aquarium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/active_button_background" />
+
+                    <!-- Separator -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="|"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="8dp" />
+
+                    <!-- "Pengingat" Button (Inactive) -->
+                    <TextView
+                        android:id="@+id/btn_reminder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:text="Pengingat"
+                        android:textColor="@color/white"
+                        android:background="@drawable/inactive_button_background" />
+                </LinearLayout>
+
             </RelativeLayout>
+
         </RelativeLayout>
 
         <!-- Button Divs below "My Aquarium" Title -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="220dp"
-            android:padding="8dp"
-            android:background="@color/white_transparent"
-            android:layout_marginHorizontal="16dp"
-            android:background="@drawable/rounded_background">
-
-            <!-- "Semua Akuarium" Button -->
-            <TextView
-                android:id="@+id/btn_all_aquarium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Semua Aquarium"
-                android:padding="12dp"
-                android:textColor="@color/blue_muda"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center" />
-
-            <!-- Divider -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="|"
-                android:textSize="18sp"
-                android:textColor="@color/gray"
-                android:gravity="center"
-                android:paddingHorizontal="8dp" />
-
-            <!-- "Pengingat" Button -->
-            <TextView
-                android:id="@+id/btn_reminder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pengingat"
-                android:padding="12dp"
-                android:textColor="@color/gray"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center" />
-        </LinearLayout>
 
         <!-- Empty Aquarium Message Section -->
         <LinearLayout
