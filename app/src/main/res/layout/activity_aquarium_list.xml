@@ -7,4 +7,262 @@
     android:layout_height="match_parent"
     tools:context=".activity.aquarium.AquariumListActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <!-- Header Section -->
+        <RelativeLayout
+            android:id="@+id/header_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Background Image for Header -->
+            <ImageView
+                android:id="@+id/bg_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_header" />
+
+            <!-- Text and Profile on Top of Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/welcome_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 Akuarium"
+                        android:textSize="16sp"
+                        android:textColor="@color/blue_tua1" />
+
+                    <TextView
+                        android:id="@+id/greeting_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Aquarium"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/blue_tua1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Button Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="120dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/overlay_background_white"
+                android:padding="8dp">
+
+                <!-- Container for the 3 Divisions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_background">
+
+                    <!-- "Semua Aquarium" Button -->
+                    <TextView
+                        android:id="@+id/btn_all_aquariums"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:text="Semua Aquarium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/active_button_background" />
+
+                    <!-- Separator -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="|"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="8dp" />
+
+                    <!-- "Pengingat" Button (Inactive) -->
+                    <TextView
+                        android:id="@+id/btn_reminder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:text="Pengingat"
+                        android:textColor="@color/white"
+                        android:background="@drawable/inactive_button_background" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Title Section: "Aquarium" and "Add Aquarium" -->
+        <LinearLayout
+            android:id="@+id/title_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/header_section"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/aquarium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aquarium"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Add Spacer to push the Add Aquarium to the right -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/add_aquarium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Aquarium"
+                android:textColor="@color/blue_tua1"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- List Section -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_section"
+            android:paddingTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <!-- Aquarium Item -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@android:color/white"
+                    app:cardCornerRadius="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Profile Image dan Nama Aquarium -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/aquarium_profile"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_marginEnd="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/aquarium_profile"
+                                android:background="@drawable/circle_background" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/aquarium_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Aquariumku"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/aquarium_reminder_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tidak ada pengingat yang diatur"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/grey" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Separator -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="@color/grey" />
+
+                        <!-- Icon dan Arah -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="space_between">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icon1" />
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icon2"
+                                    android:layout_marginStart="8dp" />
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icon3"
+                                    android:layout_marginStart="8dp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_right" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
