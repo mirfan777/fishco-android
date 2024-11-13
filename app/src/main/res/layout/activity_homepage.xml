@@ -9,12 +9,13 @@
     android:background="@android:color/white">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Header Section -->
         <RelativeLayout
@@ -78,29 +79,29 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="120dp"
-                android:layout_centerHorizontal="true">
+                android:layout_marginTop="120dp">
 
                 <!-- Background untuk Search Bar -->
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/search"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/search" />
 
                 <!-- Placeholder Teks untuk Search -->
                 <EditText
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Search for fish"
-
                     android:background="@android:color/transparent"
-                    android:paddingStart="40dp"
-                    android:paddingEnd="16dp"
 
-                    android:drawablePadding="14dp" />
+                    android:drawablePadding="14dp"
+                    android:hint="Search for fish"
+                    android:paddingStart="40dp"
+
+                    android:paddingEnd="16dp" />
             </RelativeLayout>
         </RelativeLayout>
 
@@ -111,12 +112,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get Started"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
-            android:textColor="@color/blue_tua1"/>
+            android:text="Get Started"
+            android:textColor="@color/blue_tua1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -138,9 +139,9 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/get_started_img"
+                        android:clipToOutline="true"
                         android:scaleType="fitXY"
-                        android:clipToOutline="true" /> <!-- Clip ImageView to the rounded corners -->
+                        android:src="@drawable/get_started_img" /> <!-- Clip ImageView to the rounded corners -->
 
                     <!-- Partial Overlay Shape at the bottom -->
                     <View
@@ -155,24 +156,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="bottom"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Title Here"
+                            android:textColor="@android:color/white"
                             android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Knowledge/Lifestyle"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </FrameLayout>
 
@@ -185,8 +186,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/get_started_img2"
-                        android:scaleType="fitXY" />
+                        android:scaleType="fitXY"
+                        android:src="@drawable/get_started_img2" />
 
                     <View
                         android:layout_width="match_parent"
@@ -198,24 +199,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="bottom"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Title Here"
+                            android:textColor="@android:color/white"
                             android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Knowledge/Lifestyle"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </FrameLayout>
 
@@ -228,27 +229,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categories"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
-            android:textColor="@color/blue_tua1" />
+            android:text="Categories"
+            android:textColor="@color/blue_tua1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:columnCount="2"
             android:padding="16dp"
-            android:columnCount="2">
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_atas">
 
             <!-- Category Item Template -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -260,22 +263,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/freshwater"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/freshwater" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Freshwater Fish"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -286,9 +289,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -300,22 +303,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/marine"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/marine" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Marine Fish"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -324,9 +327,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -338,22 +341,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/brackish"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/brackish" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Brackish Water Fish"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -362,9 +365,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -376,22 +379,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/invertebrates"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/invertebrates" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Invertebrates"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -400,9 +403,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -414,22 +417,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/coldwater"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/coldwater" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Coldwater Fish"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -438,9 +441,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"
+                android:layout_margin="4dp"
                 android:background="@drawable/rounded_background"
-                android:layout_margin="4dp">
+                android:orientation="vertical">
 
                 <!-- Image and Overlay Container -->
                 <FrameLayout
@@ -452,22 +455,22 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/predator"
+                        android:background="@drawable/gradient_overlay"
                         android:scaleType="fitXY"
-                        android:background="@drawable/gradient_overlay" />
+                        android:src="@drawable/predator" />
 
                     <!-- Text overlay at top -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:background="@drawable/overlay_background"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:text="Predatory"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_gravity="top" />
+                        android:textStyle="bold" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -477,4 +480,116 @@
         </GridLayout>
 
     </LinearLayout>
+
+    <!-- Div Bawah dengan menu Home, Artikel, My Aquarium, Profile -->
+    <RelativeLayout
+        android:id="@+id/bottom_nav_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Home Icon -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_home" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Artikel Icon -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_artikel" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Artikel"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- My Aquarium Icon -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_aquarium" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Aquarium"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Profile Icon -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_fishbot" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Scanner Button - Positioned above the navbar -->
+        <ImageView
+            android:id="@+id/scanner_button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/rounded_button_bg"
+            android:elevation="4dp"
+            android:src="@drawable/ic_scanner" />
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
