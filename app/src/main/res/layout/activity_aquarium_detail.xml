@@ -11,7 +11,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/bg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,14 +38,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="15dp">
 
                     <ImageButton
                         android:id="@+id/back_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/ic_back"
+                        android:src="@drawable/back"
                         android:contentDescription="Back" />
 
                     <View
@@ -58,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@drawable/ic_more_vert"
+                        android:src="@drawable/more_vert"
                         android:contentDescription="Menu" />
                 </LinearLayout>
 
@@ -69,14 +70,14 @@
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="55dp">
 
                     <ImageView
                         android:id="@+id/profile_image"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginEnd="16dp"
-                        android:src="@drawable/ic_profile"
+                        android:src="@drawable/profile"
                         android:background="@drawable/circle_background"
                         android:contentDescription="Aquarium Profile Image" />
 
@@ -91,7 +92,7 @@
                             android:layout_height="wrap_content"
                             android:text="Aquariumku"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="30sp"
                             android:textColor="@color/black" />
 
                         <TextView
@@ -99,8 +100,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4 ikan yang dimiliki"
-                            android:textSize="16sp"
-                            android:textColor="@color/gray_dark" />
+                            android:textSize="18sp"
+                            android:textColor="@color/gray" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -110,6 +111,7 @@
             <!-- Fish List (Horizontal Scroll) -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
+                android:padding="16dp"
                 android:layout_height="wrap_content"
                 android:paddingVertical="16dp"
                 android:paddingHorizontal="8dp"
@@ -122,27 +124,108 @@
 
                     <!-- Repeatable Fish Item -->
                     <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/fish_item_background"
-                        android:layout_marginEnd="8dp">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/rounded_background"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:src="@drawable/ic_fish" />
+                        <FrameLayout
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:clipToPadding="true">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ikan 1"
-                            android:textColor="@color/black"
-                            android:gravity="center" />
+                            <!-- Image with fitXY scaling -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/freshwater" />
+
+                            <!-- Text overlay at top -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@drawable/overlay_background"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Ikan 1"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
                     </LinearLayout>
 
-                    <!-- Repeat above for each fish item -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/rounded_background"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:clipToPadding="true">
+
+                            <!-- Image with fitXY scaling -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/marine" />
+
+                            <!-- Text overlay at top -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@drawable/overlay_background"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Ikan 2"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/rounded_background"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:clipToPadding="true">
+
+                            <!-- Image with fitXY scaling -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/coldwater" />
+
+                            <!-- Text overlay at top -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@drawable/overlay_background"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Ikan 3"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <!-- Ulangi Layout di atas untuk setiap item ikan yang ingin ditambahkan -->
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -158,7 +241,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quick Tips"
-                    android:textSize="18sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginBottom="8dp" />
@@ -171,9 +254,9 @@
                     android:paddingVertical="8dp">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_temperature"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/suhu"
                         android:contentDescription="Temperature Icon" />
 
                     <TextView
@@ -182,20 +265,60 @@
                         android:layout_weight="1"
                         android:layout_marginStart="8dp"
                         android:text="Suhu Aquarium yang cocok untuk ikan yang kamu miliki adalah 27°C - 30°C."
-                        android:textColor="@color/gray_dark" />
+                        android:textColor="@color/gray_dark"
+                        android:textSize="15sp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/maintenance"
+                        android:contentDescription="Maintenance Icon"
+                        android:layout_marginTop="5dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Demi kenyamanan Ikan yang ada di dalam aquarium milikmu, maintenance aquarium seperti penggantian air, pembersihan Aquarium diperlukan sekurang kurangnya 1 kali dalam 1 bulan."
+                        android:textColor="@color/gray_dark"
+                        android:textSize="15sp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/makan"
+                        android:contentDescription="Makan Icon"
+                        android:layout_marginTop="5dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Pemberian pakan untuk ikan dilakukan 2 kali sehari dengan jeda 10 hingga 12 jam setalah pemberian awal."
+                        android:textColor="@color/gray_dark"
+                        android:textSize="15sp"
+                        android:layout_marginTop="8dp"/>
                 </LinearLayout>
 
                 <!-- Add More Tips Here -->
-
-                <!-- Show More Button -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Show More"
-                    android:textColor="@color/blue"
-                    android:padding="8dp"
-                    android:background="@drawable/rounded_button_background" />
             </LinearLayout>
 
             <!-- Notifications Section -->
@@ -203,40 +326,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:clipToPadding="false">
 
+                <!-- Rounded Notification Background -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="@drawable/rounded_notification_background"
-                    android:padding="8dp">
+                    android:padding="12dp"
+                    android:elevation="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_notification_background">
 
+                    <!-- Notification Title -->
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Pemberian Makan"
                         android:textSize="16sp"
-                        android:textColor="@color/black" />
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="8dp"/>
 
+                    <!-- Time Remaining Text -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3 hours remaining..."
+                        android:text="3 jam lagi..."
+                        android:textSize="14sp"
                         android:textColor="@color/gray_dark" />
 
+                    <!-- Notification Icon -->
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_notification"
-                        android:contentDescription="Notification Icon" />
+                        android:src="@drawable/notification"
+                        android:contentDescription="Notification Icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
                 </LinearLayout>
 
-                <!-- Add More Notifications Here -->
+                <!-- Rounded Notification Background -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:elevation="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rounded_notification_background">
 
+                    <!-- Notification Title -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Maintenance Aquarium"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="8dp"/>
+
+                    <!-- Time Remaining Text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 hari lagi..."
+                        android:textSize="14sp"
+                        android:textColor="@color/gray_dark" />
+
+                    <!-- Notification Icon -->
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/notification"
+                        android:contentDescription="Notification Icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

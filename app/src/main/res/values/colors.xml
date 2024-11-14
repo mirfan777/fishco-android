@@ -16,4 +16,6 @@
     <color name="blue_tua2">#0362A1</color>
     <color name="blue_tua3">#082F49</color>
     <color name="bg">#F6F6F6</color>
+    <color name="gray">#B1B1B1</color>
+    <color name="gray_dark">#64736E</color>
 </resources>

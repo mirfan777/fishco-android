@@ -26,24 +26,13 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/bg_header_kecil" />
 
-            <!-- Category Name di Atas Search Bar -->
-            <TextView
-                android:id="@+id/category_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:text="Freshwater Fish"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18sp" />
-
             <!-- Search Bar di Dalam Header -->
             <RelativeLayout
+                android:id="@+id/search_bar_container"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true">
 
                 <!-- Background untuk Search Bar -->
@@ -58,156 +47,242 @@
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Search for fish"
+                    android:hint="Search"
                     android:textColorHint="@color/gray"
                     android:background="@android:color/transparent"
                     android:paddingStart="40dp"
                     android:paddingEnd="16dp"
-                    android:drawableLeft="@drawable/ic_search"
                     android:drawablePadding="14dp" />
             </RelativeLayout>
+
+            <!-- Filter Buttons Section di Bawah Search Bar -->
+            <LinearLayout
+                android:id="@+id/filter_buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_bar_container"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/filter_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_filter"
+                    android:background="@drawable/bg_container"/>
+
+                <Button
+                    android:id="@+id/filter_terbaru"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/filter_button"
+                    android:text="Terbaru"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textAllCaps="false" /> <!-- Ukuran teks diatur menjadi 12sp -->
+
+                <Button
+                    android:id="@+id/filter_populer"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/filter_button"
+                    android:text="Populer"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"/> <!-- Ukuran teks diatur menjadi 12sp -->
+            </LinearLayout>
         </RelativeLayout>
 
-        <!-- Filter Buttons Section -->
-        <LinearLayout
+        <!-- Scrollable Content List -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center_horizontal">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/filter_terbaru"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/filter_button"
-                android:text="Terbaru"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/filter_populer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/filter_button"
-                android:text="Populer"
-                android:textColor="@color/white" />
-        </LinearLayout>
-
-        <!-- Content List -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- First Article Item with Large Image and Title Below -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="16dp">
 
-                <!-- Large Article Image -->
-                <ImageView
-                    android:id="@+id/large_article_image"
+                <!-- First Article Item with Large Image and Title Below -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:src="@drawable/sample_large_image"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image" />
-
-                <!-- Article Title Below Image -->
-                <TextView
-                    android:id="@+id/large_article_title"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Breeding Technique: Studi kasus mengenai breeding technique baru yang manjur"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:maxLines="2"
-                    android:ellipsize="end" />
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                <!-- Article Author and Date -->
-                <TextView
-                    android:id="@+id/large_article_author_date"
-                    android:layout_width="wrap_content"
+                    <!-- Large Article Image -->
+                    <ImageView
+                        android:id="@+id/large_article_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_artikel"
+                        android:background="@drawable/rounded_background_article"
+                        android:clipToOutline="true"
+                        android:layout_marginBottom="3dp" />
+
+                    <!-- Article Title Below Image -->
+                    <TextView
+                        android:id="@+id/large_article_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Breeding Technique: Studi kasus mengenai breeding technique baru yang manjur"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:maxLines="2"
+                        android:ellipsize="end" />
+
+                    <!-- Article Author and Date -->
+                    <!-- Username and Time -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Username -->
+                        <TextView
+                            android:id="@+id/username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Farhan Hernandez"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp" />
+
+                        <!-- Separator -->
+                        <TextView
+                            android:id="@+id/separator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" • "
+                            android:textColor="@color/gray"
+                            android:textSize="14sp"/>
+
+                        <!-- Time -->
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="04 September 2024"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"
+                    android:layout_marginVertical="8dp" />
+
+                <!-- Smaller Article Items -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Farhan Hamdani  •  04 September 2024"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp" />
+                    android:padding="8dp">
+
+                    <!-- Small Article Image -->
+                    <ImageView
+                        android:id="@+id/small_article_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_artikel"
+                        android:background="@drawable/rounded_background_article"
+                        android:clipToOutline="true"
+                        android:layout_marginBottom="3dp" />
+
+                    <!-- Article Title to the Right of Image -->
+                    <TextView
+                        android:id="@+id/small_article_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/small_article_image"
+                        android:layout_marginStart="8dp"
+                        android:text="Jenis-Jenis Ikan Hias Air Tawar Terbaik untuk Akuarium di Rumah Anda."
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:maxLines="2"
+                        android:ellipsize="end" />
+
+                    <!-- Article Author and Date -->
+                    <!-- Article Author, Date, and Views Container -->
+                    <LinearLayout
+                        android:id="@+id/article_info_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/small_article_image"
+                        android:layout_below="@id/small_article_title"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="8dp">
+
+                        <!-- Username / Author -->
+                        <TextView
+                            android:id="@+id/username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adrian Nawawi"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp" />
+
+                        <!-- Separator -->
+                        <TextView
+                            android:id="@+id/separator1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" • "
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"/>
+
+                        <!-- Date -->
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="28 September 2024"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"/>
+
+                        <!-- Separator -->
+                        <TextView
+                            android:id="@+id/separator2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" • "
+                            android:textColor="@color/gray"
+                            android:textSize="14sp"/>
+
+                        <!-- Views -->
+                        <TextView
+                            android:id="@+id/views"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="150 Views"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"
+                    android:layout_marginVertical="8dp" />
+
+                <!-- Tambahkan lebih banyak artikel kecil dengan format RelativeLayout yang sama jika diperlukan -->
+
             </LinearLayout>
-
-            <!-- Divider -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray"
-                android:layout_marginVertical="8dp" />
-
-            <!-- Smaller Article Items -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <!-- Small Article Image -->
-                <ImageView
-                    android:id="@+id/small_article_image"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/sample_image"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_image" />
-
-                <!-- Article Title to the Right of Image -->
-                <TextView
-                    android:id="@+id/small_article_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/small_article_image"
-                    android:layout_marginStart="8dp"
-                    android:text="Jenis-Jenis Ikan Hias Air Tawar Terbaik untuk Akuarium di Rumah Anda."
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:maxLines="2"
-                    android:ellipsize="end" />
-
-                <!-- Article Author and Date -->
-                <TextView
-                    android:id="@+id/small_article_author_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/small_article_image"
-                    android:layout_below="@id/small_article_title"
-                    android:text="Adrian Nawawi  •  28 September 2024"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp" />
-
-                <!-- Article Views -->
-                <TextView
-                    android:id="@+id/small_article_views"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/small_article_image"
-                    android:layout_below="@id/small_article_author_date"
-                    android:text="150 Views"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp" />
-            </RelativeLayout>
-
-            <!-- Divider -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray"
-                android:layout_marginVertical="8dp" />
-
-            <!-- Repeat RelativeLayout for additional small articles as needed -->
-        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
