@@ -7,11 +7,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.article.ArticleDetailActivity"
+    android:padding="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     android:background="@color/bg">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingStart="10dp"
+        android:paddingEnd="8dp"
+        android:fadeScrollbars="true"
+        android:scrollbarFadeDuration="200"
+        android:scrollbarDefaultDelayBeforeFade="500">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -197,12 +205,10 @@
                     </LinearLayout>
                 </LinearLayout>
 
-
-
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+
 
     <!-- Add Comment Input -->
     <LinearLayout
