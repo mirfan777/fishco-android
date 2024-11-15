@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/ic_arrow_right.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="8dp"
+    android:height="13dp"
+    android:viewportWidth="11"
+    android:viewportHeight="18">
+    <path
+        android:fillColor="#000000"
+        android:pathData="M7.657,8.99965L0.586,16.0706L2,17.4846L9.778,9.70665C9.96549,9.51912,10.0708,9.26481,10.0708,8.99965C10.0708,8.73448,9.96549,8.48018,9.778,8.29265L2,0.514648L0.586,1.92865L7.657,8.99965Z"/>
+</vector>
