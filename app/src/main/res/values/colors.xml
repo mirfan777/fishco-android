@@ -18,4 +18,5 @@
     <color name="bg">#F6F6F6</color>
     <color name="gray">#B1B1B1</color>
     <color name="gray_dark">#64736E</color>
+    <color name="bg_chat">#EEEDED</color>
 </resources>

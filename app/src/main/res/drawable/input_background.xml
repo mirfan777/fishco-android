@@ -1,0 +1,5 @@
+<!-- res/drawable/input_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/bg_chat" />
+    <corners android:radius="50dp" /> <!-- Radius tinggi untuk membuat ujung berbentuk setengah lingkaran -->
+</shape>

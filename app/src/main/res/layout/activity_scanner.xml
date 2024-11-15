@@ -1,8 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.scanner.ScannerActivity"/>
+    android:background="@drawable/img_artikel"
+    tools:context=".activity.scanner.ScannerActivity">
+
+    <!-- Overlay atas tanpa padding/margin, gelap ke terang -->
+    <ImageView
+        android:id="@+id/topOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/overlay_top"
+        android:scaleType="fitXY"
+        android:layout_gravity="top" />
+
+    <!-- Layout utama dengan padding -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Icon kiri atas -->
+        <ImageView
+            android:id="@+id/iconBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_white"
+            android:contentDescription="@string/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp" />
+
+        <!-- Icon kanan atas -->
+        <ImageView
+            android:id="@+id/iconInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_info"
+            android:contentDescription="@string/info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Tombol Scanner di tengah -->
+        <ImageView
+            android:id="@+id/btnScanner"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_scanner"
+            android:contentDescription="@string/scan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <!-- Text di atas tombol scanner -->
+        <TextView
+            android:id="@+id/scanInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan dengan jarak 50-70 cm"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/btnScanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tombol kiri bawah -->
+        <ImageView
+            android:id="@+id/btnLeft"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/galeri"
+            android:contentDescription="@string/left_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tombol kanan bawah -->
+        <ImageView
+            android:id="@+id/btnRight"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/info_tips"
+            android:contentDescription="@string/right_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Text di bawah tombol scanner -->
+        <TextView
+            android:id="@+id/scanText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan dengan jarak 50-70 cm"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/btnScanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Overlay bawah tanpa padding/margin, terang ke gelap -->
+    <ImageView
+        android:id="@+id/bottomOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:background="@drawable/overlay_bottom"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom" />
+
+</FrameLayout>

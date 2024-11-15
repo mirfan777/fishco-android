@@ -7,4 +7,77 @@
     android:layout_height="match_parent"
     tools:context=".activity.chatbot.ChatbotActivity">
 
+    <!-- Tombol Kembali di Kiri Atas -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/back"
+        android:contentDescription="Kembali"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- LinearLayout untuk Logo dan Teks di Tengah Layar -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Gambar Logo -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/fishco_logo"
+            android:contentDescription="Logo"
+            android:layout_gravity="center" />
+
+        <!-- Teks Utama Bantuan -->
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Membutuhkan bantuan?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <!-- Teks Deskripsi Bantuan -->
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="Pakar AI kami siap membantu Anda dengan masalah ikan hias apa pun yang mungkin Anda hadapi."
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:paddingHorizontal="24dp"
+            android:layout_gravity="center" />
+
+        <!-- Input Field Pencarian di Tengah Bawah -->
+        <EditText
+            android:id="@+id/inputField"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/input_background"
+            android:hint="Ketik disini..."
+            android:paddingStart="25dp"
+            android:textColorHint="@color/gray_dark"
+            android:gravity="center_vertical"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
