@@ -22,11 +22,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textGetStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Get Started"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+    <TextView
         android:id="@+id/textDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Silahkan isi form dibawah untuk mengetahui apa saja yang dibutuhkan untuk set up Aquariummu!"
         android:textColor="#000000"
@@ -37,29 +51,31 @@
         app:layout_constraintTop_toBottomOf="@id/textGetStarted" />
 
     <TextView
-        android:id="@+id/textGetStarted"
+        android:id="@+id/textQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:text="Get Started"
+        android:text="Apakah kamu memiliki Aquarium?"
+        android:fontFamily=""
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backButton" />
+        app:layout_constraintTop_toBottomOf="@id/textDescription" />
 
     <Button
-        android:id="@+id/buttonYes"
+        android:id="@+id/buttonYa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#F0F8FF"
+        android:backgroundTint="#00BFFF"
         android:text="Ya"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,33 +84,21 @@
         app:layout_constraintTop_toBottomOf="@id/textQuestion" />
 
     <Button
-        android:id="@+id/buttonNo"
+        android:id="@+id/buttonTidak"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#F0F8FF"
+        android:backgroundTint="#00BFFF"
         android:text="Tidak"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonYes" />
-
-    <TextView
-        android:id="@+id/textQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Apakah anda memiliki Aquarium?"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textDescription" />
+        app:layout_constraintTop_toBottomOf="@id/buttonYa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

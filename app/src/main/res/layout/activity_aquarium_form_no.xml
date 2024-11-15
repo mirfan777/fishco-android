@@ -9,7 +9,6 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-6dp">
 
-    <!-- Tombol Back -->
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="24dp"
@@ -42,7 +41,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:text="Berapakah ukuran Aquarium yang kamu miliki?"
+        android:text="Berapakah kira - kira ukuran Aquarium yang kamu inginkan?"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -69,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Ikan apa saja yang kamu miliki?"
+        android:text="Ikan apa saja yang ingin kamu miliki?"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
