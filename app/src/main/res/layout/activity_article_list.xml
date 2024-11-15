@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"> <!-- Added vertical constraint -->
 
         <!-- Header Section -->
         <RelativeLayout
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/bg_header_kecil" />
+                android:src="@drawable/gradient3" />
 
             <!-- Search Bar di Dalam Header -->
             <RelativeLayout
@@ -64,14 +65,16 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:elevation="4dp">
 
                 <ImageView
                     android:id="@+id/filter_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_filter"
-                    android:background="@drawable/bg_container"/>
+                    android:background="@drawable/bg_container"
+                    android:elevation="4dp"/>
 
                 <Button
                     android:id="@+id/filter_terbaru"
@@ -82,7 +85,8 @@
                     android:text="Terbaru"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    android:textAllCaps="false" /> <!-- Ukuran teks diatur menjadi 12sp -->
+                    android:textAllCaps="false"
+                    android:elevation="4dp"/>
 
                 <Button
                     android:id="@+id/filter_populer"
@@ -93,7 +97,8 @@
                     android:text="Populer"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    android:textAllCaps="false"/> <!-- Ukuran teks diatur menjadi 12sp -->
+                    android:textAllCaps="false"
+                    android:elevation="4dp"/>
             </LinearLayout>
         </RelativeLayout>
 
@@ -148,7 +153,7 @@
 
                         <!-- Username -->
                         <TextView
-                            android:id="@+id/username"
+                            android:id="@+id/large_article_username"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Farhan Hernandez"
@@ -166,7 +171,7 @@
 
                         <!-- Time -->
                         <TextView
-                            android:id="@+id/time"
+                            android:id="@+id/large_article_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="04 September 2024"
@@ -226,7 +231,7 @@
 
                         <!-- Username / Author -->
                         <TextView
-                            android:id="@+id/username"
+                            android:id="@+id/small_article_username"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Adrian Nawawi"
@@ -244,7 +249,7 @@
 
                         <!-- Date -->
                         <TextView
-                            android:id="@+id/time"
+                            android:id="@+id/small_article_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="28 September 2024"

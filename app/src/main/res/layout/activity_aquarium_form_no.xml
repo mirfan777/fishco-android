@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Ikan apa saja yang ingin kamu miliki?"
+        android:text="Ikan hias apa saja yang ingin kamu miliki?"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
