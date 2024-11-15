@@ -5,6 +5,121 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.settings.ProfileActivity">
+    tools:context=".activity.settings.ProfileActivity"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
+    <!-- ScrollView untuk seluruh konten -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_muda"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Header dengan tombol back -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:contentDescription="Back"
+                android:layout_marginTop="15dp"
+                android:padding="16dp"
+                android:layout_gravity="start" />
+
+            <!-- Wrapper gambar profil dan background -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipChildren="false">
+
+                <!-- Background untuk akun -->
+                <RelativeLayout
+                    android:id="@+id/bg_akun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_akun"
+                    android:paddingTop="48dp"
+                    android:paddingBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cuko Pempek Enjoyer"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="32dp" />
+                </RelativeLayout>
+
+                <!-- Rounded Notification Section di bawah bg_akun -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginTop="120dp"
+                    android:clipToPadding="false">
+
+                    <!-- Rounded Notification Background -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:elevation="4dp"
+                        android:background="@drawable/rounded_notification_background"
+                        android:clipToPadding="false">
+
+                        <!-- Ikon Kiri -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_informasi_personal"
+                            android:contentDescription="Personal Information Icon"
+                            android:layout_marginEnd="16dp" />
+
+                        <!-- Teks Tengah -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Informasi Personal"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                        <!-- Ikon Panah Kanan -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:contentDescription="Arrow Icon" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Gambar Profil di atas bg_akun -->
+                <ImageView
+                    android:id="@+id/aquarium_profile"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_background"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/freshwater"
+                    android:clipToOutline="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-32dp" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
