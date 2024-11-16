@@ -3,14 +3,12 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class Article {
+public class Product {
     private Long id;
-    private String title;
-    private String slug;
-    private String body;
-    private Long user_id;
-    private String thumbnail;
-    private Long comment_id;
+    private String name;
+    private String description;
+    private Integer price;
+    private String link;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

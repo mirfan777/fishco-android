@@ -1,16 +1,14 @@
 package com.example.fishco.model;
-import lombok.Data;
+
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
-public class Article {
+public class Reply {
     private Long id;
-    private String title;
-    private String slug;
-    private String body;
-    private Long user_id;
-    private String thumbnail;
     private Long comment_id;
+    private Long user_id;
+    private String body;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
