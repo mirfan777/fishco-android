@@ -68,10 +68,10 @@
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:layout_marginTop="120dp"
-                    android:clipToPadding="false">
+                    android:clipToPadding="false"/>
 
                     <!-- Rounded Notification Background -->
-                    <LinearLayout
+
                 <!-- Rounded Notification Section di bawah bg_akun -->
                 <LinearLayout
                     android:layout_width="match_parent"

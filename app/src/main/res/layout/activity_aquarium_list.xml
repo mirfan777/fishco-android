@@ -219,8 +219,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="spaceBetween">
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -250,7 +249,7 @@
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:layout_marginEnd="24dp"
-                                android:src="@drawable/arrow_right"
+                                android:src="@drawable/ic_arrow_right"
                                 android:layout_marginTop="7dp" />
                         </LinearLayout>
                     </LinearLayout>
