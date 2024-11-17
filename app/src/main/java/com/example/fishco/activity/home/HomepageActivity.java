@@ -81,5 +81,6 @@ public class HomepageActivity extends AppCompatActivity {
             intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
             startActivity(intent);
         });
+
     }
 }
