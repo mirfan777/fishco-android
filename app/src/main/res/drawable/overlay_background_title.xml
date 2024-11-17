@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- res/drawable/overlay_background.xml -->
     <shape xmlns:android="http://schemas.android.com/apk/res/android">
         <solid android:color="#80000000" /> <!-- Warna background dengan transparansi -->
         <corners android:radius="16dp" /> <!-- Radius untuk rounded corners -->
     </shape>
-</selector>
