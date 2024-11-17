@@ -62,11 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
-                String deviceName = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+//                String email = inputEmail.getText().toString().trim();
+//                String password = inputPassword.getText().toString().trim();
+//                String deviceName = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-                login(email, password, deviceName);
+                    Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
+                    startActivity(intent);
+
+//                login(email, password, deviceName);
             }
         });
 
@@ -85,8 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 saveToken(token);
 
                 Toast.makeText(LoginActivity.this, token, Toast.LENGTH_SHORT).show();
-
-                // Redirect to MainActivity
+                
                 startActivity(new Intent(LoginActivity.this, HomepageActivity.class));
                 finish();
             }
