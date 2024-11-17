@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.encyclopedia.FishListActivity"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    tools:context=".activity.encyclopedia.FishListActivity">
 
-    <!-- Div Header -->
+    <!-- Container Header dan Isi -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Header Section -->
         <RelativeLayout
@@ -30,13 +29,25 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/bg_header_kecil" />
 
+            <!-- Tombol Back -->
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/back"
+                android:contentDescription="Back" />
+
             <!-- Category Name di Atas Search Bar -->
             <TextView
                 android:id="@+id/category_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@id/back_button"
                 android:text="Freshwater Fish"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -63,79 +74,118 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Search for fish"
-
                     android:background="@android:color/transparent"
                     android:paddingStart="40dp"
                     android:paddingEnd="16dp"
-
                     android:drawablePadding="14dp" />
             </RelativeLayout>
         </RelativeLayout>
-    </LinearLayout>
 
-    <!-- Div Isi -->
-    <LinearLayout
-        android:id="@+id/content_div"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- List item untuk tiap ikan -->
-        <LinearLayout
+        <!-- Div Isi -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"
+            android:padding="16dp">
 
-            android:gravity="center_vertical" >
-
-            <!-- Foto Ikan (Bulat) -->
-            <ImageView
-                android:id="@+id/fish_image"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="12dp"
-
-                android:scaleType="centerCrop"
-                 />
-
-            <!-- Nama Ikan dan Nama Ilmiah -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
-                <!-- Nama Ikan -->
-                <TextView
-                    android:id="@+id/fish_name"
-                    android:layout_width="wrap_content"
+                <!-- Item Container -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cupang"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:background="@drawable/rounded_notification_background"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_marginBottom="8dp">
 
-                <!-- Nama Ilmiah Ikan -->
-                <TextView
-                    android:id="@+id/scientific_name"
-                    android:layout_width="wrap_content"
+                    <!-- Fish Image -->
+                    <ImageView
+                        android:id="@+id/fish_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/freshwater"
+                        android:background="@drawable/circle_background"
+                        android:contentDescription="Fish Image"
+                        android:clipToOutline="true"/>
+
+                    <!-- Fish Info -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Fish Name -->
+                        <TextView
+                            android:id="@+id/fish_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cupang"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/black" />
+
+                        <!-- Fish Species -->
+                        <TextView
+                            android:id="@+id/fish_species"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Betta sp."
+                            android:textSize="14sp"
+                            android:textColor="@color/gray" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Item Container 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Betta sp."
-                    android:textColor="#777777"
-                    android:textSize="14sp" />
+                    android:background="@drawable/rounded_notification_background"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- Fish Image -->
+                    <ImageView
+                        android:id="@+id/fish_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/freshwater"
+                        android:background="@drawable/circle_background"
+                        android:contentDescription="Fish Image"
+                        android:clipToOutline="true"/>
+
+                    <!-- Fish Info -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Fish Name -->
+                        <TextView
+                            android:id="@+id/fish_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Freshwater Fish"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/black" />
+
+                        <!-- Fish Description -->
+                        <TextView
+                            android:id="@+id/fish_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Freshwater Fish"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-
-        
-
-        <!-- Tambahkan lebih banyak item ikan di sini -->
-        <!-- // -->
+        </ScrollView>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

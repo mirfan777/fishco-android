@@ -3,26 +3,25 @@
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home"/>
+        android:title="Home" />
     <item
         android:id="@+id/article"
         android:enabled="true"
         android:icon="@drawable/ic_artikel"
-        android:title="Artikel"/>
+        android:title="Artikel" />
     <item
         android:id="@+id/scanner"
         android:enabled="true"
         android:icon="@drawable/ic_scanner"
-        android:title="scanner"
-        />
+        android:title="" /> <!-- Title kosong -->
     <item
         android:id="@+id/aquarium"
         android:enabled="true"
         android:icon="@drawable/ic_aquarium"
-        android:title="My Aquarium"/>
+        android:title="My Aquarium" />
     <item
         android:id="@+id/profile"
         android:enabled="true"
-        android:icon="@drawable/profile"
-        android:title="profile"/>
+        android:icon="@drawable/ic_fishbot"
+        android:title="Fishbot" />
 </menu>
