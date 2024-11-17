@@ -240,9 +240,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:padding="16dp"
-            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_atas">
+            android:padding="16dp">
+<!--            app:layout_constraintBottom_toTopOf="@id/bottom_nav"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/linear_layout_atas">-->
 
             <!-- Category Item Template -->
             <LinearLayout
