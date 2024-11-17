@@ -14,9 +14,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fishco.R;
+import com.example.fishco.activity.aquarium.AquariumListActivity;
 import com.example.fishco.activity.article.ArticleDetailActivity;
+import com.example.fishco.activity.article.ArticleListActivity;
 import com.example.fishco.activity.encyclopedia.FishListActivity;
+import com.example.fishco.activity.scanner.ScannerActivity;
 import com.example.fishco.activity.settings.ProfileActivity;
+import com.example.fishco.model.Aquarium;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -81,5 +87,36 @@ public class HomepageActivity extends AppCompatActivity {
             intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
             startActivity(intent);
         });
+
+        BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home) {
+                // Handle home navigation
+                return true;
+            } else if (itemId == R.id.article) {
+                // Navigate to articles
+                startActivity(new Intent(HomepageActivity.this, ArticleListActivity.class));
+                return true;
+            } else if (itemId == R.id.scanner) {
+                // Navigate to scanner
+                startActivity(new Intent(HomepageActivity.this, ScannerActivity.class));
+                return true;
+            } else if (itemId == R.id.aquarium) {
+                // Navigate to My Aquarium
+                startActivity(new Intent(HomepageActivity.this, AquariumListActivity.class));
+                return true;
+            } else if (itemId == R.id.profile) {
+                // Navigate to Profile
+                startActivity(new Intent(HomepageActivity.this, ProfileActivity.class));
+                return true;
+            }
+
+            return false;
+        });
+
+
+
     }
 }
