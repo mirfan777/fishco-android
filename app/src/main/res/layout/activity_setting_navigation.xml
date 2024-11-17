@@ -7,37 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.settings.SettingNavigationActivity">
 
-    <!-- Bottom Navigation View -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:elevation="8dp"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
-        app:itemIconSize="24dp"
-        app:itemTextAppearanceActive="@style/TextAppearance.MaterialComponents.Caption"
-        app:itemTextAppearanceInactive="@style/TextAppearance.MaterialComponents.Caption"
-        app:itemIconTint="@color/selector_color"
-        app:itemTextColor="@color/selector_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Scanner Button -->
-    <ImageButton
-        android:id="@+id/scanner_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/bg_circle"
-        android:src="@drawable/scanner"
-        android:scaleType="centerInside"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
