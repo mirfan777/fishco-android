@@ -84,6 +84,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
+                        android:id="@+id/btnLinearLayout_personal_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -123,6 +124,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
+                        android:id="@+id/btnFAQ"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -162,8 +164,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
-                        android:id="@+id/linearLayout_personal_info"
-                        android:layout_width="match_parent"
+                        android:id="@+id/linearLayout_term_of_service"                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"

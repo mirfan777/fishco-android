@@ -37,10 +37,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         // LinearLayout untuk Informasi Personal
-        LinearLayout personalInfoLayout = findViewById(R.id.linearLayout_personal_info);
+        LinearLayout personalInfoLayout = findViewById(R.id.btnLinearLayout_personal_info);
         personalInfoLayout.setOnClickListener(v -> {
             // Intent ke TermOfServiceActivity
-            Intent intent = new Intent(ProfileActivity.this, TermOfServiceActivity.class);
+            Intent intent = new Intent(ProfileActivity.this, InformasiPersonalActivity.class);
             startActivity(intent);
         });
 
@@ -49,6 +49,22 @@ public class ProfileActivity extends AppCompatActivity {
         btnPrivacyPolicy.setOnClickListener(v -> {
             // Intent ke PrivacyPolicyActivity
             Intent intent = new Intent(ProfileActivity.this, PrivacyPolicyActivity.class);
+            startActivity(intent);
+        });
+
+        // LinearLayout untuk FAQ
+        LinearLayout btnFAQ = findViewById(R.id.btnFAQ); // Pastikan ID sesuai dengan XML
+        btnFAQ.setOnClickListener(v -> {
+            // Intent ke FAQActivity
+            Intent intent = new Intent(ProfileActivity.this, FAQActivity.class);
+            startActivity(intent);
+        });
+
+        // LinearLayout untuk Term of Service
+        LinearLayout btnTermOfService = findViewById(R.id.linearLayout_term_of_service); // Pastikan ID sesuai dengan XML
+        btnTermOfService.setOnClickListener(v -> {
+            // Intent ke TermOfServiceActivity
+            Intent intent = new Intent(ProfileActivity.this, TermOfServiceActivity.class); // Ganti ProfileActivity sesuai dengan activity saat ini
             startActivity(intent);
         });
     }
