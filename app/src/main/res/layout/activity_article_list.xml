@@ -28,28 +28,28 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/gradient3" />
 
-            <!-- Top Bar with Back Button and Optional Menu -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="15dp">
+<!--            &lt;!&ndash; Top Bar with Back Button and Optional Menu &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:padding="16dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:layout_marginTop="15dp">-->
 
-                <ImageButton
-                    android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/back"
-                    android:contentDescription="Back" />
+<!--                <ImageButton-->
+<!--                    android:id="@+id/back_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--                    android:src="@drawable/back"-->
+<!--                    android:contentDescription="Back" />-->
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_weight="1" />-->
+<!--            </LinearLayout>-->
 
             <!-- Search Bar -->
             <RelativeLayout
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true">
 
                 <!-- Background untuk Search Bar -->
