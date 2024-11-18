@@ -26,6 +26,10 @@
         <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item> <!-- Status bar akan menggunakan colorPrimaryVariant -->
 
+        <!-- Hilangkan ActionBar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
         <!-- Tambahkan pengaturan tambahan di sini sesuai kebutuhan -->
 
     </style>

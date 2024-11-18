@@ -5,6 +5,199 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.settings.TermOfServiceActivity">
+    tools:context=".activity.settings.TermOfServiceActivity"
+    android:background="@color/white">
 
+    <!-- Back Button Container -->
+    <RelativeLayout
+        android:id="@+id/backContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FAFAFA"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back" />
+    </RelativeLayout>
+
+    <!-- Header Content -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FAFAFA"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/backContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Term of Service"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="25sp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:text="Perjanjian Hukum Antara Anda dan Kami. 📄"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <!-- Body Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- Section Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="General Terms"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Paragraph -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Dengan mengakses dan melakukan pemesanan di Fishco, Anda menyatakan persetujuan dan terikat oleh Syarat dan Ketentuan yang tercantum di bawah ini. Syarat dan Ketentuan ini berlaku untuk seluruh situs web dan semua komunikasi melalui email atau bentuk lainnya antara Anda dan Fishco."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:text="Fishco tidak bertanggung jawab atas segala kerusakan langsung, tidak langsung, khusus, insidental, atau konsekuensial, termasuk pada kehilangan data atau keuntungan, yang timbul dari penggunaan atau ketidakmampuan menggunakan materi pada aplikasi ini. Jika penggunaan materi dari aplikasi ini mengakibatkan kebutuhan untuk melakukan servis, perbaikan, atau koreksi pada peralatan atau data, Anda bertanggung jawab atas semua biaya yang timbul."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Lisensi"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="15dp"/>
+
+            <!-- Paragraph -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Fishco memberikan Anda lisensi terbatas, tidak eksklusif, tidak dapat dipindahtangankan, dan dapat dicabut untuk mengunduh, menginstal, dan menggunakan aplikasi ini secara ketat sesuai dengan ketentuan Perjanjian ini."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="12dp"
+                android:text="Syarat &amp; Ketentuan ini merupakan perjanjian antara Anda dan Fishco (disebut dalam Syarat &amp; Ketentuan ini sebagai &quot;Fishco,&quot; &quot;kami,&quot; atau &quot;kita&quot;), penyedia situs web Fishco dan layanan yang dapat diakses dari situs web Fishco (yang secara kolektif disebut dalam Syarat &amp; Ketentuan ini sebagai &quot;Layanan Fishco&quot;)"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="20dp">
+
+                <!-- Judul -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kontak Kami"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="15dp" />
+
+                <!-- Paragraf -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jangan ragu-ragu untuk kontak kami jika Anda memiliki pertanyaan."
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Kontak Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Via Email: info@fishco.app"
+                    android:layout_marginStart="25dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Tanggal Diperbarui -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Updated at 2024-10-16"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Footer -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="© 2024 Fishco - All Rights Reserved"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

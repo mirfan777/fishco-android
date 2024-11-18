@@ -2,6 +2,7 @@ package com.example.fishco.activity.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,5 +35,14 @@ public class ProfileActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // LinearLayout untuk Informasi Personal
+        LinearLayout personalInfoLayout = findViewById(R.id.linearLayout_personal_info);
+        personalInfoLayout.setOnClickListener(v -> {
+            // Intent ke TermOfServiceActivity
+            Intent intent = new Intent(ProfileActivity.this, TermOfServiceActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
