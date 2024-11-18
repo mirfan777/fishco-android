@@ -67,6 +67,9 @@
             android:name=".activity.settings.TermOfServiceActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.settings.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.scanner.ScannerActivity"
             android:exported="false" />
         <activity
