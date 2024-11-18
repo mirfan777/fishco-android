@@ -83,23 +83,12 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
-            <!-- Section Title -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="General Terms"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_marginBottom="8dp" />
-
             <!-- Paragraph -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Dengan mengakses dan melakukan pemesanan di Fishco, Anda menyatakan persetujuan dan terikat oleh Syarat dan Ketentuan yang tercantum di bawah ini. Syarat dan Ketentuan ini berlaku untuk seluruh situs web dan semua komunikasi melalui email atau bentuk lainnya antara Anda dan Fishco."
+                android:text="Fishco (&quot;kami, &quot;milik kami,&quot; atau &quot;kita) berkomitmen untuk melindungi privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana informasi pribadi Anda dikumpulkan, digunakan, dan diungkapkan oleh Fishco."
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -108,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
-                android:text="Fishco tidak bertanggung jawab atas segala kerusakan langsung, tidak langsung, khusus, insidental, atau konsekuensial, termasuk pada kehilangan data atau keuntungan, yang timbul dari penggunaan atau ketidakmampuan menggunakan materi pada aplikasi ini. Jika penggunaan materi dari aplikasi ini mengakibatkan kebutuhan untuk melakukan servis, perbaikan, atau koreksi pada peralatan atau data, Anda bertanggung jawab atas semua biaya yang timbul."
+                android:text="Kebijakan Privasi ini berlaku untuk situs web kami beserta subdomainnya (secara kolektif disebut “Layanan”) serta aplikasi Fishco. Dengan mengakses atau menggunakan Layanan kami, Anda menyatakan telah membaca, memahami, dan menyetujui pengumpulan, penyimpanan, penggunaan, dan pengungkapan informasi pribadi Anda sebagaimana dijelaskan dalam Kebijakan Privasi ini dan Syarat dan Ketentuan kami."
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 
@@ -116,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Lisensi"
+                android:text="Definisi dan Istilah Penting"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:textSize="25sp"
@@ -128,7 +117,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Fishco memberikan Anda lisensi terbatas, tidak eksklusif, tidak dapat dipindahtangankan, dan dapat dicabut untuk mengunduh, menginstal, dan menggunakan aplikasi ini secara ketat sesuai dengan ketentuan Perjanjian ini."
+                android:text="Untuk membantu menjelaskan Kebijakan Privasi ini secara jelas, setiap istilah berikut didefinisikan secara ketat:"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="12dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Informasi yang Dikumpulkan Secara Otomatis"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="15dp"/>
+
+            <!-- Paragraph -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Kami secara otomatis mengumpulkan beberapa informasi seperti Alamat IP (Internet Protocol) dan/atau karakteristik perangkat serta browser Anda ketika Anda mengunjungi platform kami. Informasi ini mungkin digunakan untuk menghubungkan komputer Anda ke internet. Informasi lain yang dikumpulkan secara otomatis meliputi login, alamat email, kata sandi, informasi perangkat dan koneksi seperti jenis dan versi plug-in browser, pengaturan zona waktu, sistem operasi, riwayat pembelian (kadang digabungkan dengan informasi serupa dari pengguna lain), URL lengkap (Uniform Resource Locator) yang Anda klik, termasuk tanggal dan waktu; nomor cookie; bagian situs yang Anda lihat atau cari; serta nomor telepon yang Anda gunakan untuk menghubungi layanan pelanggan kami."
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
             <TextView
@@ -136,7 +153,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
-                android:text="Syarat &amp; Ketentuan ini merupakan perjanjian antara Anda dan Fishco (disebut dalam Syarat &amp; Ketentuan ini sebagai &quot;Fishco,&quot; &quot;kami,&quot; atau &quot;kita&quot;), penyedia situs web Fishco dan layanan yang dapat diakses dari situs web Fishco (yang secara kolektif disebut dalam Syarat &amp; Ketentuan ini sebagai &quot;Layanan Fishco&quot;)"
+                android:text="Kami juga menggunakan data browser seperti cookie, Flash cookies (juga dikenal sebagai Flash Local Shared Objects), atau data serupa di bagian tertentu dari situs web kami untuk pencegahan penipuan dan tujuan lainnya. Selama kunjungan Anda, kami dapat menggunakan alat perangkat lunak seperti JavaScript untuk mengukur dan mengumpulkan informasi sesi termasuk waktu respons halaman, kesalahan unduhan, durasi kunjungan ke halaman tertentu, informasi interaksi halaman (seperti pengguliran, klik, dan hover mouse), serta metode yang digunakan untuk meninggalkan halaman. Kami juga dapat mengumpulkan informasi teknis untuk membantu mengidentifikasi perangkat Anda untuk pencegahan penipuan dan diagnosis."
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="12dp"
+                android:text="Informasi yang dikumpulkan secara otomatis ini tidak mengungkapkan identitas spesifik Anda (seperti nama atau informasi kontak), tetapi dapat mencakup informasi perangkat dan penggunaan seperti alamat IP, karakteristik browser, sistem operasi, preferensi bahasa, URL rujukan, nama perangkat, negara, lokasi, informasi tentang waktu penggunaan, dan informasi teknis lainnya. Informasi ini terutama diperlukan untuk menjaga keamanan dan operasi platform kami serta untuk keperluan analitik dan pelaporan internal."
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
 

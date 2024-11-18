@@ -44,5 +44,12 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // LinearLayout untuk Kebijakan Privasi
+        LinearLayout btnPrivacyPolicy = findViewById(R.id.btnPrivacyPolicy);
+        btnPrivacyPolicy.setOnClickListener(v -> {
+            // Intent ke PrivacyPolicyActivity
+            Intent intent = new Intent(ProfileActivity.this, PrivacyPolicyActivity.class);
+            startActivity(intent);
+        });
     }
 }
