@@ -25,6 +25,9 @@ import com.example.fishco.model.Aquarium;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import android.widget.TextView;
+import java.util.Calendar;
+
 public class HomepageActivity extends AppCompatActivity {
 
     @Override
@@ -32,6 +35,28 @@ public class HomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_homepage);
+
+        // Tambahkan kode greeting setelah setContentView
+        TextView greetingText = findViewById(R.id.greeting_text);
+
+        // Ambil waktu sekarang
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+        // Tentukan greeting berdasarkan waktu
+        String greeting;
+        if (hour >= 4 && hour < 12) {
+            greeting = "Selamat Pagi! 🌅";  // Subuh sampai menjelang dzuhur
+        } else if (hour >= 12 && hour < 15) {
+            greeting = "Selamat Siang! ☀️";  // Dzuhur sampai menjelang ashar
+        } else if (hour >= 15 && hour < 18) {
+            greeting = "Selamat Sore! 🌇";   // Ashar sampai menjelang maghrib
+        } else {
+            greeting = "Selamat Malam! 🌙";  // Maghrib dan Isya
+        }
+
+        // Set greeting ke TextView
+        greetingText.setText(greeting);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -116,8 +141,5 @@ public class HomepageActivity extends AppCompatActivity {
 
             return false;
         });
-
-
-
     }
 }
