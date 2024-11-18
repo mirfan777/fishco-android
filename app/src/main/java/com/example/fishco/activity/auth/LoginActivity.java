@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Initialize sharedPreferences
         sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         loginInterface = RetrofitClient.getClient(this).create(LoginInterface.class);
 

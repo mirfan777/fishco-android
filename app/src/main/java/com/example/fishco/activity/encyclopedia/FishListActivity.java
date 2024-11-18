@@ -26,10 +26,9 @@ public class FishListActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_fish_list);
 
-        // Menangkap data kategori dari intent
         String categoryName = getIntent().getStringExtra("CATEGORY_NAME");
 
-        // Menampilkan kategori di header
+
         TextView categoryHeader = findViewById(R.id.category_name);
         if (categoryName != null) {
             categoryHeader.setText(categoryName);
@@ -40,15 +39,17 @@ public class FishListActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Inisialisasi tombol back
+
         ImageButton backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> {
-            // Kembali ke HomepageActivity
+
             Intent intent = new Intent(FishListActivity.this, HomepageActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP); // Menghindari instance baru
             startActivity(intent);
-            finish(); // Menutup current activity
+            finish();
         });
+
+
 
     }
 }
