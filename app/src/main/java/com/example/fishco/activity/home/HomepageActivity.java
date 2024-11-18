@@ -31,14 +31,20 @@ import java.util.Calendar;
 
 public class HomepageActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_homepage);
 
-        // Tambahkan kode greeting setelah setContentView
         TextView greetingText = findViewById(R.id.greeting_text);
+        TextView welcomeNameText = findViewById(R.id.welcome_text_name);
+
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        welcomeNameText.setText(sharedPreferences.getString("user_name" , "Fish Lover!"));
+
 
         // Ambil waktu sekarang
         Calendar calendar = Calendar.getInstance();
