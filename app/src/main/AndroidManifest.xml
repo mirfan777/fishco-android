@@ -50,9 +50,9 @@
         <activity
             android:name=".activity.aquarium.AquariumFormActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.settings.SettingNavigationActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".activity.settings.SettingNavigationActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".activity.settings.ContactActivity"
             android:exported="false" />
@@ -63,10 +63,13 @@
             android:name=".activity.settings.FAQActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.settings.FeedbackActivity"
+            android:name=".activity.settings.InformasiPersonalActivity"
             android:exported="false" />
         <activity
             android:name=".activity.settings.TermOfServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.settings.PrivacyPolicyActivity"
             android:exported="false" />
         <activity
             android:name=".activity.scanner.ScannerActivity"

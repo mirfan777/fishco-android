@@ -84,7 +84,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
-                        android:id="@+id/linearLayout_personal_info"
+                        android:id="@+id/btnLinearLayout_personal_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -124,6 +124,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
+                        android:id="@+id/btnFAQ"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -161,47 +162,9 @@
                             android:src="@drawable/ic_arrow_right" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:padding="16dp"
-                        android:elevation="4dp"
-                        android:background="@drawable/rounded_notification_background"
-                        android:clipToPadding="false"
-                        android:layout_marginTop="8dp">
-
-                        <!-- Ikon Kiri -->
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/umpanbalik"
-                            android:contentDescription="Personal Information Icon"
-                            android:layout_marginEnd="16dp"
-                            android:layout_marginStart="8dp" />
-
-                        <!-- Teks Tengah -->
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Umpan Balik"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
-
-                        <!-- Ikon Panah Kanan -->
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_arrow_right"
-                            android:contentDescription="Arrow Icon" />
-                    </LinearLayout>
-
                     <!-- Rounded Notification Background -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/linearLayout_term_of_service"                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
@@ -240,6 +203,7 @@
 
                     <!-- Rounded Notification Background -->
                     <LinearLayout
+                        android:id="@+id/btnPrivacyPolicy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
