@@ -34,7 +34,7 @@ public class FishCustomAdapter extends RecyclerView.Adapter<FishCustomAdapter.Fi
         View view = LayoutInflater.from(context).inflate(R.layout.activity_fish_list, parent, false);
         return new FishViewHolder(view);
     }
-
+//test
     @Override
     public void onBindViewHolder(@NonNull FishViewHolder holder, int position) {
         Fish fish = fishList.get(position);
