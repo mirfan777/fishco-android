@@ -85,7 +85,7 @@ public class FishListActivity extends AppCompatActivity {
             public void onResponse(Call<List<Fish>> call, Response<List<Fish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Fish> fishList = response.body();
-                    Log.d("Kontol", "Data: " + fishList.toString());
+                    Log.d("data", "Data: " + fishList.toString());
                     FishCustomAdapter adapter = new FishCustomAdapter(FishListActivity.this, response.body());
                     RecyclerView recyclerView = findViewById(R.id.recycler_view_fish);
                     recyclerView.setLayoutManager(new LinearLayoutManager(FishListActivity.this));
@@ -96,7 +96,7 @@ public class FishListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Fish>> call, Throwable throwable) {
                 Toast.makeText(FishListActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
-                Log.d("kontol" , throwable.toString());
+                Log.d("data" , throwable.toString());
             }
         });
     }

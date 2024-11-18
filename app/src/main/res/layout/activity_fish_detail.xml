@@ -8,68 +8,46 @@
     tools:context=".activity.encyclopedia.FishDetailActivity">
 
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF">
 
-        <!-- Header div -->
+        <!-- Header -->
         <RelativeLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="400dp">
 
-            <!-- Gambar full tanpa margin atas, kanan, dan kiri -->
             <ImageView
                 android:id="@+id/fish_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/fish_detail"
                 android:scaleType="fitXY"
-                android:adjustViewBounds="true"
-                android:backgroundTint="#FFFFFF"
-                android:background="@drawable/rounded_background" /> <!-- Rounded bottom drawable -->
+                android:background="@drawable/rounded_background" />
 
-            <!-- Tombol close (X) di pojok kiri atas -->
             <ImageButton
                 android:id="@+id/close_button"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/close"
-                android:background="?attr/selectableItemBackgroundBorderless"
                 android:layout_margin="16dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:src="@drawable/close"
+                android:background="?attr/selectableItemBackgroundBorderless" />
 
-            <!-- Carousel indicator (titik-titik) di bawah gambar -->
             <LinearLayout
                 android:id="@+id/carousel_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:padding="8dp"
-                android:scaleType="fitXY">
-
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:background="@drawable/dot_active"
-                    android:scaleType="fitXY"/> <!-- Drawable untuk titik aktif -->
-
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginStart="4dp"
-                    android:background="@drawable/dot_inactive"
-                    android:scaleType="fitXY"/> <!-- Drawable untuk titik tidak aktif -->
-
-                <!-- Tambahkan lebih banyak View jika ada lebih banyak slide -->
+                android:orientation="horizontal">
+                <!-- Indicator dots -->
             </LinearLayout>
         </RelativeLayout>
 
-        <!-- Div untuk nama ikan -->
+        <!-- Fish Name Section -->
         <LinearLayout
             android:id="@+id/fish_name_container"
             android:layout_width="match_parent"
@@ -78,27 +56,23 @@
             android:padding="16dp"
             android:layout_below="@id/header">
 
-            <!-- Nama ikan -->
             <TextView
                 android:id="@+id/fish_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cupang"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="#000000" />
 
-            <!-- Nama ilmiah ikan -->
             <TextView
-                android:id="@+id/fish_scientific_name"
+                android:id="@+id/fish_species"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Betta sp."
                 android:textSize="16sp"
                 android:textColor="#777777" />
         </LinearLayout>
 
-        <!-- Div untuk kecocokan ekosistem -->
+        <!-- Ecosystem Compatibility -->
         <RelativeLayout
             android:id="@+id/ecosystem_compatibility_container"
             android:layout_width="match_parent"
@@ -106,49 +80,41 @@
             android:layout_below="@id/fish_name_container"
             android:padding="16dp">
 
-            <!-- Ikon gembok -->
             <ImageView
                 android:id="@+id/lock_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_alignParentStart="true" />
 
-            android:layout_alignParentStart="true" />
-
-            <!-- Text "Kecocokan Ekosistem" -->
             <TextView
                 android:id="@+id/ecosystem_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/lock_icon"
                 android:layout_marginStart="8dp"
-                android:text="Kecocokan Ekosistem"
                 android:textSize="16sp"
                 android:textColor="#000000" />
 
-            <!-- Text "Buka Gratis" -->
             <TextView
                 android:id="@+id/free_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/ecosystem_text"
                 android:layout_marginStart="8dp"
-                android:text="Buka Gratis"
                 android:textSize="16sp"
                 android:textColor="#777777" />
 
-            <!-- Tombol buka -->
             <Button
                 android:id="@+id/open_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buka"
-                android:textSize="14sp"
                 android:layout_alignParentEnd="true"
                 android:backgroundTint="#007BFF"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:text="Buka" />
         </RelativeLayout>
 
-        <!-- Div untuk ikan overview -->
+        <!-- Fish Overview -->
         <LinearLayout
             android:id="@+id/fish_overview_container"
             android:layout_width="match_parent"
@@ -157,7 +123,6 @@
             android:padding="16dp"
             android:layout_below="@id/ecosystem_compatibility_container">
 
-            <!-- Judul Ikan Overview -->
             <TextView
                 android:id="@+id/overview_title"
                 android:layout_width="wrap_content"
@@ -167,168 +132,46 @@
                 android:textStyle="bold"
                 android:textColor="#000000" />
 
-            <!-- Isi overview -->
             <TextView
                 android:id="@+id/overview_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
                 android:textSize="16sp"
                 android:textColor="#555555" />
+        </LinearLayout>
 
-            <!-- Tambahan overview lainnya -->
-            <!-- Title 1 -->
-            <TextView
-                android:id="@+id/title_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Air"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:textColor="#000000" />
+        <!-- Additional Information Section -->
+        <LinearLayout
+            android:id="@+id/information_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/fish_overview_container">
 
-            <TextView
-                android:id="@+id/description_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                android:textSize="16sp"
-                android:textColor="#555555" />
-
-            <!-- Tambahkan overview lain di sini jika diperlukan -->
-
-            <!-- Button Show More pertama -->
-            <Button
-                android:id="@+id/show_more_button_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show More"
-                android:layout_below="@id/fish_overview_container"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#E3F2FD"
-                android:textColor="#000000"
-                android:layout_marginTop="16dp" />
-
-            <!-- Garis putus-putus sebagai pemisah -->
-            <View
-                android:id="@+id/dashed_line_1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/show_more_button_1"
-                android:layout_marginVertical="16dp"
-                 />
-
-            <!-- Section informasi suhu, jenis, dan air bergantian warna -->
             <LinearLayout
-                android:id="@+id/information_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@id/dashed_line_1">
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="#E3F2FD">
 
-                <!-- Div Suhu dengan background biru muda -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/temperature_label"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#E3F2FD">
+                    android:layout_weight="1"
+                    android:text="Suhu"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
 
-                    <!-- Label Suhu -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Suhu"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <!-- Keterangan Suhu -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="18°C - 25°C"
-                        android:textColor="#777777" />
-                </LinearLayout>
-
-                <!-- Div Jenis dengan background putih -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/temperature_value"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#FFFFFF">
-
-                    <!-- Label Jenis -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Jenis"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <!-- Keterangan Jenis -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Karnivora"
-                        android:textColor="#777777" />
-                </LinearLayout>
-
-                <!-- Div Air dengan background biru muda -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:background="#E3F2FD">
-
-                    <!-- Label Air -->
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Air"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <!-- Keterangan Air -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tawar"
-                        android:textColor="#777777" />
-                </LinearLayout>
-
-                <!-- Tambahkan informasi lain sesuai format yang diinginkan -->
+                    android:textColor="#777777" />
             </LinearLayout>
-
-            <!-- Button Show More kedua -->
-            <Button
-                android:id="@+id/show_more_button_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show More"
-                android:layout_below="@id/information_section"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#E3F2FD"
-                android:textColor="#000000"
-                android:layout_marginTop="16dp" />
-
-            <!-- Garis putus-putus sebagai pemisah kedua -->
-            <View
-                android:id="@+id/dashed_line_2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/show_more_button_2"
-                android:layout_marginVertical="16dp"
-                 />
-
         </LinearLayout>
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
