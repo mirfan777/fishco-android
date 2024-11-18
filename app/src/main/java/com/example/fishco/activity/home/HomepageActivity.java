@@ -17,6 +17,7 @@ import com.example.fishco.R;
 import com.example.fishco.activity.aquarium.AquariumListActivity;
 import com.example.fishco.activity.article.ArticleDetailActivity;
 import com.example.fishco.activity.article.ArticleListActivity;
+import com.example.fishco.activity.chatbot.ChatbotActivity;
 import com.example.fishco.activity.encyclopedia.FishListActivity;
 import com.example.fishco.activity.scanner.ScannerActivity;
 import com.example.fishco.activity.settings.ProfileActivity;
@@ -107,9 +108,9 @@ public class HomepageActivity extends AppCompatActivity {
                 // Navigate to My Aquarium
                 startActivity(new Intent(HomepageActivity.this, AquariumListActivity.class));
                 return true;
-            } else if (itemId == R.id.profile) {
+            } else if (itemId == R.id.fishbot) {
                 // Navigate to Profile
-                startActivity(new Intent(HomepageActivity.this, ProfileActivity.class));
+                startActivity(new Intent(HomepageActivity.this, ChatbotActivity.class));
                 return true;
             }
 
