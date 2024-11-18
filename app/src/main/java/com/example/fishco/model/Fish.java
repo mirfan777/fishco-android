@@ -1,29 +1,77 @@
 package com.example.fishco.model;
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
 public class Fish {
+    @SerializedName("id")
     private Long id;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("kingdom")
     private String kingdom;
+
+    @SerializedName("phylum")
     private String phylum;
-    private String fish_class;
+
+    @SerializedName("fish_class")
+    private String fishClass; // Consider renaming to avoid potential conflicts
+
+    @SerializedName("order")
     private String order;
+
+    @SerializedName("family")
     private String family;
+
+    @SerializedName("genus")
     private String genus;
+
+    @SerializedName("species")
     private String species;
+
+    @SerializedName("colour")
     private String colour;
-    private String food_type;
+
+    @SerializedName("food_type")
+    private String foodType;
+
+    @SerializedName("food")
     private String food;
-    private Float min_temperature;
-    private Float max_temperature;
-    private Float min_ph;
-    private Float max_ph;
+
+    @SerializedName("min_temperature")
+    private Float minTemperature;
+
+    @SerializedName("max_temperature")
+    private Float maxTemperature;
+
+    @SerializedName("min_ph")
+    private Float minPh;
+
+    @SerializedName("max_ph")
+    private Float maxPh;
+
+    @SerializedName("habitat")
     private String habitat;
+
+    @SerializedName("overview")
     private String overview;
+
+    @SerializedName("thumbnail")
     private String thumbnail;
-    private Float average_size;
+
+    @SerializedName("url_thumbnail")
+    private String urlThumbnail;
+
+    @SerializedName("average_size")
+    private Float averageSize;
+
+    @SerializedName("created_at")
     private LocalDateTime createdAt;
+
+    @SerializedName("updated_at")
     private LocalDateTime updatedAt;
 }

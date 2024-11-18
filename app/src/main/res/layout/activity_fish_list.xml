@@ -105,7 +105,7 @@
 
                     <!-- Fish Image -->
                     <ImageView
-                        android:id="@+id/fish_image"
+                        android:id="@+id/thumbnail"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="16dp"
@@ -122,7 +122,7 @@
 
                         <!-- Fish Name -->
                         <TextView
-                            android:id="@+id/fish_name"
+                            android:id="@+id/name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cupang"
@@ -132,7 +132,7 @@
 
                         <!-- Fish Species -->
                         <TextView
-                            android:id="@+id/fish_species"
+                            android:id="@+id/species"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Betta sp."

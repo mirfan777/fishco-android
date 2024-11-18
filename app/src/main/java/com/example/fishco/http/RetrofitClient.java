@@ -1,5 +1,4 @@
-package com.example.fishco.service;
-
+package com.example.fishco.http;
 import android.content.Context;
 
 import com.example.fishco.R;
@@ -21,3 +20,4 @@ public class RetrofitClient {
         return retrofit;
     }
 }
+

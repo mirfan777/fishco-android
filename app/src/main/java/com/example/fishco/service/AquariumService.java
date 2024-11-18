@@ -7,7 +7,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface AquariumInterface {
+public interface AquariumService {
     @FormUrlEncoded
     @POST("requestToken")
     Call<TokenResponse> requestToken(

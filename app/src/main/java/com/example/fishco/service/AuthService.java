@@ -7,12 +7,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface AquariumFishesInterface {
+public interface AuthService {
     @FormUrlEncoded
     @POST("requestToken")
     Call<TokenResponse> requestToken(
-            @Field("fish_id") Long fish_id,
-            @Field("aquarium_id") Long aquarium_id,
-            @Field("user_id") Long user_id
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("device_name") String deviceName
     );
 }
