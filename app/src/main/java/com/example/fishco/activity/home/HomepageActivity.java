@@ -45,8 +45,6 @@ public class HomepageActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         welcomeNameText.setText(sharedPreferences.getString("user_name" , "Fish Lover!"));
 
-
-        // Ambil waktu sekarang
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
@@ -90,6 +88,7 @@ public class HomepageActivity extends AppCompatActivity {
         categoryFreshwater.setOnClickListener(v -> {
             Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
             intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
+            intent.putExtra("CATEGORY", "freshwater");
             startActivity(intent);
         });
         // Brackfish Category
@@ -97,6 +96,7 @@ public class HomepageActivity extends AppCompatActivity {
         categoryMarine.setOnClickListener(v -> {
             Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
             intent.putExtra("CATEGORY_NAME", "Marine Fish");
+            intent.putExtra("CATEGORY", "marine");
             startActivity(intent);
         });
         // Invertebrates Category

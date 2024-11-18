@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,42 +21,39 @@ public class FishCustomAdapter extends RecyclerView.Adapter<FishCustomAdapter.Fi
 
     private final Context context;
     private final List<Fish> fishList;
-    private final OnFishClickListener listener;
 
-    public FishCustomAdapter(Context context, List<Fish> fishList, OnFishClickListener listener) {
+    public FishCustomAdapter(Context context, List<Fish> fishList) {
         this.context = context;
         this.fishList = fishList;
-        this.listener = listener;
     }
 
     @NonNull
     @Override
     public FishViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_fish_list, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_fish, parent, false);
         return new FishViewHolder(view);
     }
-//test
+
     @Override
     public void onBindViewHolder(@NonNull FishViewHolder holder, int position) {
         Fish fish = fishList.get(position);
         holder.name.setText(fish.getName());
         holder.species.setText(fish.getSpecies());
 
-
         Glide.with(context)
-                .load(fish.getThumbnail())
+                .load(fish.getUrlThumbnail())
+                .placeholder(R.drawable.blob1_getstarted) // Gambar default
                 .into(holder.thumbnail);
 
-        holder.itemView.setOnClickListener(v -> listener.onFishClick(fish));
+        holder.itemView.setOnLongClickListener(v -> {
+            Toast.makeText(context, "ID Ikan: " + fish.getId(), Toast.LENGTH_SHORT).show();
+            return true;
+        });
     }
 
     @Override
     public int getItemCount() {
         return fishList.size();
-    }
-
-    public interface OnFishClickListener {
-        void onFishClick(Fish fish);
     }
 
     static class FishViewHolder extends RecyclerView.ViewHolder {

@@ -18,8 +18,8 @@ public class Fish {
     @SerializedName("phylum")
     private String phylum;
 
-    @SerializedName("fish_class")
-    private String fishClass; // Consider renaming to avoid potential conflicts
+    @SerializedName("class")
+    private String fish_class;
 
     @SerializedName("order")
     private String order;
@@ -70,8 +70,8 @@ public class Fish {
     private Float averageSize;
 
     @SerializedName("created_at")
-    private LocalDateTime createdAt;
+    private String createdAt;
 
     @SerializedName("updated_at")
-    private LocalDateTime updatedAt;
+    private String updatedAt;
 }
