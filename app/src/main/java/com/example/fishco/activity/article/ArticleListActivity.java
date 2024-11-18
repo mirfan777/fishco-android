@@ -23,23 +23,25 @@ public class ArticleListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_article_list);
+
+        // Inset handling
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Navbar
+
+        // Bottom Navigation
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.home) {
                 startActivity(new Intent(ArticleListActivity.this, HomepageActivity.class));
-                finish(); // Close current activity
+                finish();
                 return true;
             } else if (itemId == R.id.article) {
-                startActivity(new Intent(ArticleListActivity.this, ArticleListActivity.class));
-                finish();
+                // Stay on the current activity
                 return true;
             } else if (itemId == R.id.scanner) {
                 startActivity(new Intent(ArticleListActivity.this, ScannerActivity.class));
@@ -50,12 +52,15 @@ public class ArticleListActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (itemId == R.id.fishbot) {
-                // Stay on the current page
+                startActivity(new Intent(ArticleListActivity.this, ChatbotActivity.class));
+                finish();
                 return true;
             }
 
             return false;
         });
+
+        // Set the default selected item
         bottomNavigation.setSelectedItemId(R.id.article);
     }
 }
