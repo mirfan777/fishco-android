@@ -48,6 +48,14 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         authService = RetrofitClient.getClient(this).create(AuthService.class);
 
+        if (sharedPreferences.getString("token" , "no token").equals("no token")){
+            return ;
+        }else {
+            Intent intent = new Intent(this, HomepageActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         TextView textDaftar = findViewById(R.id.textDaftar);
         Button loginButton = findViewById(R.id.login_button);
         TextInputEditText inputEmail = findViewById(R.id.input_email);
@@ -125,6 +133,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("user_role" , String.valueOf(user.getRole()));
 
         editor.apply();
+        editor.commit();
     }
 
 
