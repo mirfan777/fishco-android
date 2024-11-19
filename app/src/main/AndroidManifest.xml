@@ -39,20 +39,10 @@
 
         <activity
             android:name=".activity.auth.RegisterActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".activity.auth.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".activity.aquarium.AquariumFormActivity"
             android:exported="false" />
@@ -82,6 +72,9 @@
             android:exported="false" />
         <activity
             android:name=".activity.scanner.DetailScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.scanner.NoFishDetectedActivity"
             android:exported="false" />
         <activity
             android:name=".activity.home.HomepageActivity"
