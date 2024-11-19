@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +21,8 @@ import com.example.fishco.activity.aquarium.AquariumListActivity;
 import com.example.fishco.activity.chatbot.ChatbotActivity;
 import com.example.fishco.activity.home.HomepageActivity;
 import com.example.fishco.activity.scanner.ScannerActivity;
+import com.example.fishco.activity.settings.InformasiPersonalActivity;
+import com.example.fishco.activity.settings.ProfileActivity;
 import com.example.fishco.model.Article;
 import com.example.fishco.service.ApiResponse;
 import com.example.fishco.model.Article;
@@ -130,6 +134,22 @@ public class ArticleListActivity extends AppCompatActivity {
 
         // Set the default selected item
         bottomNavigation.setSelectedItemId(R.id.article);
+
+        // LinearLayout untuk gambar besar
+        LinearLayout largeArticleLayout = findViewById(R.id.large_article_layout);
+        largeArticleLayout.setOnClickListener(v -> {
+            // Intent ke TermOfServiceActivity
+            Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
+            startActivity(intent);
+        });
+
+        // LinearLayout untuk gambar kecil statis
+        RelativeLayout smallArticleLayout = findViewById(R.id.small_article_layout);
+        smallArticleLayout.setOnClickListener(v -> {
+            // Intent ke TermOfServiceActivity
+            Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
+            startActivity(intent);
+        });
     }
 
 
