@@ -7,171 +7,253 @@
     android:layout_height="match_parent"
     tools:context=".activity.encyclopedia.FishDetailActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:background="#FFFFFF">
 
-        <!-- Header -->
         <RelativeLayout
-            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/fish_image"
+            <!-- Header -->
+            <RelativeLayout
+                android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:background="@drawable/rounded_background" />
+                android:layout_height="400dp">
 
-            <ImageButton
-                android:id="@+id/close_button"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_margin="16dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/close"
-                android:background="?attr/selectableItemBackgroundBorderless" />
+                <ImageView
+                    android:id="@+id/fish_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rounded_background" />
 
+                <ImageButton
+                    android:id="@+id/close_button"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_margin="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/close"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <LinearLayout
+                    android:id="@+id/carousel_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <!-- Indicator dots -->
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Nama Ikan -->
             <LinearLayout
-                android:id="@+id/carousel_indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:padding="8dp"
-                android:orientation="horizontal">
-                <!-- Indicator dots -->
-            </LinearLayout>
-        </RelativeLayout>
-
-        <!-- Fish Name Section -->
-        <LinearLayout
-            android:id="@+id/fish_name_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_below="@id/header">
-
-            <TextView
-                android:id="@+id/fish_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/fish_species"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#777777" />
-        </LinearLayout>
-
-        <!-- Ecosystem Compatibility -->
-        <RelativeLayout
-            android:id="@+id/ecosystem_compatibility_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fish_name_container"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/lock_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/ecosystem_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lock_icon"
-                android:layout_marginStart="8dp"
-                android:textSize="16sp"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/free_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/ecosystem_text"
-                android:layout_marginStart="8dp"
-                android:textSize="16sp"
-                android:textColor="#777777" />
-
-            <Button
-                android:id="@+id/open_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:backgroundTint="#007BFF"
-                android:textColor="#FFFFFF"
-                android:text="Buka" />
-        </RelativeLayout>
-
-        <!-- Fish Overview -->
-        <LinearLayout
-            android:id="@+id/fish_overview_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_below="@id/ecosystem_compatibility_container">
-
-            <TextView
-                android:id="@+id/overview_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ikan Overview"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/overview_text"
+                android:id="@+id/fish_name_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="#555555" />
-        </LinearLayout>
-
-        <!-- Additional Information Section -->
-        <LinearLayout
-            android:id="@+id/information_section"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_below="@id/fish_overview_container">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="16dp"
-                android:background="#E3F2FD">
+                android:layout_below="@id/header">
 
                 <TextView
-                    android:id="@+id/temperature_label"
-                    android:layout_width="0dp"
+                    android:id="@+id/fish_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Suhu"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/temperature_value"
+                    android:id="@+id/fish_species"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="16sp"
                     android:textColor="#777777" />
             </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
+
+            <!-- Overview -->
+            <LinearLayout
+                android:id="@+id/fish_overview_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_below="@id/fish_name_container">
+
+                <TextView
+                    android:id="@+id/overview_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ikan Overview"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/overview_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textColor="#555555" />
+
+                <!-- Garis abu-abu antara overview dan suhu -->
+                <View
+                    android:id="@+id/gray_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="16dp"
+                    android:background="#CCCCCC" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/information_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_below="@id/fish_overview_container">
+
+                <!-- Suhu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:background="#E3F2FD">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Suhu"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/temperature_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18°C - 25°C"
+                        android:textColor="#777777" />
+                </LinearLayout>
+
+                <!-- Min pH -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Min pH"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6.5"
+                        android:textColor="#777777" />
+                </LinearLayout>
+
+                <!-- Max pH -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:background="#E3F2FD">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Max pH"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7.5"
+                        android:textColor="#777777" />
+                </LinearLayout>
+
+                <!-- Food Type -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Food Type"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Omnivora"
+                        android:textColor="#777777" />
+                </LinearLayout>
+
+                <!-- Habitat -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:background="#E3F2FD">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Habitat"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Air Tawar"
+                        android:textColor="#777777" />
+                </LinearLayout>
+                <!-- Garis abu-abu di bawah tombol Show More -->
+<!--                <Button-->
+<!--                    android:id="@+id/show_more_button_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Show More"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:backgroundTint="#E3F2FD"-->
+<!--                    android:textColor="#000000" />-->
+
+                <View
+                    android:id="@+id/gray_line_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="16dp"
+                    android:background="#CCCCCC" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
