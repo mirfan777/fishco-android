@@ -3,6 +3,8 @@ package com.example.fishco.activity.article;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,8 @@ import com.example.fishco.activity.chatbot.ChatbotActivity;
 import com.example.fishco.activity.home.HomepageActivity;
 import com.example.fishco.activity.scanner.ScannerActivity;
 import com.example.fishco.model.Article;
+import com.example.fishco.service.ApiResponse;
+import com.example.fishco.model.Article;
 import com.example.fishco.service.ArticleApiService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,33 +34,70 @@ import retrofit2.Retrofit;
 
 import com.example.fishco.adapter.ArticleAdapter;
 import com.example.fishco.http.RetrofitClient;
+import com.bumptech.glide.Glide;
+
 
 
 
 public class ArticleListActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ArticleAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_article_list);
 
-        // Inset handling
+        // Setup Large Article
+        TextView largeArticleTitle = findViewById(R.id.large_article_title);
+        ImageView largeArticleImage = findViewById(R.id.large_article_image);
+        TextView largeArticleUsername = findViewById(R.id.large_article_username);
+        TextView largeArticleTime = findViewById(R.id.large_article_time);
+
+        RecyclerView smallArticlesRecyclerView = findViewById(R.id.small_articles_recycler_view);
+        smallArticlesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ArticleApiService apiService = RetrofitClient.getClient(this).create(ArticleApiService.class);
+        apiService.getArticles().enqueue(new Callback<ApiResponse<List<Article>>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<List<Article>>> call, Response<ApiResponse<List<Article>>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Article> articles = response.body().data;
+
+                    // Set first article as large article
+                    if (!articles.isEmpty()) {
+                        Article largeArticle = articles.get(0);
+                        largeArticleTitle.setText(largeArticle.getTitle());
+                        largeArticleUsername.setText("Author Name"); // Replace with actual field if available
+                        largeArticleTime.setText(largeArticle.getCreatedAt());
+
+                        Glide.with(ArticleListActivity.this)
+                                .load(largeArticle.getThumbnail())
+                                .into(largeArticleImage);
+
+                        // Remove the first article from the list
+                        articles.remove(0);
+                    }
+
+                    // Set remaining articles in RecyclerView
+                    ArticleAdapter adapter = new ArticleAdapter(ArticleListActivity.this, articles);
+                    smallArticlesRecyclerView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<List<Article>>> call, Throwable t) {
+                Log.e("API Error", t.getMessage());
+            }
+        });
+
+
+    // Inset handling
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Setup RecyclerView
-        recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Fetch articles
-        fetchArticles();
 
         // Bottom Navigation
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -91,26 +132,5 @@ public class ArticleListActivity extends AppCompatActivity {
         bottomNavigation.setSelectedItemId(R.id.article);
     }
 
-    private void fetchArticles() {
-        Retrofit retrofit = RetrofitClient.getClient(this);
-        retrofit.create(ArticleApiService.class)
-                .getArticles()
-                .enqueue(new Callback<List<Article>>() {
-                    @Override
-                    public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            List<Article> articles = response.body();
-                            adapter = new ArticleAdapter(ArticleListActivity.this, articles);
-                            recyclerView.setAdapter(adapter);
-                        } else {
-                            Log.e("API_ERROR", "Response not successful");
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<Article>> call, Throwable t) {
-                        Log.e("API_ERROR", t.getMessage());
-                    }
-                });
-    }
 }

@@ -6,20 +6,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.fishco.R;
 import com.example.fishco.model.Article;
+
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
-    private List<Article> articleList;
-    private Context context;
 
-    public ArticleAdapter(Context context, List<Article> articleList) {
+    private final Context context;
+    private final List<Article> articles;
+
+    public ArticleAdapter(Context context, List<Article> articles) {
         this.context = context;
-        this.articleList = articleList;
+        this.articles = articles;
     }
 
     @NonNull
@@ -31,31 +35,31 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
-        Article article = articleList.get(position);
+        Article article = articles.get(position);
         holder.title.setText(article.getTitle());
-        holder.username.setText(article.getUserId().toString()); // Sesuaikan dengan datanya
-        holder.time.setText(article.getCreatedAt());
+        holder.info.setText("User ID: " + article.getUserId() + " • " + article.getCreatedAt());
 
+        // Load image using Glide
         Glide.with(context)
-                .load(article.getThumbnail()) // URL gambar
+                .load(article.getThumbnail())
+                .placeholder(R.drawable.rounded_background_article)
                 .into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-        return articleList.size();
+        return articles.size();
     }
 
     public static class ArticleViewHolder extends RecyclerView.ViewHolder {
-        TextView title, username, time;
+        TextView title, info;
         ImageView image;
 
         public ArticleViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.small_article_title);
-            username = itemView.findViewById(R.id.small_article_username);
-            time = itemView.findViewById(R.id.small_article_time);
-            image = itemView.findViewById(R.id.small_article_image);
+            title = itemView.findViewById(R.id.article_title);
+            info = itemView.findViewById(R.id.article_info);
+            image = itemView.findViewById(R.id.article_image);
         }
     }
 }
