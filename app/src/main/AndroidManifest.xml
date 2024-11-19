@@ -75,6 +75,9 @@
             android:name=".activity.scanner.ScannerActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.scanner.DetailScannerActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.home.HomepageActivity"
             android:exported="false" />
         <activity
