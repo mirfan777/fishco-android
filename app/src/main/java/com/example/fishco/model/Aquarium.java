@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class Aquarium {
+public class  Aquarium {
     private Long id;
     private Long user_id;
     private String name;
