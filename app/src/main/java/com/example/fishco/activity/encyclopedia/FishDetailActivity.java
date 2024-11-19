@@ -26,9 +26,8 @@ public class FishDetailActivity extends AppCompatActivity {
         String fishOverview = getIntent().getStringExtra("OVERVIEW");
         String fishImageUrl = getIntent().getStringExtra("IMAGE_URL");
 
-        // Ambil data suhu, pH, food type, habitat
-        String minTemperature = getIntent().getStringExtra("MIN_TEMPERATURE");
-        String maxTemperature = getIntent().getStringExtra("MAX_TEMPERATURE");
+        String temperature = getIntent().getStringExtra("MIN_TEMPERATURE") + "°C - " +
+                getIntent().getStringExtra("MAX_TEMPERATURE") + "°C";
         String minPh = getIntent().getStringExtra("MIN_PH");
         String maxPh = getIntent().getStringExtra("MAX_PH");
         String foodType = getIntent().getStringExtra("FOOD_TYPE");
@@ -49,7 +48,7 @@ public class FishDetailActivity extends AppCompatActivity {
         nameTextView.setText(fishName);
         scientificNameTextView.setText(fishScientificName);
         overviewTextView.setText(fishOverview);
-        temperatureTextView.setText(minTemperature + "°C - " + maxTemperature + "°C");
+        temperatureTextView.setText(temperature);
         minPhTextView.setText(minPh);
         maxPhTextView.setText(maxPh);
         foodTypeTextView.setText(foodType);
