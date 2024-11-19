@@ -191,6 +191,14 @@
                     android:background="@color/gray"
                     android:layout_marginVertical="8dp" />
 
+                <!-- Small Articles RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/small_articles_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:padding="8dp" />
+
                 <!-- Smaller Article Items -->
                 <RelativeLayout
                     android:id="@+id/small_article_layout"

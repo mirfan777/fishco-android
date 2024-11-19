@@ -1,6 +1,7 @@
 package com.example.fishco.activity.scanner;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,9 @@ public class ScannerActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Tambahkan fungsi untuk ikon back
+        ImageView iconBack = findViewById(R.id.iconBack);
+        iconBack.setOnClickListener(v -> finish()); // Kembali ke aktivitas sebelumnya
     }
 }

@@ -89,6 +89,9 @@
             android:name=".activity.chatbot.ChatbotActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.chatbot.ChatbotDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.encyclopedia.FishDetailActivity"
             android:exported="false" />
         <activity

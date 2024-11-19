@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_artikel"
-    tools:context=".activity.scanner.ScannerActivity">
+    tools:context=".activity.scanner.ScannerActivity"
+    android:id="@+id/main">
 
     <!-- Overlay atas tanpa padding/margin, gelap ke terang -->
     <ImageView
@@ -49,7 +50,7 @@
             android:id="@+id/btnScanner"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_scanner"
+            android:src="@drawable/scannerr"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
