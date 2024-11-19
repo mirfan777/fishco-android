@@ -1,10 +1,14 @@
 package com.example.fishco.activity.encyclopedia;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.fishco.R;
@@ -41,5 +45,17 @@ public class FishDetailActivity extends AppCompatActivity {
                 .load(fishImageUrl)
                 .placeholder(R.drawable.fish_detail)
                 .into(fishImageView);
+
+        // Handle window insets
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // Setup close button
+        ImageButton closeButton = findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> finish()); // Kembali ke aktivitas sebelumnya
     }
 }
+
