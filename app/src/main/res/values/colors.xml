@@ -19,4 +19,8 @@
     <color name="gray">#B1B1B1</color>
     <color name="gray_dark">#64736E</color>
     <color name="bg_chat">#EEEDED</color>
+
+    <color name="gradient_start">#02B7C7</color>
+    <color name="gradient_center">#0695D3</color>
+    <color name="gradient_end">#0B73E0</color>
 </resources>

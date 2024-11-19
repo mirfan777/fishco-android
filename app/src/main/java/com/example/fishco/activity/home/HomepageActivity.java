@@ -51,7 +51,7 @@ public class HomepageActivity extends AppCompatActivity {
         // Tentukan greeting berdasarkan waktu
         String greeting;
         if (hour >= 4 && hour < 12) {
-            greeting = "Selamat Pagi! 🌅";  // Subuh sampai menjelang dzuhur
+            greeting = "Selamat Pagi! 🌤️";  // Subuh sampai menjelang dzuhur
         } else if (hour >= 12 && hour < 15) {
             greeting = "Selamat Siang! ☀️";  // Dzuhur sampai menjelang ashar
         } else if (hour >= 15 && hour < 18) {

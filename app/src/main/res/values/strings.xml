@@ -4,11 +4,47 @@
 <!--    https://fishco.miauwlan.com/api/-->
 <!--    http://10.0.2.2:8000/api/-->
     <string-array name="flag_phone">
-        <item>+62</item>
-        <item>+1</item>
-        <item>+44</item>
-        <item>+61</item>
-        <item>+81</item>
-        <item>+91</item>
+        <item>+62</item>  <!-- Indonesia -->
+        <item>+1</item>   <!-- United States, Canada, and several other countries -->
+        <item>+20</item>  <!-- Egypt -->
+        <item>+30</item>  <!-- Greece -->
+        <item>+31</item>  <!-- Netherlands -->
+        <item>+32</item>  <!-- Belgium -->
+        <item>+33</item>  <!-- France -->
+        <item>+34</item>  <!-- Spain -->
+        <item>+39</item>  <!-- Italy -->
+        <item>+40</item>  <!-- Romania -->
+        <item>+41</item>  <!-- Switzerland -->
+        <item>+42</item>  <!-- Former Czechoslovakia (now split into Czechia and Slovakia) -->
+        <item>+44</item>  <!-- United Kingdom -->
+        <item>+45</item>  <!-- Denmark -->
+        <item>+46</item>  <!-- Sweden -->
+        <item>+47</item>  <!-- Norway -->
+        <item>+48</item>  <!-- Poland -->
+        <item>+49</item>  <!-- Germany -->
+        <item>+52</item>  <!-- Mexico -->
+        <item>+55</item>  <!-- Brazil -->
+        <item>+61</item>  <!-- Australia -->
+        <item>+62</item>  <!-- Indonesia -->
+        <item>+63</item>  <!-- Philippines -->
+        <item>+64</item>  <!-- New Zealand -->
+        <item>+66</item>  <!-- Thailand -->
+        <item>+81</item>  <!-- Japan -->
+        <item>+82</item>  <!-- South Korea -->
+        <item>+84</item>  <!-- Vietnam -->
+        <item>+86</item>  <!-- China -->
+        <item>+91</item>  <!-- India -->
+        <item>+92</item>  <!-- Pakistan -->
+        <item>+93</item>  <!-- Afghanistan -->
+        <item>+94</item>  <!-- Sri Lanka -->
+        <item>+95</item>  <!-- Myanmar -->
+        <item>+98</item>  <!-- Iran -->
     </string-array>
+
+    <array name="progress_gradient_colors">
+        <item>@color/gradient_start</item>
+        <item>@color/gradient_center</item>
+        <item>@color/gradient_end</item>
+    </array>
+
 </resources>

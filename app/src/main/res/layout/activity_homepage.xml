@@ -136,7 +136,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
                 android:text="Get Started"
-                android:textColor="@color/blue_tua1"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -251,7 +251,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
                 android:text="Categories"
-                android:textColor="@color/blue_tua1"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
