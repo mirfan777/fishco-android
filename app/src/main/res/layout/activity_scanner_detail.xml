@@ -40,17 +40,6 @@
                     android:layout_alignParentTop="true"
                     android:src="@drawable/close"
                     android:background="?attr/selectableItemBackgroundBorderless" />
-
-                <LinearLayout
-                    android:id="@+id/carousel_indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:padding="8dp"
-                    android:orientation="horizontal">
-                    <!-- Indicator dots -->
-                </LinearLayout>
             </RelativeLayout>
 
             <!-- Nama Ikan -->
@@ -131,75 +120,130 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#E3F2FD"
                     android:textColor="#000000" />
-
-                <!-- Garis abu-abu antara overview dan suhu -->
-                <View
-                    android:id="@+id/gray_line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="16dp"
-                    android:background="#CCCCCC" />
             </LinearLayout>
 
-            <!-- Information Section -->
+            <!-- Saran Obat dan Perawatan -->
             <LinearLayout
-                android:id="@+id/information_section"
+                android:id="@+id/saran_obat_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:layout_below="@id/fish_overview_container">
 
+                <!-- Saran Obat -->
+                <TextView
+                    android:id="@+id/saran_obat_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saran Obat"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
                 <LinearLayout
-                    android:id="@+id/saran_obat_container"
+                    android:id="@+id/medicine_categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:layout_below="@id/fish_overview_container">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="2">
 
-                    <TextView
-                        android:id="@+id/saran_obat_title"
-                        android:layout_width="wrap_content"
+                    <!-- Obat 1 -->
+                    <LinearLayout
+                        android:id="@+id/obat1_container"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Saran Obat"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/rounded_background">
 
-                    <TextView
-                        android:id="@+id/saran_obat_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textSize="16sp"
-                        android:textColor="#555555" />
+                        <!-- Image and Overlay Container -->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:clipToPadding="true">
 
-                    <TextView
-                        android:id="@+id/saran_perawatan_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Saran Perawatan"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
+                            <!-- Image with fitXY scaling -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/obat" />
 
-                    <TextView
-                        android:id="@+id/saran_perawatan_text"
-                        android:layout_width="match_parent"
+                            <!-- Text overlay -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@drawable/overlay_background"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Obat 1"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <!-- Obat 2 -->
+                    <LinearLayout
+                        android:id="@+id/obat2_container"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textSize="16sp"
-                        android:textColor="#555555" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/rounded_background">
+
+                        <!-- Image and Overlay Container -->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:clipToPadding="true">
+
+                            <!-- Image with fitXY scaling -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/obat" />
+
+                            <!-- Text overlay -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@drawable/overlay_background"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Obat 2"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </LinearLayout>
                 </LinearLayout>
-                <!-- Garis abu-abu di bawah -->
-                <View
-                    android:id="@+id/gray_line_2"
+
+                <!-- Saran Perawatan -->
+                <TextView
+                    android:id="@+id/saran_perawatan_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Saran Perawatan"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/saran_perawatan_text"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="16dp"
-                    android:background="#CCCCCC" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textColor="#555555" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
