@@ -1,6 +1,9 @@
 package com.example.fishco.activity.scanner;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +28,14 @@ public class DetailScannerActivity extends AppCompatActivity {
         });
 
         TextView fish_name = findViewById(R.id.fish_name);
+        ImageView fish_image = findViewById(R.id.fish_image);
+
+        byte[] imageBytes = getIntent().getByteArrayExtra("IMAGE_BITMAP");
+        if (imageBytes != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            fish_image.setImageBitmap(bitmap);
+        }
         fish_name.setText(getIntent().getStringExtra("FISH_SPECIES"));
+
     }
 }

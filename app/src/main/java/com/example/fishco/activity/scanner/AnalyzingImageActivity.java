@@ -6,244 +6,116 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.camera.core.ImageProxy;
 
-import com.bumptech.glide.Glide;
 import com.example.fishco.R;
+import com.example.fishco.ml.Model;
 
-import org.tensorflow.lite.Interpreter;
-import org.tensorflow.lite.Tensor;
-import org.tensorflow.lite.support.common.FileUtil;
-import org.tensorflow.lite.support.common.ops.NormalizeOp;
-import org.tensorflow.lite.support.image.ImageProcessor;
-import org.tensorflow.lite.support.image.TensorImage;
-import org.tensorflow.lite.support.image.ops.ResizeOp;
-import org.tensorflow.lite.support.label.TensorLabel;
+import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
 import java.io.IOException;
-import java.nio.MappedByteBuffer;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.ByteOrder;
 
 public class AnalyzingImageActivity extends AppCompatActivity {
 
-    private Interpreter fishDetectionTflite;
-    private Interpreter speciesTflite;
-    private List<String> speciesLabels;
+    private int imageSize = 224; // Expected input size for the model
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_analyzing_image);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
         ImageView scanImage = findViewById(R.id.image);
-        String imagePath = getIntent().getStringExtra("IMAGE_PATH");
 
-        if (imagePath != null) {
-            Glide.with(this)
-                    .load(imagePath)
-                    .into(scanImage);
-        }
+        // Retrieve the byte array from the Intent and convert it back to a Bitmap
+        byte[] imageBytes = getIntent().getByteArrayExtra("IMAGE_BITMAP");
 
-        loadModels(imagePath);
-    }
-
-    private void loadModels(String imagePath) {
-        try {
-            MappedByteBuffer detectionModelBuffer =  FileUtil.loadMappedFile(this, "models/model.tflite");
-            fishDetectionTflite = new Interpreter(detectionModelBuffer);
-
-            // Load fish species classification model
-            MappedByteBuffer speciesModelBuffer = FileUtil.loadMappedFile(this, "models/model.tflite");
-            speciesTflite = new Interpreter(speciesModelBuffer);
-
-            // Load species labels
-            speciesLabels = FileUtil.loadLabels(this, "models/labels.txt");
-
-            // Process image
-            processImage(imagePath);
-
-        } catch (IOException e) {
-            Log.e("AnalyzingImageActivity", "Error loading models", e);
-            navigateToFailedScan("Model loading failed");
+        if (imageBytes != null) {
+            Bitmap imageBitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            scanImage.setImageBitmap(imageBitmap);
+            processImage(imageBitmap);
+        } else {
+            navigateToFailedScan("No image provided");
         }
     }
 
-    private void processImage(String imagePath) {
+    private void processImage(Bitmap image) {
         try {
-            // Check if it's a fish
-            if (!isFish(imagePath)) {
-                navigateToFailedScan("No fish detected");
-                return;
-            }
+            String classifiedSpecies = classifyFishSpecies(image);
 
-            // Classify fish species
-            String classifiedSpecies = classifyFishSpecies(imagePath);
-
-            // Navigate to detail activity
+            // Pass the classification and image to the next activity
             Intent intent = new Intent(this, DetailScannerActivity.class);
             intent.putExtra("FISH_SPECIES", classifiedSpecies);
+
+            // Serialize and pass the Bitmap
+            intent.putExtra("IMAGE_BITMAP", bitmapToByteArray(image));
             startActivity(intent);
             finish();
-
         } catch (Exception e) {
             Log.e("AnalyzingImageActivity", "Processing error", e);
             navigateToFailedScan("Processing failed");
         }
     }
 
-    private boolean isFish(String imagePath) {
-        try {
-            // Load and scale the bitmap
-            Bitmap originalBitmap = BitmapFactory.decodeFile(imagePath);
 
-            // Calculate the correct input size based on the model's expected bytes
-            // 150528 bytes = height * width * channels (assuming float32 and RGB)
-            // 150528 / (3 * 4) = 12544 (total pixels)
-            // sqrt(12544) ≈ 112, so the model expects 112x112 input
-            int modelInputSize = 112;  // Changed from 224 to match model's expectations
+    private String classifyFishSpecies(Bitmap image) throws IOException {
+        Model model = Model.newInstance(getApplicationContext());
 
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(
-                    originalBitmap,
-                    modelInputSize,
-                    modelInputSize,
-                    true
-            );
+        // Preprocess the Bitmap to match the model's input requirements
+        Bitmap scaledImage = Bitmap.createScaledBitmap(image, imageSize, imageSize, true);
 
-            // Create TensorImage with the correct data type
-            TensorImage tensorImage = new TensorImage(fishDetectionTflite.getInputTensor(0).dataType());
-            tensorImage.load(scaledBitmap);
+        // Allocate the correct buffer size (1 * 224 * 224 * 3 * 4 bytes)
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(imageSize * imageSize * 3 * 4);
+        byteBuffer.order(ByteOrder.nativeOrder());
 
-            // Create ImageProcessor for preprocessing
-            ImageProcessor imageProcessor = new ImageProcessor.Builder()
-                    .add(new ResizeOp(modelInputSize, modelInputSize, ResizeOp.ResizeMethod.BILINEAR))
-                    .add(new NormalizeOp(0.0f, 255.0f))
-                    .build();
+        int[] intValues = new int[imageSize * imageSize];
+        scaledImage.getPixels(intValues, 0, scaledImage.getWidth(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight());
 
-            tensorImage = imageProcessor.process(tensorImage);
-
-            // Add debug logging
-            logTensorImageInfo("FishDetection", tensorImage);
-            logModelInfo("FishDetection", fishDetectionTflite);
-
-            // Prepare output buffer
-            float[][] outputProbabilityBuffer = new float[1][2]; // [not fish, fish]
-
-            // Run inference
-            Map<Integer, Object> outputs = new HashMap<>();
-            outputs.put(0, outputProbabilityBuffer);
-
-            Object[] inputs = new Object[]{tensorImage.getBuffer()};
-            Map<Integer, Object> outputMap = new HashMap<>();
-            outputMap.put(0, outputProbabilityBuffer);
-
-            fishDetectionTflite.runForMultipleInputsOutputs(inputs, outputMap);
-
-            // Clean up
-            scaledBitmap.recycle();
-
-            // Check fish probability (threshold at 70%)
-            return outputProbabilityBuffer[0][1] > 0.7f;
-
-        } catch (Exception e) {
-            Log.e("AnalyzingImageActivity", "Fish detection error", e);
-            e.printStackTrace();
-            navigateToFailedScan("No Fish Detected");
-            return false;
-        }
-    }
-
-    private String classifyFishSpecies(String imagePath) {
-        try {
-            // Load and scale the bitmap
-            Bitmap originalBitmap = BitmapFactory.decodeFile(imagePath);
-            int modelInputSize = 224;
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(
-                    originalBitmap,
-                    modelInputSize,
-                    modelInputSize,
-                    true
-            );
-
-            // Create and process TensorImage
-            TensorImage tensorImage = new TensorImage(speciesTflite.getInputTensor(0).dataType());
-            tensorImage.load(scaledBitmap);
-
-            ImageProcessor imageProcessor = new ImageProcessor.Builder()
-                    .add(new NormalizeOp(0.0f, 255.0f))
-                    .build();
-
-            tensorImage = imageProcessor.process(tensorImage);
-
-            // Prepare output buffer
-            float[][] outputProbabilityBuffer = new float[1][speciesLabels.size()];
-
-            // Run inference directly with TensorBuffer
-            speciesTflite.run(tensorImage.getBuffer(), outputProbabilityBuffer);
-
-            // Clean up
-            scaledBitmap.recycle();
-
-            // Find highest probability label
-            String highestProbabilityLabel = "";
-            float highestProbability = -1f;
-
-            for (int i = 0; i < speciesLabels.size(); i++) {
-                if (outputProbabilityBuffer[0][i] > highestProbability) {
-                    highestProbability = outputProbabilityBuffer[0][i];
-                    highestProbabilityLabel = speciesLabels.get(i);
-                }
+        for (int i = 0; i < imageSize; i++) {
+            for (int j = 0; j < imageSize; j++) {
+                int pixelValue = intValues[i * imageSize + j];
+                // Normalize pixel values to [0, 1] range
+                byteBuffer.putFloat(((pixelValue >> 16) & 0xFF) / 255.0f);   // Red
+                byteBuffer.putFloat(((pixelValue >> 8) & 0xFF) / 255.0f);    // Green
+                byteBuffer.putFloat((pixelValue & 0xFF) / 255.0f);           // Blue
             }
-
-            return highestProbabilityLabel;
-
-        } catch (Exception e) {
-            Log.e("AnalyzingImageActivity", "Fish species classification error", e);
-            e.printStackTrace();
-            navigateToFailedScan("Classification failed");
-            return null;
         }
+
+        TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, imageSize, imageSize, 3}, DataType.FLOAT32);
+        inputFeature0.loadBuffer(byteBuffer);
+
+        // Perform inference
+        Model.Outputs outputs = model.process(inputFeature0);
+        TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+
+        // Get the classification result
+        float[] confidences = outputFeature0.getFloatArray();
+        String[] classes = {"betta", "carassius"}; // Update with your model's classes
+
+        int maxPos = 0;
+        float maxConfidence = 0;
+        for (int i = 0; i < confidences.length; i++) {
+            if (confidences[i] > maxConfidence) {
+                maxConfidence = confidences[i];
+                maxPos = i;
+            }
+        }
+
+        // Release model resources
+        model.close();
+
+        return classes[maxPos];
     }
 
-    // Add these helper methods for debugging
-    private void logModelInfo(String tag, Interpreter interpreter) {
-        try {
-            Tensor inputTensor = interpreter.getInputTensor(0);
-            Log.d(tag, "Input tensor shape: " + Arrays.toString(inputTensor.shape()));
-            Log.d(tag, "Input tensor dataType: " + inputTensor.dataType());
-            Log.d(tag, "Input tensor bytes: " + inputTensor.numBytes());
-
-            Tensor outputTensor = interpreter.getOutputTensor(0);
-            Log.d(tag, "Output tensor shape: " + Arrays.toString(outputTensor.shape()));
-            Log.d(tag, "Output tensor dataType: " + outputTensor.dataType());
-            Log.d(tag, "Output tensor bytes: " + outputTensor.numBytes());
-        } catch (Exception e) {
-            Log.e(tag, "Error logging model info", e);
-        }
-    }
-
-    private void logTensorImageInfo(String tag, TensorImage tensorImage) {
-        try {
-            Log.d(tag, "TensorImage shape: " + Arrays.toString(tensorImage.getTensorBuffer().getShape()));
-            Log.d(tag, "TensorImage dataType: " + tensorImage.getTensorBuffer().getDataType());
-            Log.d(tag, "TensorImage bytes: " + tensorImage.getBuffer().capacity());
-        } catch (Exception e) {
-            Log.e(tag, "Error logging tensor image info", e);
-        }
+    private byte[] bitmapToByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        return stream.toByteArray();
     }
 
 
@@ -252,16 +124,5 @@ public class AnalyzingImageActivity extends AppCompatActivity {
         intent.putExtra("FAILURE_REASON", reason);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (fishDetectionTflite != null) {
-            fishDetectionTflite.close();
-        }
-        if (speciesTflite != null) {
-            speciesTflite.close();
-        }
     }
 }
