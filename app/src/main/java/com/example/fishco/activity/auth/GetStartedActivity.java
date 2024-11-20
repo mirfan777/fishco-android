@@ -33,7 +33,7 @@ public class GetStartedActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         if (sharedPreferences.getString("token" , "no token").equals("no token")){
-            return ;
+
         }else {
             Intent intent = new Intent(this, HomepageActivity.class);
             startActivity(intent);

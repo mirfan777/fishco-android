@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         authService = RetrofitClient.getClient(this).create(AuthService.class);
 
         if (sharedPreferences.getString("token" , "no token").equals("no token")){
-            return ;
+
         }else {
             Intent intent = new Intent(this, HomepageActivity.class);
             startActivity(intent);

@@ -19,11 +19,11 @@ import java.util.List;
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
 
     private final Context context;
-    private final List<Article> articles;
+    private final List<Article> articleList;
 
-    public ArticleAdapter(Context context, List<Article> articles) {
+    public ArticleAdapter(Context context, List<Article> articleList) {
         this.context = context;
-        this.articles = articles;
+        this.articleList = articleList;
     }
 
     @NonNull
@@ -35,31 +35,34 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
-        Article article = articles.get(position);
+        Article article = articleList.get(position);
         holder.title.setText(article.getTitle());
-        holder.info.setText("User ID: " + article.getUserId() + " • " + article.getCreatedAt());
+        holder.createdAt.setText(article.getCreatedAt());
 
-        // Load image using Glide
         Glide.with(context)
-                .load(article.getThumbnail())
-                .placeholder(R.drawable.rounded_background_article)
-                .into(holder.image);
+                .load(article.getUrlThumbnail())
+                .placeholder(android.R.drawable.ic_menu_gallery) // Gambar default bawaan Android
+                .into(holder.thumbnail);
+
+        holder.itemView.setOnClickListener(v -> {
+            // Tambahkan logic untuk berpindah ke detail artikel (jika perlu)
+        });
     }
 
     @Override
     public int getItemCount() {
-        return articles.size();
+        return articleList.size();
     }
 
-    public static class ArticleViewHolder extends RecyclerView.ViewHolder {
-        TextView title, info;
-        ImageView image;
+    static class ArticleViewHolder extends RecyclerView.ViewHolder {
+        ImageView thumbnail;
+        TextView title, createdAt;
 
         public ArticleViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.article_title);
-            info = itemView.findViewById(R.id.article_info);
-            image = itemView.findViewById(R.id.article_image);
+            thumbnail = itemView.findViewById(R.id.thumbnail);
+            title = itemView.findViewById(R.id.title);
+            createdAt = itemView.findViewById(R.id.created_at);
         }
     }
 }
