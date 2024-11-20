@@ -80,7 +80,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
             // Tambahkan logic untuk berpindah ke detail artikel (jika perlu)
             // Kirim data artikel melalui intent
             intent.putExtra("ARTICLE_TITLE", article.getTitle());
-            intent.putExtra("ARTICLE_CONTENT", article.getContent());
+            intent.putExtra("ARTICLE_CONTENT", article.getBody());
             intent.putExtra("ARTICLE_IMAGE", article.getUrlThumbnail());
             intent.putExtra("ARTICLE_DATE", article.getCreatedAt());
 

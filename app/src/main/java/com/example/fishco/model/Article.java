@@ -31,16 +31,4 @@ public class Article {
 
     @SerializedName("created_at")
     private String createdAt;
-
-    // Penyesuaian model untuk atribut content
-    @SerializedName("content")
-    private String content;
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
