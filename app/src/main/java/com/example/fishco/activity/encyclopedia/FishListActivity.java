@@ -49,7 +49,7 @@ public class FishListActivity extends AppCompatActivity {
 
         String categoryName = getIntent().getStringExtra("CATEGORY_NAME");
 
-        sharedPreferences = getSharedPreferences("YourSharedPreferenceName", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
 
         fetchFish(sharedPreferences.getString("token" , "no token"), Optional.empty());
 
@@ -67,7 +67,6 @@ public class FishListActivity extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> {
-
             Intent intent = new Intent(FishListActivity.this, HomepageActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP); // Menghindari instance baru
             startActivity(intent);
@@ -85,7 +84,7 @@ public class FishListActivity extends AppCompatActivity {
             public void onResponse(Call<List<Fish>> call, Response<List<Fish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Fish> fishList = response.body();
-                    Log.d("data", "Data: " + fishList.toString());
+                    Log.d("kontol", "Data: " + fishList.toString());
                     FishCustomAdapter adapter = new FishCustomAdapter(FishListActivity.this, response.body());
                     RecyclerView recyclerView = findViewById(R.id.recycler_view_fish);
                     recyclerView.setLayoutManager(new LinearLayoutManager(FishListActivity.this));

@@ -1,7 +1,9 @@
 package com.example.fishco.activity.home;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -10,6 +12,8 @@ import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -133,8 +137,15 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(new Intent(HomepageActivity.this, ArticleListActivity.class));
                 return true;
             } else if (itemId == R.id.scanner) {
-                // Navigate to scanner
-                startActivity(new Intent(HomepageActivity.this, ScannerActivity.class));
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(this, ScannerActivity.class);
+                    startActivity(intent);
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 100);
+                }
+
+                Intent intent = new Intent(this, ScannerActivity.class);
+                startActivity(intent);
                 return true;
             } else if (itemId == R.id.aquarium) {
                 // Navigate to My Aquarium
