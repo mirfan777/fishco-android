@@ -1,6 +1,7 @@
 package com.example.fishco.activity.article;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,18 +21,20 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_article_detail);
+
+        // Setup Edge-to-Edge Window Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Tangkap backButton dan set OnClickListener
-        ImageView backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(v -> finish()); // Kembali ke aktivitas sebelumnya
-
-        TextView titleText, contentText, dateText;
-        ImageView articleImage;
+        // Back Button
+        ImageButton backButton = findViewById(R.id.back_button); // Ubah dari ImageView ke ImageButton
+        backButton.setOnClickListener(v -> {
+            System.out.println("Back button pressed"); // Debugging
+            finish(); // Tutup aktivitas
+        });
 
         // Tangkap data yang dikirim dari intent
         String title = getIntent().getStringExtra("ARTICLE_TITLE");
@@ -39,18 +42,18 @@ public class ArticleDetailActivity extends AppCompatActivity {
         String imageUrl = getIntent().getStringExtra("ARTICLE_IMAGE");
         String date = getIntent().getStringExtra("ARTICLE_DATE");
 
-// Hubungkan dengan UI
-        titleText = findViewById(R.id.article_title);
-        contentText = findViewById(R.id.article_content);
-        dateText = findViewById(R.id.article_date);
-        articleImage = findViewById(R.id.article_image);
+        // Hubungkan dengan UI
+        TextView titleText = findViewById(R.id.article_title);
+        TextView contentText = findViewById(R.id.article_content);
+        TextView dateText = findViewById(R.id.article_date);
+        ImageView articleImage = findViewById(R.id.article_image);
 
-// Set data ke UI
+        // Set data ke UI
         titleText.setText(title);
         contentText.setText(content);
         dateText.setText(date);
 
-// Gunakan Glide untuk memuat gambar
+        // Gunakan Glide untuk memuat gambar
         Glide.with(this)
                 .load(imageUrl)
                 .placeholder(android.R.drawable.ic_menu_gallery) // Gambar default
