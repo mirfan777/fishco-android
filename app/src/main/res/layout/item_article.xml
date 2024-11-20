@@ -6,12 +6,52 @@
     android:padding="8dp"
     tools:context=".activity.article.ArticleListActivity">
 
+
+
+
     <!-- Small Article Image -->
     <LinearLayout
         android:id="@+id/small_article_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <!-- Large Article Section -->
+        <LinearLayout
+            android:id="@+id/large_article_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <!--                android:background="@drawable/bg_large_article"-->
+
+            <ImageView
+                android:id="@+id/large_article_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true" />
+            <!--                    android:src="@drawable/img_large_article"-->
+
+            <TextView
+                android:id="@+id/large_article_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teknik Breeding Ikan Koi Terbaru"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/large_article_created_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By Adrian Nawawi • 14 Nov 2024"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
 
         <!-- Article Item -->
         <LinearLayout

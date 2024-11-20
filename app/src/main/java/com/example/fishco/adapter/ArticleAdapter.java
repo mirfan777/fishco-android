@@ -36,13 +36,42 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
         Article article = articleList.get(position);
-        holder.title.setText(article.getTitle());
-        holder.createdAt.setText(article.getCreatedAt());
 
-        Glide.with(context)
-                .load(article.getUrlThumbnail())
-                .placeholder(android.R.drawable.ic_menu_gallery) // Gambar default bawaan Android
-                .into(holder.thumbnail);
+        if (position == 0) {
+            // Tampilan besar untuk artikel pertama
+            holder.mainThumbnail.setVisibility(View.VISIBLE);
+            holder.mainTitle.setVisibility(View.VISIBLE);
+            holder.mainCreatedAt.setVisibility(View.VISIBLE);
+
+            holder.thumbnail.setVisibility(View.GONE);
+            holder.title.setVisibility(View.GONE);
+            holder.createdAt.setVisibility(View.GONE);
+
+            holder.mainTitle.setText(article.getTitle());
+            holder.mainCreatedAt.setText(article.getCreatedAt());
+
+            Glide.with(context)
+                    .load(article.getUrlThumbnail())
+                    .placeholder(android.R.drawable.ic_menu_gallery) // Gambar default
+                    .into(holder.mainThumbnail);
+        } else {
+            // Tampilan kecil untuk artikel lainnya
+            holder.thumbnail.setVisibility(View.VISIBLE);
+            holder.title.setVisibility(View.VISIBLE);
+            holder.createdAt.setVisibility(View.VISIBLE);
+
+            holder.mainThumbnail.setVisibility(View.GONE);
+            holder.mainTitle.setVisibility(View.GONE);
+            holder.mainCreatedAt.setVisibility(View.GONE);
+
+            holder.title.setText(article.getTitle());
+            holder.createdAt.setText(article.getCreatedAt());
+
+            Glide.with(context)
+                    .load(article.getUrlThumbnail())
+                    .placeholder(android.R.drawable.ic_menu_gallery) // Gambar default
+                    .into(holder.thumbnail);
+        }
 
         holder.itemView.setOnClickListener(v -> {
             // Tambahkan logic untuk berpindah ke detail artikel (jika perlu)
@@ -55,14 +84,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     }
 
     static class ArticleViewHolder extends RecyclerView.ViewHolder {
-        ImageView thumbnail;
-        TextView title, createdAt;
+        ImageView thumbnail , mainThumbnail;
+        TextView title, createdAt , mainTitle , mainCreatedAt;
 
         public ArticleViewHolder(@NonNull View itemView) {
             super(itemView);
-            thumbnail = itemView.findViewById(R.id.thumbnail);
-            title = itemView.findViewById(R.id.title);
+            thumbnail = itemView.findViewById(R.id.small_article_image);
+            title = itemView.findViewById(R.id.small_article_title);
             createdAt = itemView.findViewById(R.id.created_at);
+            mainThumbnail = itemView.findViewById(R.id.large_article_image);
+            mainTitle = itemView.findViewById(R.id.large_article_title);
+            mainCreatedAt = itemView.findViewById(R.id.large_article_created_at);
         }
     }
 }

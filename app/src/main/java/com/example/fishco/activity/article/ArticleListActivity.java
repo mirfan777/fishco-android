@@ -42,7 +42,7 @@ public class ArticleListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-        sharedPreferences = getSharedPreferences("YourSharedPreferenceName", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "no token");
 
         // Memulai proses fetch data artikel
@@ -87,11 +87,11 @@ public class ArticleListActivity extends AppCompatActivity {
         bottomNavigation.setSelectedItemId(R.id.article);
 
         // LinearLayout untuk gambar besar
-        LinearLayout largeArticleLayout = findViewById(R.id.large_article_layout);
-        largeArticleLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
-            startActivity(intent);
-        });
+//        LinearLayout largeArticleLayout = findViewById(R.id.large_article_layout);
+//        largeArticleLayout.setOnClickListener(v -> {
+//            Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
+//            startActivity(intent);
+//        });
 
 //        // LinearLayout untuk gambar kecil statis
 //        RelativeLayout smallArticleLayout = findViewById(R.id.small_article_layout);
@@ -110,14 +110,14 @@ public class ArticleListActivity extends AppCompatActivity {
             public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Article> articleList = response.body();
-                    Log.d("data", "Articles: " + articleList.toString());
-
+                    Log.d("kontol", "Articles: " + articleList.toString());
                     ArticleAdapter adapter = new ArticleAdapter(ArticleListActivity.this, articleList);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view_article);
                     recyclerView.setLayoutManager(new LinearLayoutManager(ArticleListActivity.this));
                     recyclerView.setAdapter(adapter);
                 } else {
-                    Log.e("error", "Response is not successful or empty");
+                    List<Article> articleList = response.body();
+                    Log.e("errorkontol", articleList.toString());
                 }
             }
 
