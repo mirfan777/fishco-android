@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Fishco</string>
-    <string name="api_url">https://fishco.miauwlan.com/api/</string>
+    <string name="api_url">http://10.0.2.2:8000/api/</string>
     <!-- hosting   https://fishco.miauwlan.com/api/-->
     <!-- lokal    http://10.0.2.2:8000/api/-->
     <string-array name="flag_phone">
