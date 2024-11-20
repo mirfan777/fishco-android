@@ -24,32 +24,9 @@
             <ImageView
                 android:id="@+id/bg_header"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/gradient3" />
-
-<!--            &lt;!&ndash; Top Bar with Back Button and Optional Menu &ndash;&gt;-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:padding="16dp"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:layout_marginTop="15dp">-->
-
-<!--                <ImageButton-->
-<!--                    android:id="@+id/back_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--                    android:src="@drawable/back"-->
-<!--                    android:contentDescription="Back" />-->
-
-<!--                <View-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_weight="1" />-->
-<!--            </LinearLayout>-->
 
             <!-- Search Bar -->
             <RelativeLayout
@@ -126,13 +103,13 @@
             </LinearLayout>
         </RelativeLayout>
 
-
         <!-- Scrollable Content List -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:id="@+id/main_article_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -140,6 +117,7 @@
 
                 <!-- First Article Item with Large Image and Title Below -->
                 <LinearLayout
+                    android:id="@+id/large_article_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -170,8 +148,8 @@
                         android:ellipsize="end" />
 
                     <!-- Article Author and Date -->
-                    <!-- Username and Time -->
                     <LinearLayout
+                        android:id="@+id/large_article_info_container"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -187,7 +165,7 @@
 
                         <!-- Separator -->
                         <TextView
-                            android:id="@+id/separator"
+                            android:id="@+id/large_article_separator"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" • "
@@ -207,13 +185,23 @@
 
                 <!-- Divider -->
                 <View
+                    android:id="@+id/divider_large_to_small"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/gray"
                     android:layout_marginVertical="8dp" />
 
+                <!-- Small Articles RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/small_articles_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:padding="8dp" />
+
                 <!-- Smaller Article Items -->
                 <RelativeLayout
+                    android:id="@+id/small_article_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp">
@@ -243,10 +231,9 @@
                         android:maxLines="2"
                         android:ellipsize="end" />
 
-                    <!-- Article Author and Date -->
-                    <!-- Article Author, Date, and Views Container -->
+                    <!-- Article Author, Date, and Views -->
                     <LinearLayout
-                        android:id="@+id/article_info_container"
+                        android:id="@+id/small_article_info_container"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/small_article_image"
@@ -254,7 +241,7 @@
                         android:orientation="horizontal"
                         android:layout_marginStart="8dp">
 
-                        <!-- Username / Author -->
+                        <!-- Username -->
                         <TextView
                             android:id="@+id/small_article_username"
                             android:layout_width="wrap_content"
@@ -265,7 +252,7 @@
 
                         <!-- Separator -->
                         <TextView
-                            android:id="@+id/separator1"
+                            android:id="@+id/small_article_separator1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" • "
@@ -283,7 +270,7 @@
 
                         <!-- Separator -->
                         <TextView
-                            android:id="@+id/separator2"
+                            android:id="@+id/small_article_separator2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" • "
@@ -292,24 +279,22 @@
 
                         <!-- Views -->
                         <TextView
-                            android:id="@+id/views"
+                            android:id="@+id/small_article_views"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="150 Views"
                             android:textColor="@color/gray"
                             android:textSize="10sp"/>
                     </LinearLayout>
-
                 </RelativeLayout>
 
                 <!-- Divider -->
                 <View
+                    android:id="@+id/divider_small_articles"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/gray"
                     android:layout_marginVertical="8dp" />
-
-                <!-- Tambahkan lebih banyak artikel kecil dengan format RelativeLayout yang sama jika diperlukan -->
 
             </LinearLayout>
         </ScrollView>

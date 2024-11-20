@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.chatbot.ChatbotActivity">
 
-    <!-- Tombol Kembali di Kiri Atas -->
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/back"
-        android:contentDescription="Kembali"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- LinearLayout untuk Logo dan Teks di Tengah Layar -->
     <LinearLayout
         android:layout_width="wrap_content"
@@ -66,7 +55,7 @@
             android:layout_gravity="center" />
 
         <!-- Input Field Pencarian di Tengah Bawah -->
-        <EditText
+        <TextView
             android:id="@+id/inputField"
             android:layout_width="320dp"
             android:layout_height="48dp"
@@ -78,6 +67,7 @@
             android:textColorHint="@color/gray_dark"
             android:gravity="center_vertical"
             android:layout_gravity="center" />
+
     </LinearLayout>
 
     <LinearLayout

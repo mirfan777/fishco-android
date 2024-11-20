@@ -10,7 +10,7 @@
     android:clipToPadding="false">
 
     <!-- ScrollView untuk seluruh konten -->
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue_muda"
@@ -302,5 +302,5 @@
                     android:layout_marginTop="-32dp" />
             </FrameLayout>
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

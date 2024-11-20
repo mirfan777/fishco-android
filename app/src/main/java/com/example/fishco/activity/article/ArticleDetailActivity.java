@@ -1,6 +1,7 @@
 package com.example.fishco.activity.article;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Tangkap backButton dan set OnClickListener
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> finish()); // Kembali ke aktivitas sebelumnya
     }
 }

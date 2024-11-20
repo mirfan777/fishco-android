@@ -19,9 +19,4 @@ public interface FishService {
 
     @GET("fish/{id}")
     Call<Fish> getFishById(@Header("Authorization") String token , @Path("id") String id);
-
-
-
-
-
 }

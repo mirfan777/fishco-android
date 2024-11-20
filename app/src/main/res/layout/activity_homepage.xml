@@ -521,5 +521,4 @@
             app:labelVisibilityMode="labeled" />
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

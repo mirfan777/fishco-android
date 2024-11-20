@@ -1,7 +1,6 @@
 package com.example.fishco.activity.encyclopedia;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,21 +24,37 @@ public class FishDetailActivity extends AppCompatActivity {
         String fishName = getIntent().getStringExtra("NAME");
         String fishScientificName = getIntent().getStringExtra("SPECIES");
         String fishOverview = getIntent().getStringExtra("OVERVIEW");
-        String temperature = getIntent().getStringExtra("TEMPERATURE");
-        String fishImageUrl = getIntent().getStringExtra("URL_THUMBNAIL");
+        String fishImageUrl = getIntent().getStringExtra("IMAGE_URL");
 
+        String temperature = getIntent().getStringExtra("MIN_TEMPERATURE") + "°C - " +
+                getIntent().getStringExtra("MAX_TEMPERATURE") + "°C";
+        String minPh = getIntent().getStringExtra("MIN_PH");
+        String maxPh = getIntent().getStringExtra("MAX_PH");
+        String foodType = getIntent().getStringExtra("FOOD_TYPE");
+        String habitat = getIntent().getStringExtra("HABITAT");
+
+        // Hubungkan komponen
         TextView nameTextView = findViewById(R.id.fish_name);
         TextView scientificNameTextView = findViewById(R.id.fish_species);
         TextView overviewTextView = findViewById(R.id.overview_text);
         TextView temperatureTextView = findViewById(R.id.temperature_value);
+        TextView minPhTextView = findViewById(R.id.min_ph_value);
+        TextView maxPhTextView = findViewById(R.id.max_ph_value);
+        TextView foodTypeTextView = findViewById(R.id.food_type_value);
+        TextView habitatTextView = findViewById(R.id.habitat_value);
         ImageView fishImageView = findViewById(R.id.fish_image);
 
+        // Masukkan data ke komponen
         nameTextView.setText(fishName);
         scientificNameTextView.setText(fishScientificName);
         overviewTextView.setText(fishOverview);
         temperatureTextView.setText(temperature);
+        minPhTextView.setText(minPh);
+        maxPhTextView.setText(maxPh);
+        foodTypeTextView.setText(foodType);
+        habitatTextView.setText(habitat);
 
-        Log.d("image" , fishImageUrl);
+        // Load gambar dengan Glide
         Glide.with(this)
                 .load(fishImageUrl)
                 .placeholder(R.drawable.fish_detail)
@@ -57,4 +72,3 @@ public class FishDetailActivity extends AppCompatActivity {
         closeButton.setOnClickListener(v -> finish()); // Kembali ke aktivitas sebelumnya
     }
 }
-
