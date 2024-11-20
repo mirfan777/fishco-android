@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,257 +6,125 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.article.ArticleDetailActivity"
-    android:padding="10dp"
+    android:background="@color/bg"
     android:paddingStart="10dp"
-    android:paddingEnd="10dp"
-    android:background="@color/bg">
+    android:paddingEnd="10dp">
+
+    <!-- Div untuk Tombol Back -->
+    <FrameLayout
+        android:id="@+id/back_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:elevation="5dp" />
+    </FrameLayout>
 
     <ScrollView
+        android:id="@+id/article_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="10dp"
-        android:paddingEnd="8dp"
-        android:fadeScrollbars="true"
-        android:scrollbarFadeDuration="200"
-        android:scrollbarDefaultDelayBeforeFade="500">
+        app:layout_constraintTop_toBottomOf="@id/back_button_container"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="15dp">
+            android:padding="16dp">
 
-            <!-- Back Button -->
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/back"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Back Button"
-                android:layout_marginBottom="8dp" />
+            <!-- Artikel Konten -->
+            <ImageView
+                android:id="@+id/article_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="33dp"
+                android:background="@drawable/rounded_image_background" />
 
-            <!-- Author Name and Date -->
-            <TextView
-                android:id="@+id/author_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Farhan Hernandez  •  04 September 2024"
-                android:textColor="@color/gray"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp"/>
-
-            <!-- Article Title -->
             <TextView
                 android:id="@+id/article_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:ellipsize="end"
-                android:text="Breeding Technique: Studi kasus mengenai breeding technique baru yang manjur"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
 
-            <!-- Thumbnail Image -->
-            <ImageView
-                android:id="@+id/thumbnail_image"
+            <TextView
+                android:id="@+id/article_date"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_artikel"
-                android:background="@drawable/rounded_background_article"
-                android:clipToOutline="true"
-                android:layout_marginBottom="12dp"/>
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="8dp" />
 
-            <!-- Article Content -->
             <TextView
                 android:id="@+id/article_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum odor amet, consectetuer adipiscing elit. Sit habitasse semper euismod libero molestie rutrum enim. Arcu mollis volutpat blandit inceptos turpis enim montes posuere. Senectus litora montes potenti dapibus viverra mattis velit tristique pretium. Potenti fames nullam fusce feugiat parturient, ultricies etiam id metus. "
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp"/>
+                android:textSize="14sp"
+                android:layout_marginTop="16dp" />
 
-            <!-- Divider -->
+            <!-- Divider Gray -->
             <View
-                android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/gray"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
 
-            <!-- Leave Comment Text -->
-            <TextView
-                android:id="@+id/leave_comment_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Leave your comment here"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"/>
-
-            <!-- Comment Section -->
+            <!-- Add Comment Input -->
             <LinearLayout
-                android:id="@+id/comment_section"
+                android:id="@+id/add_comment_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:background="@drawable/rounded_background_comment"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:elevation="4dp"
+                android:gravity="center_vertical">
 
-                <!-- Single Comment -->
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/profile_image_add_comment"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/circle_background"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/coldwater"
+                    android:clipToOutline="true" />
+
+                <EditText
+                    android:id="@+id/comment_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Tambah komentar Anda sendiri"
+                    android:textSize="16sp"
+                    android:background="@android:color/transparent"
+                    android:inputType="textMultiLine"
+                    android:textColor="#757575" />
+
+                <ImageButton
+                    android:id="@+id/send_comment_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <!-- Profile Image -->
-                    <ImageView
-                        android:id="@+id/profile_image"
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/circle_background"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/freshwater"
-                        android:clipToOutline="true"
-                        android:layout_marginTop="5dp"/>
-
-                    <!-- Comment Content -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
-
-                        <!-- Username and Time -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <!-- Username -->
-                            <TextView
-                                android:id="@+id/username"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="user1237623"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
-
-                            <!-- Separator -->
-                            <TextView
-                                android:id="@+id/separator"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" • "
-                                android:textColor="@color/black"
-                                android:textSize="14sp"/>
-
-                            <!-- Time -->
-                            <TextView
-                                android:id="@+id/time"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10h"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"/>
-
-                        </LinearLayout>
-
-                        <!-- Comment Text -->
-                        <TextView
-                            android:id="@+id/comment_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Artikelnya scam nih gada sourcenya, tolong di take down admin!"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:layout_marginTop="4dp"/>
-
-                        <!-- Reply and View Replies -->
-                        <TextView
-                            android:id="@+id/reply_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Reply"
-                            android:textColor="@color/gray_dark"
-                            android:textSize="14sp"
-                            android:layout_marginTop="8dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:id="@+id/view_replies_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View 12 more replies"
-                            android:textColor="@color/gray_dark"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginStart="25dp"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-
+                    android:src="@drawable/ic_send"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Send Comment"
+                    app:tint="#757575" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
-    <!-- Add Comment Input -->
-    <LinearLayout
-        android:id="@+id/add_comment_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_background_comment"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:elevation="4dp"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Profile Image Placeholder -->
-        <ImageView
-            android:id="@+id/profile_image_add_comment"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/circle_background"
-            android:scaleType="centerCrop"
-            android:src="@drawable/coldwater"
-            android:clipToOutline="true" />
-
-        <!-- Comment Input Field -->
-        <EditText
-            android:id="@+id/comment_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Tambah komentar Anda sendiri"
-            android:textSize="16sp"
-            android:background="@android:color/transparent"
-            android:inputType="textMultiLine"
-            android:textColor="#757575" />
-
-        <!-- Send Button -->
-        <ImageButton
-            android:id="@+id/send_comment_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_send"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Send Comment"
-            app:tint="#757575" /> <!-- Warna ikon -->
-
-    </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

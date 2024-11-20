@@ -1,0 +1,20 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bayangan -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#1A000000"
+                android:endColor="#00000000"
+                android:angle="90" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Latar Belakang Konten -->
+    <item android:top="4dp" android:left="4dp"> <!-- Offset untuk membuat bayangan terlihat -->
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</layer-list>

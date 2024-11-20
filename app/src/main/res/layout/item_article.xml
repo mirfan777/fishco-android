@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,33 +5,32 @@
     android:padding="8dp"
     tools:context=".activity.article.ArticleListActivity">
 
-
-
-
-    <!-- Small Article Image -->
+    <!-- Layout untuk Artikel -->
     <LinearLayout
         android:id="@+id/small_article_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Large Article Section -->
+        <!-- Artikel Utama dengan Gambar Besar -->
         <LinearLayout
             android:id="@+id/large_article_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
-            <!--                android:background="@drawable/bg_large_article"-->
+            android:padding="8dp"
+            android:background="@drawable/large_article_background">
 
+        <!-- Gambar Besar Artikel -->
             <ImageView
                 android:id="@+id/large_article_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:clipToOutline="true" />
-            <!--                    android:src="@drawable/img_large_article"-->
+                android:clipToOutline="true"
+                android:background="@drawable/rounded_image_background" />
 
+            <!-- Judul Artikel Besar -->
             <TextView
                 android:id="@+id/large_article_title"
                 android:layout_width="wrap_content"
@@ -43,6 +41,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="8dp" />
 
+            <!-- Info Artikel Besar -->
             <TextView
                 android:id="@+id/large_article_created_at"
                 android:layout_width="wrap_content"
@@ -50,26 +49,27 @@
                 android:text="By Adrian Nawawi • 14 Nov 2024"
                 android:textColor="@color/gray"
                 android:textSize="12sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
         </LinearLayout>
 
-        <!-- Article Item -->
+        <!-- Artikel dengan Gambar Kecil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginBottom="8dp">
-            <!--                    android:background="@drawable/bg_small_article"-->
+            android:padding="8dp">
 
+            <!-- Gambar Kecil Artikel -->
             <ImageView
                 android:id="@+id/small_article_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
                 android:clipToOutline="true" />
-            <!--                    android:src="@drawable/img_small_article"-->
 
+            <!-- Detail Artikel Kecil -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <!-- Info Artikel dan Tanggal dibuat dalam satu baris -->
+                <!-- Info Artikel -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,5 +112,12 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_marginVertical="8dp" />
     </LinearLayout>
 </RelativeLayout>
