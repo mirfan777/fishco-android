@@ -82,11 +82,11 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        FrameLayout frameLayout = findViewById(R.id.frame_layout_article);
-        frameLayout.setOnClickListener(view -> {
-            Intent intent = new Intent(HomepageActivity.this, ArticleDetailActivity.class);
-            startActivity(intent);
-        });
+//        FrameLayout frameLayout = findViewById(R.id.frame_layout_article);
+//        frameLayout.setOnClickListener(view -> {
+//            Intent intent = new Intent(HomepageActivity.this, ArticleDetailActivity.class);
+//            startActivity(intent);
+//        });
         // Freshwater Category
         LinearLayout categoryFreshwater = findViewById(R.id.category_freshwater);
         categoryFreshwater.setOnClickListener(v -> {
