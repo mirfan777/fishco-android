@@ -1,6 +1,7 @@
 package com.example.fishco.activity.scanner;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,8 @@ public class DetailScannerActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TextView fish_name = findViewById(R.id.fish_name);
+        fish_name.setText(getIntent().getStringExtra("FISH_SPECIES"));
     }
 }
