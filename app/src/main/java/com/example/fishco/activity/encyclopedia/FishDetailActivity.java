@@ -1,6 +1,7 @@
 package com.example.fishco.activity.encyclopedia;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,22 +26,20 @@ public class FishDetailActivity extends AppCompatActivity {
         String fishScientificName = getIntent().getStringExtra("SPECIES");
         String fishOverview = getIntent().getStringExtra("OVERVIEW");
         String temperature = getIntent().getStringExtra("TEMPERATURE");
-        String fishImageUrl = getIntent().getStringExtra("IMAGE_URL");
+        String fishImageUrl = getIntent().getStringExtra("URL_THUMBNAIL");
 
-        // Hubungkan komponen
         TextView nameTextView = findViewById(R.id.fish_name);
         TextView scientificNameTextView = findViewById(R.id.fish_species);
         TextView overviewTextView = findViewById(R.id.overview_text);
         TextView temperatureTextView = findViewById(R.id.temperature_value);
         ImageView fishImageView = findViewById(R.id.fish_image);
 
-        // Masukkan data ke komponen
         nameTextView.setText(fishName);
         scientificNameTextView.setText(fishScientificName);
         overviewTextView.setText(fishOverview);
         temperatureTextView.setText(temperature);
 
-        // Load gambar dengan Glide
+        Log.d("image" , fishImageUrl);
         Glide.with(this)
                 .load(fishImageUrl)
                 .placeholder(R.drawable.fish_detail)
