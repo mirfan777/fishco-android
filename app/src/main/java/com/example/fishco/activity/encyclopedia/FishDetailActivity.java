@@ -24,7 +24,7 @@ public class FishDetailActivity extends AppCompatActivity {
         String fishName = getIntent().getStringExtra("NAME");
         String fishScientificName = getIntent().getStringExtra("SPECIES");
         String fishOverview = getIntent().getStringExtra("OVERVIEW");
-        String fishImageUrl = getIntent().getStringExtra("IMAGE_URL");
+        String fishImageUrl = getIntent().getStringExtra("THUMBNAIL_URL");
 
         String temperature = getIntent().getStringExtra("MIN_TEMPERATURE") + "°C - " +
                 getIntent().getStringExtra("MAX_TEMPERATURE") + "°C";

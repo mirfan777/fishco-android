@@ -1,4 +1,4 @@
-package com.example.fishco.activity.scanner;
+package com.example.fishco.activity.diagnosis;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fishco.R;
 
-public class FailedScanActivity extends AppCompatActivity {
+public class DetailDiagnosisActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_failed_scan);
+        setContentView(R.layout.activity_detail_diagnosis);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
