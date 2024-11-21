@@ -21,6 +21,7 @@ import com.example.fishco.activity.chatbot.ChatbotActivity;
 import com.example.fishco.activity.home.HomepageActivity;
 import com.example.fishco.activity.scanner.ScannerActivity;
 import com.example.fishco.adapter.ArticleAdapter;
+import com.example.fishco.adapter.GetStartedAdapter;
 import com.example.fishco.http.RetrofitClient;
 import com.example.fishco.model.Article;
 import com.example.fishco.service.ArticleService;
