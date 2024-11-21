@@ -111,14 +111,14 @@ public class ArticleListActivity extends AppCompatActivity {
             public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Article> articleList = response.body();
-                    Log.d("kontol", "Articles: " + articleList.toString());
+
                     ArticleAdapter adapter = new ArticleAdapter(ArticleListActivity.this, articleList);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view_article);
                     recyclerView.setLayoutManager(new LinearLayoutManager(ArticleListActivity.this));
                     recyclerView.setAdapter(adapter);
                 } else {
                     List<Article> articleList = response.body();
-                    Log.e("errorkontol", articleList.toString());
+                    Log.e("error", articleList.toString());
                 }
             }
 

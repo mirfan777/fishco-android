@@ -27,6 +27,8 @@ public class DetailScannerActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
         TextView fish_name = findViewById(R.id.fish_name);
         ImageView fish_image = findViewById(R.id.fish_image);
 

@@ -84,7 +84,6 @@ public class FishListActivity extends AppCompatActivity {
             public void onResponse(Call<List<Fish>> call, Response<List<Fish>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Fish> fishList = response.body();
-                    Log.d("kontol", "Data: " + fishList.toString());
                     FishCustomAdapter adapter = new FishCustomAdapter(FishListActivity.this, response.body());
                     RecyclerView recyclerView = findViewById(R.id.recycler_view_fish);
                     recyclerView.setLayoutManager(new LinearLayoutManager(FishListActivity.this));

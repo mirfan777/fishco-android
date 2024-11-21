@@ -19,4 +19,8 @@ public interface FishService {
 
     @GET("fish/{id}")
     Call<Fish> getFishById(@Header("Authorization") String token , @Path("id") String id);
+
+    @Headers("Content-Type: application/json")
+    @GET("fish")
+    Call<List<Fish>> getFish(@Header("Authorization") String token , @Query("genus") String genus);
 }

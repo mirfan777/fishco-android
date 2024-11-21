@@ -1,6 +1,7 @@
 package com.example.fishco.activity.encyclopedia;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,14 +21,17 @@ public class FishDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fish_detail);
 
+        if (getIntent().getStringExtra("FISH_CLASSIFIED") != null && getIntent().getStringExtra("IMAGE_BITMAP") != null){
+            Log.d("intentimage" , "idk");
+        }
+
         // Ambil data dari Intent
         String fishName = getIntent().getStringExtra("NAME");
         String fishScientificName = getIntent().getStringExtra("SPECIES");
         String fishOverview = getIntent().getStringExtra("OVERVIEW");
         String fishImageUrl = getIntent().getStringExtra("THUMBNAIL_URL");
 
-        String temperature = getIntent().getStringExtra("MIN_TEMPERATURE") + "°C - " +
-                getIntent().getStringExtra("MAX_TEMPERATURE") + "°C";
+        String temperature = getIntent().getStringExtra("MIN_TEMPERATURE") + "°C - " + getIntent().getStringExtra("MAX_TEMPERATURE") + "°C";
         String minPh = getIntent().getStringExtra("MIN_PH");
         String maxPh = getIntent().getStringExtra("MAX_PH");
         String foodType = getIntent().getStringExtra("FOOD_TYPE");
