@@ -67,7 +67,7 @@
 
         <!-- Tombol kiri bawah -->
         <ImageView
-            android:id="@+id/btnLeft"
+            android:id="@+id/gallery"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/galeri"

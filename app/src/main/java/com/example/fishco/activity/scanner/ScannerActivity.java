@@ -1,14 +1,21 @@
 package com.example.fishco.activity.scanner;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
@@ -17,6 +24,7 @@ import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -26,6 +34,7 @@ import com.example.fishco.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -36,6 +45,7 @@ public class ScannerActivity extends AppCompatActivity {
     private ImageCapture imageCapture;
     private ExecutorService cameraExecutor;
     private int imageSize = 224;
+    private ActivityResultLauncher<Intent> galleryLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +58,56 @@ public class ScannerActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
+        galleryLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        try {
+                            // Get the selected image URI
+                            Uri selectedImageUri = result.getData().getData();
+
+                            // Convert URI to Bitmap
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+
+                            // Convert to byte array
+                            byte[] bitmapBytes = bitmapToByteArray(bitmap);
+
+                            // Intent to AnalyzingImageActivity
+                            Intent intent = new Intent(ScannerActivity.this, AnalyzingImageActivity.class);
+                            intent.putExtra("IMAGE_BITMAP", bitmapBytes);
+                            startActivity(intent);
+                        } catch (IOException e) {
+                            Log.e("ScannerActivity", "Error selecting image from gallery", e);
+                            Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        ImageView gallery = findViewById(R.id.gallery);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
+            gallery.setOnClickListener(view -> openGallery());
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_MEDIA_IMAGES},100);
+        }
+
+        gallery.setOnClickListener(view -> openGallery());
+
         previewView = findViewById(R.id.viewFinder);
         ImageView btnScanner = findViewById(R.id.btnScanner);
+
         cameraExecutor = Executors.newSingleThreadExecutor();
         startCamera();
 
         btnScanner.setOnClickListener(view -> takePhoto());
+    }
+
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galleryLauncher.launch(galleryIntent);
     }
 
     private void startCamera() {
