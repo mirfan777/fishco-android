@@ -9,13 +9,10 @@
     tools:context=".activity.chatbot.ChatbotDetailActivity">
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <!-- Header -->
         <LinearLayout
@@ -41,52 +38,12 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- ScrollView -->
-        <ScrollView
-            android:id="@+id/chatScrollView"
+        <!-- WebView for Botpress -->
+        <WebView
+            android:id="@+id/webView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingHorizontal="16dp"
-            android:fillViewport="true">
+            android:layout_height="match_parent" />
 
-            <LinearLayout
-                android:id="@+id/chatContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-
-        <!-- Input Area -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:background="@color/bg_chat">
-
-            <EditText
-                android:id="@+id/messageInput"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="@drawable/input_background"
-                android:hint="Ketik pesan..."
-                android:textColorHint="@color/gray_dark"
-                android:paddingStart="16dp"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/black" />
-
-            <ImageView
-                android:id="@+id/sendButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_send"
-                android:contentDescription="Kirim Pesan"
-                android:layout_marginStart="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="12dp" />
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

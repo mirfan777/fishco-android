@@ -41,7 +41,7 @@ public class ChatbotActivity extends AppCompatActivity {
         // Navigasi ke ChatbotDetailActivity saat TextView di klik
         inputField.setOnClickListener(v -> {
             Intent intent = new Intent(ChatbotActivity.this, ChatbotDetailActivity.class);
-            intent.putExtra("initial_message", "Hi, bagaimana saya bisa membantu anda?");
+//            intent.putExtra("initial_message", "Hi, bagaimana saya bisa membantu anda?");
             startActivity(intent);
         });
 
