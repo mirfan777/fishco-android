@@ -44,7 +44,6 @@ public class ScannerActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ImageCapture imageCapture;
     private ExecutorService cameraExecutor;
-    private int imageSize = 224;
     private ActivityResultLauncher<Intent> galleryLauncher;
 
     @Override
@@ -59,6 +58,12 @@ public class ScannerActivity extends AppCompatActivity {
         });
 
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+//            Intent intent = new Intent(this, ScannerActivity.class);
+//            startActivity(intent);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 100);
+        }
 
         galleryLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
