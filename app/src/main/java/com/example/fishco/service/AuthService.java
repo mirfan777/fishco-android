@@ -25,8 +25,7 @@ public interface AuthService {
             @Field("email") String email,
             @Field("password") String password,
             @Field("password_confirmation") String passwordConfirmation,
-            @Field("phone_number") String phoneNumber,
-            @Field("device_name") String deviceName
+            @Field("phone_number") String phoneNumber
     );
 
 //    @FormUrlEncoded

@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Panggil API untuk registrasi
         AuthService authService = RetrofitClient.getClient(this).create(AuthService.class);
-        Call<ResponseBody> call = authService.registerUser(name, email, password, confirmPassword, phoneNumber, deviceName);
+        Call<ResponseBody> call = authService.registerUser(name, email, password, confirmPassword, phoneNumber);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
