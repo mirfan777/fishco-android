@@ -10,7 +10,7 @@
     android:paddingStart="10dp"
     android:paddingEnd="10dp">
 
-    <!-- Div untuk Tombol Back -->
+    <!-- Tombol Kembali -->
     <FrameLayout
         android:id="@+id/back_button_container"
         android:layout_width="wrap_content"
@@ -29,13 +29,15 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Kembali"
             android:elevation="5dp" />
-
     </FrameLayout>
 
+    <!-- Scroll Konten Artikel -->
     <ScrollView
         android:id="@+id/article_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/back_button_container"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -45,7 +47,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Artikel Konten -->
+            <!-- Konten Artikel -->
             <ImageView
                 android:id="@+id/article_image"
                 android:layout_width="match_parent"
@@ -77,7 +79,7 @@
                 android:textSize="14sp"
                 android:layout_marginTop="16dp" />
 
-            <!-- Divider Gray -->
+            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -85,6 +87,16 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp" />
 
+            <TextView
+                android:id="@+id/greeting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tinggalkan komentar kamu disini"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <!-- Komentar -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/comment_recycler_view"
                 android:layout_width="match_parent"
@@ -95,28 +107,29 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Form Tambah Komentar -->
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/comment_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="6dp"
+        android:padding="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@drawable/rounded_background_comment"
             android:padding="12dp"
-            android:elevation="4dp"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp">
+            android:gravity="center_vertical">
 
             <EditText
                 android:id="@+id/comment_input"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Balas komentar"
+                android:hint="Tambahkan komentar..."
                 android:textSize="14sp" />
 
             <ImageButton
@@ -124,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_send"
-                android:contentDescription="Kirim balasan" />
+                android:contentDescription="Kirim komentar" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
