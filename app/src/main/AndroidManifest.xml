@@ -110,6 +110,15 @@
         <activity
             android:name=".activity.article.ArticleListActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.started.GetStartedDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.started.GetStartedDetailActivity2"
+            android:exported="false" /><activity
+        android:name=".activity.started.GetStartedDetailActivity3"
+        android:exported="false" />
+
     </application>
 
 </manifest>

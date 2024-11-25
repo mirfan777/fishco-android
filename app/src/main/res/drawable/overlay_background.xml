@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!-- res/drawable/overlay_background.xml -->
-    <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <solid android:color="#80000000" /> <!-- Semi-transparent black background -->
-        <corners android:radius="16dp" /> <!-- Rounded corners to match the image -->
-    </shape>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#80000000" /> <!-- Semi-transparent black background -->
+    <corners
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" /> <!-- Bagian bawah tidak rounded -->
+</shape>

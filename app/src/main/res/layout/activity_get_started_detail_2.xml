@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.started.GetStartedDetailActivity2"
+    android:background="@color/bg"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <!-- Tombol Kembali -->
+    <FrameLayout
+        android:id="@+id/back_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali" />
+    </FrameLayout>
+
+    <!-- Scroll Konten Artikel -->
+    <ScrollView
+        android:id="@+id/article_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintTop_toBottomOf="@id/back_button_container"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Gambar Artikel -->
+            <ImageView
+                android:id="@+id/article_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_image_background"
+                android:src="@drawable/get_started_img_2" />
+
+            <!-- Judul Artikel -->
+            <TextView
+                android:id="@+id/article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rahasia Memelihara Ikan Hias: Tips Merawat Agar Tetap Sehat"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Tanggal Artikel -->
+            <TextView
+                android:id="@+id/article_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="24-09-2024"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="8dp" />
+
+            <!-- Konten Artikel -->
+            <TextView
+                android:id="@+id/article_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:text="Memelihara ikan hias bukan hanya sekadar hobi, tetapi juga seni yang membutuhkan perhatian dan perawatan yang baik. Agar ikan hias Anda tetap sehat dan aktif, ada beberapa rahasia penting yang perlu Anda ketahui.\n\n
+
+Berikut adalah tips untuk merawat ikan hias agar tetap sehat:\n\n
+
+1. Pastikan Kualitas Air yang Baik\n
+   Kualitas air adalah faktor utama dalam menjaga kesehatan ikan hias. Pastikan air akuarium bersih, bebas dari bahan kimia berbahaya, dan memiliki pH yang sesuai dengan jenis ikan Anda.\n\n
+
+2. Rutin Membersihkan Akuarium\n
+   Bersihkan akuarium secara teratur untuk menghindari penumpukan kotoran dan alga. Gantilah sebagian air (sekitar 25-30%) setiap minggu untuk menjaga ekosistem akuarium tetap seimbang.\n\n
+
+3. Berikan Makanan yang Bergizi\n
+   Pilih pakan yang sesuai dengan jenis ikan Anda. Berikan makanan berkualitas tinggi yang mengandung nutrisi penting, seperti protein, vitamin, dan mineral. Jangan memberi makan berlebihan untuk mencegah polusi air.\n\n
+
+4. Sesuaikan Jumlah Ikan di Akuarium\n
+   Jangan terlalu banyak memasukkan ikan ke dalam akuarium. Kepadatan ikan yang terlalu tinggi dapat menyebabkan stres dan meningkatkan risiko penyakit. Pastikan ikan memiliki ruang yang cukup untuk berenang.\n\n
+
+5. Jaga Suhu Air yang Stabil\n
+   Suhu air sangat penting untuk kesehatan ikan. Gunakan pemanas air (heater) jika diperlukan, dan pastikan suhu tetap dalam kisaran yang sesuai untuk spesies ikan Anda.\n\n
+
+6. Hindari Stres pada Ikan\n
+   Stres dapat melemahkan sistem imun ikan, membuatnya rentan terhadap penyakit. Hindari sering memindahkan ikan, mengetuk akuarium, atau mencampur ikan yang agresif dengan yang lebih kecil atau damai.\n\n
+
+7. Berikan Waktu Istirahat untuk Ikan\n
+   Sama seperti manusia, ikan juga membutuhkan waktu istirahat. Pastikan akuarium memiliki siklus pencahayaan yang teratur (12 jam terang dan 12 jam gelap) untuk menciptakan lingkungan yang nyaman.\n\n
+
+Mengapa Merawat Ikan Hias Itu Penting?\n
+Merawat ikan hias dengan baik tidak hanya menjaga kesehatan ikan, tetapi juga membuat akuarium Anda terlihat lebih indah. Ikan yang sehat memiliki warna yang cerah, gerakan yang aktif, dan mampu bertahan hidup lebih lama. Dengan mengikuti tips di atas, Anda dapat menciptakan lingkungan yang ideal bagi ikan hias Anda.\n\n
+
+Memelihara ikan hias dengan penuh kasih sayang adalah kunci utama untuk mendapatkan pengalaman yang memuaskan. Dengan perhatian yang tepat, ikan Anda akan menjadi kebanggaan sekaligus penghilang stres di rumah Anda." />
+
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

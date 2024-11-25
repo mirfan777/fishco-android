@@ -26,6 +26,9 @@ import com.example.fishco.activity.chatbot.ChatbotActivity;
 import com.example.fishco.activity.encyclopedia.FishListActivity;
 import com.example.fishco.activity.scanner.ScannerActivity;
 import com.example.fishco.activity.settings.ProfileActivity;
+import com.example.fishco.activity.started.GetStartedDetailActivity;
+import com.example.fishco.activity.started.GetStartedDetailActivity2;
+import com.example.fishco.activity.started.GetStartedDetailActivity3;
 import com.example.fishco.model.Aquarium;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -150,6 +153,25 @@ public class HomepageActivity extends AppCompatActivity {
             }
 
             return false;
+        });
+
+        FrameLayout article1 = findViewById(R.id.get_started_article);
+        FrameLayout article2 = findViewById(R.id.get_started_article_2);
+        FrameLayout article3 = findViewById(R.id.get_started_article_3);
+
+        article1.setOnClickListener(v -> {
+            Intent intent = new Intent(HomepageActivity.this, GetStartedDetailActivity.class);
+            startActivity(intent);
+        });
+
+        article2.setOnClickListener(v -> {
+            Intent intent = new Intent(HomepageActivity.this, GetStartedDetailActivity2.class);
+            startActivity(intent);
+        });
+
+        article3.setOnClickListener(v -> {
+            Intent intent = new Intent(HomepageActivity.this, GetStartedDetailActivity3.class);
+            startActivity(intent);
         });
     }
 }
