@@ -2,29 +2,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingStart="16dp"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/reply_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="14sp" />
+    <!-- Gambar Profil -->
+    <ImageView
+        android:id="@+id/reply_profile_vector"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/profile_vector"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_background" />
 
-    <TextView
-        android:id="@+id/reply_body"
-        android:layout_width="match_parent"
+    <!-- Kontainer untuk teks -->
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="14sp" />
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/reply_timestamp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="12sp"
-        android:textColor="@color/gray" />
+        <TextView
+            android:id="@+id/reply_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/reply_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/reply_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"
+            android:textColor="@color/gray" />
+    </LinearLayout>
 </LinearLayout>
