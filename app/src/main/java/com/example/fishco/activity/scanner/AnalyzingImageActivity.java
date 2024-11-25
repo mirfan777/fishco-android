@@ -20,8 +20,10 @@ import com.example.fishco.activity.encyclopedia.FishListActivity;
 import com.example.fishco.adapter.FishCustomAdapter;
 import com.example.fishco.http.RetrofitClient;
 import com.example.fishco.ml.Model;
+import com.example.fishco.model.Disease;
 import com.example.fishco.model.Fish;
 import com.example.fishco.service.AuthService;
+import com.example.fishco.service.DiseaseService;
 import com.example.fishco.service.FishService;
 
 import org.tensorflow.lite.DataType;
@@ -43,6 +45,7 @@ public class AnalyzingImageActivity extends AppCompatActivity {
     private int imageSize = 224;
     SharedPreferences sharedPreferences;
     FishService fishService;
+    DiseaseService diseaseService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +119,35 @@ public class AnalyzingImageActivity extends AppCompatActivity {
             }
         });
     }
+    private void fetchDisease(String token,String diseaseName,Bitmap image) {
+        diseaseService = RetrofitClient.getClient(this).create(DiseaseService.class);
+
+        Call<List<Disease>> callFish = diseaseService.getDiseaseByName(token, diseaseName);
+
+        callFish.enqueue(new Callback<List<Disease>>() {
+            @Override
+            public void onResponse(Call<List<Disease>> call, Response<List<Disease>> response) {
+
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Disease> disease = response.body();
+                    Disease classifiedfish = disease.get(0);
+
+                    Intent intent = new Intent(AnalyzingImageActivity.this, FishDetailActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }else{
+                    navigateToFailedScan("GAGAL MANGGIL RESPONSE");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Fish>> call, Throwable throwable) {
+                navigateToFailedScan("GAGAL MANGGIL RESPONSE");
+            }
+        });
+    }
+
 
     private void processImage(Bitmap image) {
         try {
@@ -124,6 +156,12 @@ public class AnalyzingImageActivity extends AppCompatActivity {
             String classifiedSpecies = classifyFishSpecies(image);
 
             Log.d("classified" , classifiedSpecies);
+
+            if (classifiedSpecies.contains("|")) {
+                fetchDisease(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+            } else {
+                fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+            }
 
             fetchFish(sharedPreferences.getString("token" , "no token"), classifiedSpecies , image);
         } catch (Exception e) {
@@ -163,7 +201,7 @@ public class AnalyzingImageActivity extends AppCompatActivity {
 
         // Get the classification result
         float[] confidences = outputFeature0.getFloatArray();
-        String[] classes = {"betta", "carassius"};
+        String[] classes = {"betta", "carassius" , "betta|fin rot"};
 
         int maxPos = 0;
         float maxConfidence = 0;
