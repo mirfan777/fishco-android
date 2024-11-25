@@ -137,15 +137,7 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(new Intent(HomepageActivity.this, ArticleListActivity.class));
                 return true;
             } else if (itemId == R.id.scanner) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                    Intent intent = new Intent(this, ScannerActivity.class);
-                    startActivity(intent);
-                } else {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 100);
-                }
-
-                Intent intent = new Intent(this, ScannerActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(HomepageActivity.this, ScannerActivity.class));
                 return true;
             } else if (itemId == R.id.aquarium) {
                 // Navigate to My Aquarium
