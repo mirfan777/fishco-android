@@ -130,6 +130,7 @@ public class AnalyzingImageActivity extends AppCompatActivity {
                     Disease classifiedDisease = disease;
 
                     Intent intent = new Intent(AnalyzingImageActivity.this, FishDetailActivity.class);
+                    intent.putExtra("IMAGE_BITMAP", bitmapToByteArray(image));
                     intent.putExtra("DISEASE_ID", disease.getId());
                     intent.putExtra("DISEASE_NAME", disease.getName());
                     intent.putExtra("DISEASE_TYPE", disease.getDiseaseType());

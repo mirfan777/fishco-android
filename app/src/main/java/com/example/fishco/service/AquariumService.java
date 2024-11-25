@@ -1,11 +1,19 @@
 package com.example.fishco.service;
 
+import com.example.fishco.model.Aquarium;
+import com.example.fishco.model.Comment;
 import com.example.fishco.model.TokenResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface AquariumService {
     @FormUrlEncoded
@@ -35,4 +43,10 @@ public interface AquariumService {
             @Field("nitrate") Float nitrate
 
     );
+
+    @Headers("Content-Type: application/json")
+    @GET("aquarium/user/{id}")
+    Call<List<Aquarium>> getUserAquarium(
+            @Header("Authorization") String token,
+            @Path("id") Integer user_id);
 }

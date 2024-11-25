@@ -1,32 +1,56 @@
 package com.example.fishco.model;
-import java.time.LocalDateTime;
+
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 import lombok.Data;
 
 @Data
-public class  Aquarium {
+public class Aquarium {
+    @SerializedName("id")
     private Long id;
-    private Long user_id;
+
+    @SerializedName("user_id")
+    private Long userId;
+
+    @SerializedName("name")
     private String name;
-    private Float volume_size;
-    private Float length;
-    private Float width;
-    private Float height;
-    private String material;
+
+    @SerializedName("volume_size")
+    private Float volumeSize;
+
+    @SerializedName("type")
     private String type;
-    private String filter_type;
-    private String filter_capacity;
-    private String filter_media;
-    private Float min_temperature;
-    private Float max_temperature;
-    private Float min_ph;
-    private Float max_ph;
+
+    @SerializedName("filter_type")
+    private String filterType;
+
+    @SerializedName("filter_capacity")
+    private String filterCapacity;
+
+    @SerializedName("filter_media")
+    private String filterMedia;
+
+    @SerializedName("min_temperature")
+    private Float minTemperature;
+
+    @SerializedName("max_temperature")
+    private Float maxTemperature;
+
+    @SerializedName("min_ph")
+    private Float minPh;
+
+    @SerializedName("max_ph")
+    private Float maxPh;
+
+    @SerializedName("min_salinity")
+    private Float minSalinity;
+
+    @SerializedName("max_salinity")
+    private Float maxSalinity;
+
+    @SerializedName("turbidity")
     private Float turbidity;
-    private Float salinity;
-    private Float disolved_oxygen;
-    private Float hardness;
-    private Float amonia;
-    private Float nitrite;
-    private Float nitrate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+    @SerializedName("aquariumfishes")
+    private List<Fish> aquariumFishes;
 }
