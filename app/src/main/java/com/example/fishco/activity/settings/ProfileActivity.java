@@ -1,8 +1,11 @@
 package com.example.fishco.activity.settings;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fishco.R;
+import com.example.fishco.activity.auth.LoginActivity;
 import com.example.fishco.activity.home.HomepageActivity;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -39,7 +43,6 @@ public class ProfileActivity extends AppCompatActivity {
         // LinearLayout untuk Informasi Personal
         LinearLayout personalInfoLayout = findViewById(R.id.btnLinearLayout_personal_info);
         personalInfoLayout.setOnClickListener(v -> {
-            // Intent ke TermOfServiceActivity
             Intent intent = new Intent(ProfileActivity.this, InformasiPersonalActivity.class);
             startActivity(intent);
         });
@@ -47,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
         // LinearLayout untuk Kebijakan Privasi
         LinearLayout btnPrivacyPolicy = findViewById(R.id.btnPrivacyPolicy);
         btnPrivacyPolicy.setOnClickListener(v -> {
-            // Intent ke PrivacyPolicyActivity
             Intent intent = new Intent(ProfileActivity.this, PrivacyPolicyActivity.class);
             startActivity(intent);
         });
@@ -55,7 +57,6 @@ public class ProfileActivity extends AppCompatActivity {
         // LinearLayout untuk FAQ
         LinearLayout btnFAQ = findViewById(R.id.btnFAQ); // Pastikan ID sesuai dengan XML
         btnFAQ.setOnClickListener(v -> {
-            // Intent ke FAQActivity
             Intent intent = new Intent(ProfileActivity.this, FAQActivity.class);
             startActivity(intent);
         });
@@ -63,9 +64,26 @@ public class ProfileActivity extends AppCompatActivity {
         // LinearLayout untuk Term of Service
         LinearLayout btnTermOfService = findViewById(R.id.linearLayout_term_of_service); // Pastikan ID sesuai dengan XML
         btnTermOfService.setOnClickListener(v -> {
-            // Intent ke TermOfServiceActivity
-            Intent intent = new Intent(ProfileActivity.this, TermOfServiceActivity.class); // Ganti ProfileActivity sesuai dengan activity saat ini
+            Intent intent = new Intent(ProfileActivity.this, TermOfServiceActivity.class);
             startActivity(intent);
         });
+
+        // Tombol Logout
+        LinearLayout logoutButton = findViewById(R.id.logout_button);
+        logoutButton.setOnClickListener(v -> logout());
+    }
+
+    // Metode Logout
+    private void logout() {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear(); // Menghapus semua data yang disimpan di SharedPreferences
+        editor.apply();
+
+        // Arahkan pengguna ke halaman login
+        Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear semua aktivitas sebelumnya
+        startActivity(intent);
+        finish(); // Tutup ProfileActivity
     }
 }
