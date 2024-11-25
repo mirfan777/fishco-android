@@ -1,29 +1,30 @@
 package com.example.fishco.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class Comment {
+    @SerializedName("id")
     private Long id;
-    private Long user_id;
-    private String body;
-    private Long article_id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
+    @SerializedName("user_id")
+    private Long userId;
+
+    @SerializedName("user_name")
+    private String userName;
+
+    @SerializedName("article_id")
+    private Long articleId;
+
+    @SerializedName("body")
+    private String body;
+
+    @SerializedName("created_at")
+    private String createdAt;
+
+    @SerializedName("replies")
     private List<Reply> replies;
 }
-
-//@Data
-//public class Comment {
-//    private Long id;
-//    private Long user_id;
-//    private String body;
-//    private Long article_id;
-//    private Long createdAt; // Timestamp dalam milidetik
-//    private Long updatedAt; // Timestamp dalam milidetik
-//    private List<Reply> replies;
-//}

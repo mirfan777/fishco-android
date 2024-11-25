@@ -2,6 +2,7 @@ package com.example.fishco.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,8 +78,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ArticleDetailActivity.class);
-            // Tambahkan logic untuk berpindah ke detail artikel (jika perlu)
-            // Kirim data artikel melalui intent
+
+            intent.putExtra("ARTICLE_ID", String.valueOf(article.getId()));
             intent.putExtra("ARTICLE_TITLE", article.getTitle());
             intent.putExtra("ARTICLE_CONTENT", article.getBody());
             intent.putExtra("ARTICLE_IMAGE", article.getUrlThumbnail());

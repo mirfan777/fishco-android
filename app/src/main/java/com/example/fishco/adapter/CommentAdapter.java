@@ -1,6 +1,8 @@
 package com.example.fishco.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +14,25 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.fishco.R;
+import com.example.fishco.activity.article.ArticleDetailActivity;
+import com.example.fishco.http.RetrofitClient;
 import com.example.fishco.model.Comment;
 import com.example.fishco.model.Reply;
+import com.example.fishco.service.ArticleService;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
-    private Context context;
-    private List<Comment> comments;
 
-    // Perbaikan constructor untuk menerima context dan list komentar
-    public CommentAdapter(Context context, List<Comment> comments) {
+    private List<Comment> comments;
+    private Context context;
+
+    public CommentAdapter(Context context, List<Comment> comments ) {
         this.context = context;
         this.comments = comments;
     }
@@ -35,7 +40,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @NonNull
     @Override
     public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_comment, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comment, parent, false);
         return new CommentViewHolder(view);
     }
 
@@ -43,58 +48,45 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
         Comment comment = comments.get(position);
 
-        holder.commentUser.setText("User " + comment.getUser_id()); // Ganti dengan nama user yang sebenarnya
+        holder.commentUser.setText(comment.getUserName());
         holder.commentBody.setText(comment.getBody());
         holder.commentTimestamp.setText(comment.getCreatedAt().toString());
 
-        // Setup replies
-        ReplyAdapter replyAdapter = new ReplyAdapter(context, comment.getReplies());
-        holder.replyRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        holder.replyRecyclerView.setAdapter(replyAdapter);
+        ReplyAdapter replyAdapter = new ReplyAdapter(comment.getReplies());
+        holder.commentRepliesRecycler.setLayoutManager(new LinearLayoutManager(context));
+        holder.commentRepliesRecycler.setAdapter(replyAdapter);
 
-        // Logic to add reply
-        holder.replyButton.setOnClickListener(v -> {
-            String replyText = holder.replyInput.getText().toString().trim();
-            if (!replyText.isEmpty()) {
-                Reply reply = new Reply();
-                reply.setUser_id(1L); // Replace with current user ID
-                reply.setBody(replyText);
-
-                // Gunakan Calendar untuk mendapatkan waktu saat ini
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-                String formattedDate = sdf.format(calendar.getTime());  // Format tanggal dan waktu
-
-                comment.getReplies().add(reply);
-                replyAdapter.notifyItemInserted(comment.getReplies().size() - 1);
-                holder.replyInput.setText("");
-
-                Toast.makeText(context, "Balasan ditambahkan!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(context, "Balasan tidak boleh kosong!", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        // Add reply logic (optional)
+//        holder.replyButton.setOnClickListener(v -> {
+//            String replyText = holder.replyInput.getText().toString();
+//            if (!replyText.isEmpty()) {
+//                comment.getReplies().add(new Reply(null, comment.getId(), null, replyText, null, null));
+//                replyAdapter.notifyItemInserted(comment.getReplies().size() - 1);
+//                holder.replyInput.setText("");
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return comments.size();
+        return comments != null ? comments.size() : 0;
     }
 
     static class CommentViewHolder extends RecyclerView.ViewHolder {
         TextView commentUser, commentBody, commentTimestamp;
-        RecyclerView replyRecyclerView;
-        EditText replyInput;
-        ImageButton replyButton;
+        RecyclerView commentRepliesRecycler;
+//        EditText replyInput;
+//        ImageButton replyButton;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
             commentUser = itemView.findViewById(R.id.comment_user);
             commentBody = itemView.findViewById(R.id.comment_body);
             commentTimestamp = itemView.findViewById(R.id.comment_timestamp);
-            replyRecyclerView = itemView.findViewById(R.id.comment_replies_recycler);
-            replyInput = itemView.findViewById(R.id.reply_input);
-            replyButton = itemView.findViewById(R.id.reply_button);
+            commentRepliesRecycler = itemView.findViewById(R.id.comment_replies_recycler);
+//            replyInput = itemView.findViewById(R.id.reply_input);
+//            replyButton = itemView.findViewById(R.id.reply_button);
         }
     }
+
 }

@@ -92,48 +92,39 @@
                 android:layout_marginTop="16dp"
                 android:scrollbars="vertical"
                 android:clipToPadding="false" />
-
-            <!-- Add Comment Input -->
-            <LinearLayout
-                android:id="@+id/add_comment_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_background_comment"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:elevation="4dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:id="@+id/profile_image_add_comment"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
-                    android:background="@drawable/circle_background"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/coldwater"
-                    android:clipToOutline="true" />
-
-                <EditText
-                    android:id="@+id/comment_input"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Tambah komentar Anda sendiri"
-                    android:textSize="16sp"
-                    android:background="@android:color/transparent"
-                    android:inputType="textMultiLine"
-                    android:textColor="#757575" />
-
-                <ImageButton
-                    android:id="@+id/send_comment_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_send"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Send Comment"
-                    app:tint="#757575" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background_comment"
+            android:padding="12dp"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/comment_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Balas komentar"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/comment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_send"
+                android:contentDescription="Kirim balasan" />
+        </LinearLayout>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

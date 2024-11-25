@@ -3,6 +3,8 @@ package com.example.fishco.model;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Article {
     @SerializedName("id")
@@ -20,8 +22,8 @@ public class Article {
     @SerializedName("user_id")
     private Long userId;
 
-    @SerializedName("comment_id")
-    private Long commentId;
+    @SerializedName("user_name")
+    private String userName;
 
     @SerializedName("thumbnail")
     private String thumbnail;
@@ -31,4 +33,7 @@ public class Article {
 
     @SerializedName("created_at")
     private String createdAt;
+
+    @SerializedName("comments")
+    private List<Comment> comments;
 }

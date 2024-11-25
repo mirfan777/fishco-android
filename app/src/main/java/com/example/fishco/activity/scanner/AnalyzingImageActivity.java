@@ -75,7 +75,6 @@ public class AnalyzingImageActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Fish> fish = response.body();
                     Fish classifiedfish = fish.get(0);
-
                     Intent intent = new Intent(AnalyzingImageActivity.this, FishDetailActivity.class);
                     intent.putExtra("FISH_CLASSIFIED", genus);
                     intent.putExtra("IMAGE_BITMAP", bitmapToByteArray(image));
@@ -105,8 +104,6 @@ public class AnalyzingImageActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                }else{
-                    navigateToFailedScan("GAGAL MANGGIL RESPONSE");
                 }
             }
 
