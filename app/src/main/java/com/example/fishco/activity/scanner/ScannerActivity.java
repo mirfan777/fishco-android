@@ -83,6 +83,7 @@ public class ScannerActivity extends AppCompatActivity {
                             Intent intent = new Intent(ScannerActivity.this, AnalyzingImageActivity.class);
                             intent.putExtra("IMAGE_BITMAP", bitmapBytes);
                             startActivity(intent);
+                            finish();
                         } catch (IOException e) {
                             Log.e("ScannerActivity", "Error selecting image from gallery", e);
                             Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
@@ -163,8 +164,6 @@ public class ScannerActivity extends AppCompatActivity {
                     startActivity(intent);
                 } catch (Exception e) {
                     Log.e("ScannerActivity", "Image processing failed", e);
-                } finally {
-                    image.close(); // Ensure the ImageProxy is closed
                 }
             }
 

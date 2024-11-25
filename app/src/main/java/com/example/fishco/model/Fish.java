@@ -1,11 +1,11 @@
 package com.example.fishco.model;
-import com.google.gson.annotations.SerializedName;
 
-import java.time.LocalDateTime;
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
 public class Fish {
+
     @SerializedName("id")
     private Long id;
 
@@ -36,6 +36,18 @@ public class Fish {
     @SerializedName("colour")
     private String colour;
 
+    @SerializedName("venomous")
+    private Integer venomous;
+
+    @SerializedName("poisonous")
+    private Integer poisonous;
+
+    @SerializedName("aggressive")
+    private Integer aggressive;
+
+    @SerializedName("territorial")
+    private Integer territorial;
+
     @SerializedName("food_type")
     private String foodType;
 
@@ -47,6 +59,15 @@ public class Fish {
 
     @SerializedName("max_temperature")
     private Float maxTemperature;
+
+    @SerializedName("min_salinity")
+    private Float minSalinity;
+
+    @SerializedName("max_salinity")
+    private Float maxSalinity;
+
+    @SerializedName("min_aquarium")
+    private Float minAquarium;
 
     @SerializedName("min_ph")
     private Float minPh;

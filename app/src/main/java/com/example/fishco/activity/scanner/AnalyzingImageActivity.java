@@ -169,15 +169,17 @@ public class AnalyzingImageActivity extends AppCompatActivity {
         try {
             sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
 
-            String classifiedSpecies = classifyFishSpecies(image);
+            String classifiedSpecies = "betta";//classifyFishSpecies(image);
 
             Log.d("classified" , classifiedSpecies);
 
-            if (classifiedSpecies.matches(".*\\d.*")){
-                fetchDisease(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
-            }else {
-                fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
-            }
+            fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+
+//            if (classifiedSpecies.contains("1")){
+//                fetchDisease(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+//            }else {
+//                fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+//            }
 
 
         } catch (Exception e) {
