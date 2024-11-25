@@ -31,7 +31,7 @@
 
     <LinearLayout
         android:layout_width="409dp"
-        android:layout_height="509dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +106,23 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_confirm_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:hint="Konfirmasi Password"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,47 +172,6 @@
             android:textSize="16dp"
             android:layout_marginHorizontal="20dp"
             />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp">
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="atau"
-                ></TextView>
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
-
-        <Button
-            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
-            app:icon="@drawable/google_icon"
-            android:id="@+id/google"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Google"
-            android:textColor="@color/primary"
-            android:textSize="16dp"
-            app:strokeColor="@color/primary"
-            app:iconGravity="textStart"
-            app:iconSize="20dp"
-            android:layout_marginHorizontal="20dp"
-            />
-
-
-
     </LinearLayout>
 
 
