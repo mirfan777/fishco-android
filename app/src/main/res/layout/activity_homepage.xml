@@ -161,8 +161,8 @@
 
                     <!-- FrameLayout for Image with overlay and text -->
                     <FrameLayout
-                        android:id="@+id/frame_layout_article"
-                        android:layout_width="280dp"
+                        android:id="@+id/get_started_article"
+                        android:layout_width="250dp"
                         android:layout_height="150dp"
                         android:layout_marginEnd="8dp"
                         android:background="@drawable/rounded_background"
@@ -172,17 +172,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/get_started_img2" />
+                            android:src="@drawable/get_started_img_1" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="60dp"
                             android:layout_gravity="bottom"
                             android:background="@drawable/overlay_background_title" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="60dp"
                             android:layout_gravity="bottom"
                             android:gravity="center"
                             android:orientation="vertical"
@@ -191,23 +191,25 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Title Here"
+                                android:text="Bagaimana cara mengidentifikasi ikan hias"
                                 android:textColor="@android:color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Knowledge/Lifestyle"
-                                android:textColor="@android:color/white"
-                                android:textSize="12sp" />
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Knowledge/Lifestyle"-->
+<!--                                android:textColor="@android:color/white"-->
+<!--                                android:textSize="12sp" />-->
                         </LinearLayout>
                     </FrameLayout>
 
                     <FrameLayout
-                        android:id="@+id/frame_layout_article"
-                        android:layout_width="280dp"
+                        android:id="@+id/get_started_article_2"
+                        android:layout_width="250dp"
                         android:layout_height="150dp"
                         android:layout_marginEnd="8dp"
                         android:background="@drawable/rounded_background"
@@ -217,17 +219,18 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/get_started_img2" />
+                            android:src="@drawable/get_started_img_2"
+                            android:layout_marginTop="-50dp"/>
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="60dp"
                             android:layout_gravity="bottom"
                             android:background="@drawable/overlay_background_title" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="60dp"
                             android:layout_gravity="bottom"
                             android:gravity="center"
                             android:orientation="vertical"
@@ -236,17 +239,67 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Title Here"
+                                android:text="Rahasia Memelihara Ikan Hias: Tips Merawat Agar Tetap Sehat"
                                 android:textColor="@android:color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2"/>
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Knowledge/Lifestyle"-->
+<!--                                android:textColor="@android:color/white"-->
+<!--                                android:textSize="12sp" />-->
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/get_started_article_3"
+                        android:layout_width="250dp"
+                        android:layout_height="150dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/rounded_background"
+                        android:clipToOutline="true"> <!-- Enable rounded clipping -->
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/get_started_img_3"
+                            android:layout_marginTop="-10dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/overlay_background_title" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Knowledge/Lifestyle"
+                                android:text="Mengenal Habitat Ideal untuk Berbagai Jenis Ikan Hias"
                                 android:textColor="@android:color/white"
-                                android:textSize="12sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2"/>
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Knowledge/Lifestyle"-->
+<!--                                android:textColor="@android:color/white"-->
+<!--                                android:textSize="12sp" />-->
                         </LinearLayout>
                     </FrameLayout>
 
@@ -308,7 +361,7 @@
                             android:background="@drawable/overlay_background"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:text="Freshwater Fish"
+                            android:text="Ikan Air Tawar"
                             android:textColor="@android:color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -348,7 +401,7 @@
                             android:background="@drawable/overlay_background"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:text="Marine Fish"
+                            android:text="Ikan Laut"
                             android:textColor="@android:color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -387,7 +440,7 @@
                             android:background="@drawable/overlay_background"
                             android:gravity="center"
                             android:padding="8dp"
-                            android:text="Brackish Water Fish"
+                            android:text="Ikan Air Payau"
                             android:textColor="@android:color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -395,122 +448,122 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/category_invertebrates"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/rounded_background"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/category_invertebrates"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_margin="4dp"-->
+<!--                    android:background="@drawable/rounded_background"-->
+<!--                    android:orientation="vertical">-->
 
-                    <!-- Image and Overlay Container -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:clipToPadding="true">
+<!--                    &lt;!&ndash; Image and Overlay Container &ndash;&gt;-->
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="140dp"-->
+<!--                        android:clipToPadding="true">-->
 
-                        <!-- Image with fitXY scaling -->
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/gradient_overlay"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/invertebrates" />
+<!--                        &lt;!&ndash; Image with fitXY scaling &ndash;&gt;-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:background="@drawable/gradient_overlay"-->
+<!--                            android:scaleType="fitXY"-->
+<!--                            android:src="@drawable/invertebrates" />-->
 
-                        <!-- Text overlay at top -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@drawable/overlay_background"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Invertebrates"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
+<!--                        &lt;!&ndash; Text overlay at top &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="top"-->
+<!--                            android:background="@drawable/overlay_background"-->
+<!--                            android:gravity="center"-->
+<!--                            android:padding="8dp"-->
+<!--                            android:text="Invertebrates"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </FrameLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/category_coldwater"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/rounded_background"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/category_coldwater"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_margin="4dp"-->
+<!--                    android:background="@drawable/rounded_background"-->
+<!--                    android:orientation="vertical">-->
 
-                    <!-- Image and Overlay Container -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:clipToPadding="true">
+<!--                    &lt;!&ndash; Image and Overlay Container &ndash;&gt;-->
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="140dp"-->
+<!--                        android:clipToPadding="true">-->
 
-                        <!-- Image with fitXY scaling -->
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/gradient_overlay"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/coldwater" />
+<!--                        &lt;!&ndash; Image with fitXY scaling &ndash;&gt;-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:background="@drawable/gradient_overlay"-->
+<!--                            android:scaleType="fitXY"-->
+<!--                            android:src="@drawable/coldwater" />-->
 
-                        <!-- Text overlay at top -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@drawable/overlay_background"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Coldwater Fish"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
+<!--                        &lt;!&ndash; Text overlay at top &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="top"-->
+<!--                            android:background="@drawable/overlay_background"-->
+<!--                            android:gravity="center"-->
+<!--                            android:padding="8dp"-->
+<!--                            android:text="Coldwater Fish"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </FrameLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/category_predatory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/rounded_background"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/category_predatory"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_margin="4dp"-->
+<!--                    android:background="@drawable/rounded_background"-->
+<!--                    android:orientation="vertical">-->
 
-                    <!-- Image and Overlay Container -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:clipToPadding="true">
+<!--                    &lt;!&ndash; Image and Overlay Container &ndash;&gt;-->
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="140dp"-->
+<!--                        android:clipToPadding="true">-->
 
-                        <!-- Image with fitXY scaling -->
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/gradient_overlay"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/predator" />
+<!--                        &lt;!&ndash; Image with fitXY scaling &ndash;&gt;-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:background="@drawable/gradient_overlay"-->
+<!--                            android:scaleType="fitXY"-->
+<!--                            android:src="@drawable/predator" />-->
 
-                        <!-- Text overlay at top -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:background="@drawable/overlay_background"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Predatory"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
+<!--                        &lt;!&ndash; Text overlay at top &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="top"-->
+<!--                            android:background="@drawable/overlay_background"-->
+<!--                            android:gravity="center"-->
+<!--                            android:padding="8dp"-->
+<!--                            android:text="Predatory"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </FrameLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
                 <!-- Tambahkan lagi item LinearLayout sesuai dengan kategori lainnya, sesuaikan text dan gambar untuk setiap kategori -->
 

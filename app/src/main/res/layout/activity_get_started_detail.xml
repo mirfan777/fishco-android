@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.started.GetStartedDetailActivity"
+    android:background="@color/bg"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <!-- Tombol Kembali -->
+    <FrameLayout
+        android:id="@+id/back_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali" />
+    </FrameLayout>
+
+    <!-- Scroll Konten Artikel -->
+    <ScrollView
+        android:id="@+id/article_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintTop_toBottomOf="@id/back_button_container"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Gambar Artikel -->
+            <ImageView
+                android:id="@+id/article_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_image_background"
+                android:src="@drawable/get_started_img_1" />
+
+            <!-- Judul Artikel -->
+            <TextView
+                android:id="@+id/article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bagaimana cara mengidentifikasi ikan hias"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Tanggal Artikel -->
+            <TextView
+                android:id="@+id/article_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="18-08-2024"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="8dp" />
+
+            <!-- Konten Artikel -->
+            <TextView
+                android:id="@+id/article_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:text="Mengidentifikasi ikan hias kini menjadi lebih mudah berkat kemajuan teknologi. Dengan menggunakan fitur scanner yang canggih, Anda tidak perlu lagi bergantung sepenuhnya pada panduan manual atau mengingat setiap karakteristik ikan hias. Teknologi ini sangat membantu, terutama bagi para pecinta ikan yang ingin mengenal lebih dalam jenis-jenis ikan yang mereka pelihara atau temui.\n\n
+
+Langkah-langkah sederhana untuk mengidentifikasi ikan hias menggunakan fitur scanner adalah sebagai berikut:\n\n
+
+1. Siapkan Kamera atau Scanner\n
+   Pastikan perangkat Anda dilengkapi dengan kamera yang memiliki resolusi baik. Kamera ini berfungsi untuk menangkap gambar ikan dengan jelas, termasuk pola warna, bentuk tubuh, dan sirip.\n\n
+
+2. Tangkap Gambar yang Jelas\n
+   Arahkan scanner ke ikan hias yang ingin diidentifikasi. Pastikan ikan berada di lingkungan yang cukup terang agar gambar yang dihasilkan tidak buram. Ambil gambar dari sudut terbaik untuk menangkap detail penting.\n\n
+
+3. Gunakan Aplikasi yang Mendukung\n
+   Ada banyak aplikasi berbasis scanner yang mampu membaca data visual dari ikan. Aplikasi ini akan membandingkan pola, warna, dan ciri-ciri lainnya dengan basis data ikan hias untuk menemukan kecocokan.\n\n
+
+4. Analisis dan Hasil Identifikasi\n
+   Dalam hitungan detik, aplikasi akan memberikan informasi lengkap mengenai jenis ikan, habitat asli, kebiasaan makan, hingga cara perawatan terbaik. Informasi ini sangat berguna bagi Anda untuk memastikan ikan tetap sehat dan nyaman di akuarium Anda.\n\n
+
+Mengapa Teknologi Scanner Penting?\n
+Fitur scanner mempermudah kehidupan para penghobi ikan hias. Selain menghemat waktu, teknologi ini juga meningkatkan akurasi dalam identifikasi ikan, sehingga kesalahan informasi dapat diminimalkan. Anda dapat dengan mudah mengenali spesies langka dan memahami kebutuhannya tanpa kesulitan.\n\n
+
+Tips Tambahan:\n
+- Gunakan scanner di area dengan pencahayaan alami.\n
+- Pastikan aplikasi scanner Anda terhubung ke internet untuk akses data yang lebih lengkap.\n
+- Perbarui aplikasi secara berkala untuk hasil identifikasi yang lebih akurat.\n\n
+
+Dengan memanfaatkan teknologi seperti scanner, pengalaman Anda dalam dunia ikan hias akan menjadi lebih menyenangkan dan edukatif. Teknologi ini tidak hanya mempermudah pengenalan ikan tetapi juga membantu Anda menjadi pecinta ikan hias yang lebih bertanggung jawab." />
+
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
