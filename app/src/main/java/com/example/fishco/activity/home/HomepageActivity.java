@@ -107,26 +107,26 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
         // Invertebrates Category
-        LinearLayout categoryInvertebrates = findViewById(R.id.category_invertebrates);
-        categoryInvertebrates.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
-            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
-            startActivity(intent);
-        });
-        // Coldwater Category
-        LinearLayout categoryColdwater = findViewById(R.id.category_coldwater);
-        categoryColdwater.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
-            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
-            startActivity(intent);
-        });
-        // Predatory Category
-        LinearLayout categoryPredatory = findViewById(R.id.category_predatory);
-        categoryPredatory.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
-            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
-            startActivity(intent);
-        });
+//        LinearLayout categoryInvertebrates = findViewById(R.id.category_invertebrates);
+//        categoryInvertebrates.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
+//            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
+//            startActivity(intent);
+//        });
+//        // Coldwater Category
+//        LinearLayout categoryColdwater = findViewById(R.id.category_coldwater);
+//        categoryColdwater.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
+//            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
+//            startActivity(intent);
+//        });
+//        // Predatory Category
+//        LinearLayout categoryPredatory = findViewById(R.id.category_predatory);
+//        categoryPredatory.setOnClickListener(v -> {
+//            Intent intent = new Intent(HomepageActivity.this, FishListActivity.class);
+//            intent.putExtra("CATEGORY_NAME", "Freshwater Fish");
+//            startActivity(intent);
+//        });
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnItemSelectedListener(item -> {
