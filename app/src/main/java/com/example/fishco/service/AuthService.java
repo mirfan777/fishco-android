@@ -1,6 +1,7 @@
 package com.example.fishco.service;
 
 import com.example.fishco.model.TokenResponse;
+import com.example.fishco.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -14,5 +15,15 @@ public interface AuthService {
             @Field("email") String email,
             @Field("password") String password,
             @Field("device_name") String deviceName
+    );
+
+    @FormUrlEncoded
+    @POST("register")
+    Call<User> registerUser(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("phone_number") String phoneNumber,
+            @Field("address") String address // Tetap kosong untuk registrasi awal
     );
 }
