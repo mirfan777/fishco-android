@@ -76,21 +76,42 @@
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:layout_below="@id/fish_name_container">
+            <LinearLayout
+                android:id="@+id/disease_details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_below="@id/fish_name_container">
                 <TextView
-                    android:id="@+id/penyakit_title"
+                    android:id="@+id/disease_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Penyakit"
+                    android:text="Nama Penyakit"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_marginTop="8dp"/>
+
                 <TextView
-                    android:id="@+id/penyakit_text"
-                    android:layout_width="match_parent"
+                    android:id="@+id/disease_type"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:text="Tipe Penyakit"
                     android:textSize="16sp"
                     android:textColor="#555555" />
+
+                <TextView
+                    android:id="@+id/disease_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Deskripsi Penyakit"
+                    android:textSize="16sp"
+                    android:textColor="#555555" />
+
+                <!-- Tambahkan elemen untuk properti lain jika perlu -->
+            </LinearLayout>
                 <TextView
                     android:id="@+id/overview_title"
                     android:layout_width="wrap_content"
@@ -139,21 +160,27 @@
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:layout_below="@id/fish_overview_container">
+                    <!-- Daftar Produk -->
                     <TextView
-                        android:id="@+id/saran_obat_title"
+                        android:id="@+id/product_list_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Saran Obat"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/saran_obat_text"
+                        android:textColor="#000000"
+                        android:layout_marginTop="16dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/product_recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:textSize="16sp"
-                        android:textColor="#555555" />
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        android:scrollbars="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
                     <TextView
                         android:id="@+id/saran_perawatan_title"
                         android:layout_width="wrap_content"
