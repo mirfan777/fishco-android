@@ -120,16 +120,18 @@ public class AnalyzingImageActivity extends AppCompatActivity {
     private void fetchDisease(String token,String diseaseId,Bitmap image) {
         diseaseService = RetrofitClient.getClient(this).create(DiseaseService.class);
 
-        Call<Disease> callDisease = diseaseService.getDiseaseById(token, Integer.valueOf(diseaseId));
+        Call<Disease> callDisease = diseaseService.getDiseaseById(token, diseaseId);
 
         callDisease.enqueue(new Callback<Disease>() {
             @Override
             public void onResponse(Call<Disease> call, Response<Disease> response) {
+                Log.d("testsin" , response.body().toString());
+
                 if (response.isSuccessful() && response.body() != null) {
                     Disease disease = response.body();
-                    Disease classifiedDisease = disease;
+                    Log.d("testsin" , disease.toString());
 
-                    Intent intent = new Intent(AnalyzingImageActivity.this, FishDetailActivity.class);
+                    Intent intent = new Intent(AnalyzingImageActivity.this, DetailScannerActivity.class);
                     intent.putExtra("IMAGE_BITMAP", bitmapToByteArray(image));
                     intent.putExtra("DISEASE_ID", disease.getId());
                     intent.putExtra("DISEASE_NAME", disease.getName());
@@ -169,17 +171,15 @@ public class AnalyzingImageActivity extends AppCompatActivity {
         try {
             sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
 
-            String classifiedSpecies = "betta";//classifyFishSpecies(image);
+            String classifiedSpecies = classifyFishSpecies(image);
 
             Log.d("classified" , classifiedSpecies);
 
-            fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
-
-//            if (classifiedSpecies.contains("1")){
-//                fetchDisease(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
-//            }else {
-//                fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
-//            }
+            if (classifiedSpecies.contains("1")){
+                fetchDisease(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+            }else {
+                fetchFish(sharedPreferences.getString("token", "no token"), classifiedSpecies, image);
+            }
 
 
         } catch (Exception e) {

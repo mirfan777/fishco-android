@@ -100,8 +100,6 @@ public class ScannerActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_MEDIA_IMAGES},100);
         }
 
-        gallery.setOnClickListener(view -> openGallery());
-
         previewView = findViewById(R.id.viewFinder);
         ImageView btnScanner = findViewById(R.id.btnScanner);
 

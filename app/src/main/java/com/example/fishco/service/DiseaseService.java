@@ -16,5 +16,5 @@ public interface DiseaseService {
 
     @Headers("Content-Type: application/json")
     @GET("disease/{id}")
-    Call<Disease> getDiseaseById(@Header("Authorization") String token , @Path("id") Integer id );
+    Call<Disease> getDiseaseById(@Header("Authorization") String token , @Path("id") String id );
 }

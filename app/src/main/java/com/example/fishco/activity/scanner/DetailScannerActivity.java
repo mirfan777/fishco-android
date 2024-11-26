@@ -48,15 +48,9 @@ public class DetailScannerActivity extends AppCompatActivity {
         TextView preventionView = findViewById(R.id.saran_perawatan_text);
         TextView symptomsView = findViewById(R.id.overview_text);
 
-        // Setel data ke elemen UI
-        diseaseNameView.setText(diseaseName != null ? diseaseName : "Tidak ada data");
-        diseaseTypeView.setText(diseaseType != null ? diseaseType : "Tidak ada data");
-        diseaseDescriptionView.setText(description != null ? description : "Tidak ada deskripsi tersedia");
-        preventionView.setText(prevention != null ? prevention : "Tidak ada saran perawatan");
-        symptomsView.setText(symptoms != null ? symptoms : "Tidak ada gejala");
 
 
-        Long diseaseId = getIntent().getLongExtra("DISEASE_ID", -1);
+        Long diseaseId = getIntent().getLongExtra("DISEASE_ID", 1);
         String diseaseName = getIntent().getStringExtra("DISEASE_NAME");
         String diseaseType = getIntent().getStringExtra("DISEASE_TYPE");
         String causeAgent = getIntent().getStringExtra("DISEASE_CAUSE_AGENT");
@@ -67,6 +61,13 @@ public class DetailScannerActivity extends AppCompatActivity {
         String note = getIntent().getStringExtra("DISEASE_NOTE");
         String createdAt = getIntent().getStringExtra("DISEASE_CREATED_AT");
         String updatedAt = getIntent().getStringExtra("DISEASE_UPDATED_AT");
+
+        // Setel data ke elemen UI
+        diseaseNameView.setText(diseaseName != null ? diseaseName : "Tidak ada data");
+        diseaseTypeView.setText(diseaseType != null ? diseaseType : "Tidak ada data");
+        diseaseDescriptionView.setText(description != null ? description : "Tidak ada deskripsi tersedia");
+        preventionView.setText(prevention != null ? prevention : "Tidak ada saran perawatan");
+        symptomsView.setText(symptoms != null ? symptoms : "Tidak ada gejala");
 
         ArrayList<Product> products = new Gson().fromJson(
                 getIntent().getStringExtra("DISEASE_PRODUCTS"),
