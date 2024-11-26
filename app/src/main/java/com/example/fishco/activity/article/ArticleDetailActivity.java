@@ -1,6 +1,5 @@
 package com.example.fishco.activity.article;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -105,18 +104,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 }
             }
         });
-
-        Intent intent = getIntent();
-        int articleId = intent.getIntExtra("ARTICLE_ID", -1);
-
-        if (articleId == 1) {
-            // Set konten untuk artikel 1
-        } else if (articleId == 2) {
-            // Set konten untuk artikel 2
-        } else if (articleId == 3) {
-            // Set konten untuk artikel 3
-        }
-
 
     }
 

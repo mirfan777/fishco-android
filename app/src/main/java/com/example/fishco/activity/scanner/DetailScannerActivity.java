@@ -11,8 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fishco.R;
+import com.example.fishco.adapter.ProductAdapter;
 import com.example.fishco.model.Fish;
 import com.example.fishco.model.Product;
 import com.google.gson.Gson;
@@ -21,6 +24,11 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 public class DetailScannerActivity extends AppCompatActivity {
+    private String diseaseName;
+    private String diseaseType;
+    private String description;
+    private String prevention;
+    private String symptoms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,21 @@ public class DetailScannerActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Temukan elemen UI dari layout
+        TextView diseaseNameView = findViewById(R.id.disease_name);
+        TextView diseaseTypeView = findViewById(R.id.disease_type);
+        TextView diseaseDescriptionView = findViewById(R.id.disease_description);
+        TextView preventionView = findViewById(R.id.saran_perawatan_text);
+        TextView symptomsView = findViewById(R.id.overview_text);
+
+        // Setel data ke elemen UI
+        diseaseNameView.setText(diseaseName != null ? diseaseName : "Tidak ada data");
+        diseaseTypeView.setText(diseaseType != null ? diseaseType : "Tidak ada data");
+        diseaseDescriptionView.setText(description != null ? description : "Tidak ada deskripsi tersedia");
+        preventionView.setText(prevention != null ? prevention : "Tidak ada saran perawatan");
+        symptomsView.setText(symptoms != null ? symptoms : "Tidak ada gejala");
+
 
         Long diseaseId = getIntent().getLongExtra("DISEASE_ID", -1);
         String diseaseName = getIntent().getStringExtra("DISEASE_NAME");
@@ -65,5 +88,22 @@ public class DetailScannerActivity extends AppCompatActivity {
         }
         fish_name.setText(getIntent().getStringExtra("FISH_SPECIES"));
 
+        // RecyclerView untuk daftar produk
+        RecyclerView productRecyclerView = findViewById(R.id.product_recycler_view);
+        productRecyclerView.setLayoutManager(
+                new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+        );
+
+//        // Get data produk dari intent
+//        ArrayList<Product> products = new Gson().fromJson(
+//                getIntent().getStringExtra("DISEASE_PRODUCTS"),
+//                new TypeToken<ArrayList<Product>>() {}.getType()
+//        );
+
+        // Pasang adapter ke RecyclerView
+        if (products != null && !products.isEmpty()) {
+            ProductAdapter adapter = new ProductAdapter(this, products);
+            productRecyclerView.setAdapter(adapter);
+        }
     }
 }
